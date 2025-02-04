@@ -2,18 +2,24 @@
   <v-container>
     <v-row>
       <v-col>
-        <v-card v-for="(member, index) in data" :key="index" class="mb-4">
+        <h1 style="color: #f4b754">Meet the team!</h1>
+        <v-card
+          color="#f4b754"
+          v-for="(member, index) in data"
+          :key="index"
+          class="mb-4"
+        >
           <v-row>
-            <v-col cols="3" class="d-flex align-center pa-4">
+            <v-col cols="3" class="d-flex align-center">
               <v-img
                 :src="member.path"
                 height="250"
                 cover
-                class="bg-grey-lighten-2 rounded-circle mx-auto"
+                class="bg-grey-lighten-2 mx-auto"
               />
             </v-col>
             <v-col cols="8">
-              <v-card-title style="color: #f4b754" class="pb-0"
+              <v-card-title style="color: purple" class="pb-0"
                 >{{ member.name }}
               </v-card-title>
               <p class="pl-4 font-weight-bold">
