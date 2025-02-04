@@ -3,7 +3,7 @@ import logoUrl from "@/assets/logo.jpg";
 import logoTitleUrl from "@/assets/logo-title.webp";
 </script>
 <template>
-  <v-app-bar color="#f4b754" scroll-behavior="hide" scroll-threshold="100">
+  <v-app-bar class="px-16" color="#f4b754" scroll-behavior="hide" scroll-threshold="100">
     <img :src="logoUrl" class="app-bar-logo pl-3" alt="Company logo" />
     <img :src="logoTitleUrl" class="app-bar-logo pl-3" alt="Company logo" />
     <v-container class="d-flex justify-end align-center gap-4">
@@ -14,6 +14,7 @@ import logoTitleUrl from "@/assets/logo-title.webp";
       <router-link to="/team" class="mx-2 text-white">Team</router-link>
       <router-link to="/about" class="mx-2 text-white">About Us</router-link>
       <router-link to="/blog" class="mx-2 text-white">Blog</router-link>
+      <router-link to="/register" class="mx-2 text-white">Register</router-link>
     </v-container>
   </v-app-bar>
 </template>
