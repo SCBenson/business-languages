@@ -1,12 +1,12 @@
 <template>
   <v-app>
-    <Header/>
+    <Header />
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script setup>
-  import Header from '@/components/header/index.vue';
+import Header from "@/components/header/index.vue";
 </script>
