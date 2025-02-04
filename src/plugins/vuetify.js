@@ -14,7 +14,7 @@ import { createVuetify } from "vuetify";
 const mainTheme = {
   dark: false,
   colors: {
-    background: "#9C27B0",
+    background: "#E09DEC",
   },
 };
 
