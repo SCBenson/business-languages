@@ -1,6 +1,6 @@
 <template>
-  <v-container theme="mainTheme">
-    <v-row>
+  <v-container >
+    <v-row >
       <v-col>
         <h1>Blog Posts</h1>
         <v-card
