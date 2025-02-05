@@ -65,6 +65,27 @@
   </v-container>
 </template>
 <script>
+// import {useValidateUserRegistration} from '@/composables/validateUserRegistration.js'
+// import {useRouter} from 'vue-router'
+// import {defineStore} from 'pinia'
+// const {formData, showPassword, v$} = useValidateUserRegistration()
+// const router = useRouter()
+// const store = defineStore()
+// const register = async () => {
+//   const isFormCorrect = await v$.value.$validate()
+//   if (!isFormCorrect) return
+
+//   try {
+//     await store.dispatch('register', {
+//       name: formData.name,
+//       email: formData.email,
+//       password: formData.password
+//     })
+//       router.push({name: 'Home'})
+//   } catch (err) {
+//     console.log(err)
+//   }
+// }
 import { useVuelidate } from "@vuelidate/core";
 import { required, minLength, email, sameAs } from "@vuelidate/validators";
 
