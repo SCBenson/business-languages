@@ -15,6 +15,7 @@ const mainTheme = {
   dark: false,
   colors: {
     background: "#E09DEC",
+    "custom-gold": "#f4b754",
   },
 };
 
@@ -31,7 +32,6 @@ export default createVuetify({
     defaultTheme: "mainTheme",
     themes: {
       mainTheme,
-      secondaryTheme,
     },
   },
 });
