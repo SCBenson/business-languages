@@ -14,10 +14,10 @@ export function useValidateUserRegistration() {
 
   const rules = {
     formData: {
-      name: { required, minLength: minLength(4) },
+      name: { minLength: minLength(4) },
       email: { required, email },
       password: { required, minLength: minLength(6) },
-      confirmPassword: { required, sameAsPassword: sameAs(formData.password) },
+      confirmPassword: { sameAsPassword: sameAs(formData.password) },
     },
   };
   const v$ = useVuelidate(rules, { formData });
