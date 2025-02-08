@@ -15,6 +15,7 @@ import logoTitleUrl from "@/assets/logo-title.webp";
       <router-link to="/about" class="mx-2 text-white">About Us</router-link>
       <router-link to="/blog" class="mx-2 text-white">Blog</router-link>
       <router-link to="/register" class="mx-2 text-white">Register</router-link>
+      <router-link to="/dashboard" class="mx-2 text-white">Hello, User!</router-link>
     </v-container>
   </v-app-bar>
 </template>
