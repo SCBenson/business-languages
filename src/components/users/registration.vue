@@ -92,14 +92,15 @@
   </template>
   <script setup>
   import {ref} from 'vue'
-  import { useValidateUserRegistration } from '@/composables/validateUserRegistration';
+  // import { useValidateUserRegistration } from '@/composables/validateUserRegistration';
+  import { useAuthValidation } from '@/composables/validateUser';
   import { useFirebaseAuth } from '@/composables/useFirebaseAuth.js'
   import {useRouter} from 'vue-router';
   import {errorMessages} from '@/composables/authErrorMessaging.js';
   
   const registering= ref(false);
-  const {formData, v$, showPassword} = useValidateUserRegistration();
-  const {registerUser} = useFirebaseAuth();
+  const { formData, showPassword, v$, resetForm } = useAuthValidation();
+  const { registerUser, loginUser } = useFirebaseAuth();
   const router = useRouter();
   const snackbar = ref(false);
   const snackbarColor = ref('error');
@@ -110,15 +111,16 @@
     if(method == 'register'){
         return errorMessages.registering[errorCode] || 'Registration failed. Please try again.';
     } else {
-        return error.Messages.loggingIn[errorCode] || 'Log in failed. Please try again.';
+        return errorMessages.loggingIn[errorCode] || 'Log in failed. Please try again.';
     }
   };
 
   const switchMethod = () => {
     registering.value = !registering.value;
+    resetForm();
     v$.value.$reset();
-    formData.email = '';
-    formData.password = '';
+    // formData.email = '';
+    // formData.password = '';
   }
 
   //========================Input Form Validation using Vuelidate=====================================//
@@ -192,7 +194,7 @@
     console.log("Successfully logged in:", user);
     //set a timer for the snackbar to exist before redirecting...
     setTimeout(() => {
-        router.replace('/').catch(err => {
+        router.replace('/dashboard').catch(err => {
         console.error('Navigation failed:', err);
         });
     }, 3000);
