@@ -14,7 +14,7 @@ export function useValidateUserRegistration() {
 
   const rules = {
     formData: {
-      name: { minLength: minLength(4) },
+      name: { required, minLength: minLength(4) },
       email: { required, email },
       password: { required, minLength: minLength(6) },
       confirmPassword: { sameAsPassword: sameAs(formData.password) },
