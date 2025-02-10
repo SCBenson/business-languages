@@ -45,11 +45,11 @@ Modular, scalable application architecture
 
 ## 🔧 Development Setup
 
+```bash
 # Clone the repository
 
 git clone [your-repo-url]
 
-```bash
 # Install dependencies
 
 npm install
