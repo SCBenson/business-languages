@@ -45,7 +45,8 @@ Modular, scalable application architecture
 
 ## 🔧 Development Setup
 
-bashCopy# Clone the repository
+# Clone the repository
+
 git clone [your-repo-url]
 
 ```bash
