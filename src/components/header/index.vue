@@ -1,8 +1,4 @@
-<script setup>
-import logoUrl from "@/assets/logo.jpg";
-import logoTitleUrl from "@/assets/logo-title.webp";
-import userLoggedIn from '@/components/users/registration.vue';
-</script>
+
 <template>
   <v-app-bar class="px-16" color="#f4b754" scroll-behavior="hide" scroll-threshold="100">
     <img :src="logoUrl" class="app-bar-logo pl-3" alt="Company logo" />
@@ -15,12 +11,24 @@ import userLoggedIn from '@/components/users/registration.vue';
       <router-link to="/team" class="mx-2 text-white">Team</router-link>
       <router-link to="/about" class="mx-2 text-white">About Us</router-link>
       <router-link to="/blog" class="mx-2 text-white">Blog</router-link>
-      <router-link v-if="!userLoggedIn" to="/registration" class="mx-2 text-white">Log In</router-link>
-      <router-link v-if="userLoggedIn" to="/registration" class="mx-2 text-white">Log Out</router-link>
-      <router-link to="/dashboard" class="mx-2 text-white">Hello, User!</router-link>
+      <router-link to="/registration" class="mx-2 text-white">Register</router-link>
+      <router-link v-if="!userLoggedIn" to="/registration" class="mx-2 text-white">Login</router-link>
+      <router-link v-if="userLoggedIn" @click="handleSignOut" to="/" class="mx-2 text-white">Logout</router-link>
+      <router-link v-if="userLoggedIn" to="/dashboard" class="mx-2 text-white">Hello, User!</router-link>
     </v-container>
   </v-app-bar>
 </template>
+
+<script setup>
+  import logoUrl from "@/assets/logo.jpg";
+  import logoTitleUrl from "@/assets/logo-title.webp";
+  import userLoggedIn from '@/components/users/registration.vue';
+  import {AUTH} from '@/firebase/config.js';
+  import {signOut} from 'firebase/auth';
+  const handleSignOut = () => {
+    signOut(AUTH);
+  }
+</script>
 
 <style scoped>
 .app-bar-logo {
