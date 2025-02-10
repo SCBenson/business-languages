@@ -12,9 +12,9 @@
       <router-link to="/about" class="mx-2 text-white">About Us</router-link>
       <router-link to="/blog" class="mx-2 text-white">Blog</router-link>
       <router-link to="/registration" class="mx-2 text-white">Register</router-link>
-      <router-link v-if="!userLoggedIn" to="/registration" class="mx-2 text-white">Login</router-link>
-      <router-link v-if="userLoggedIn" @click="handleSignOut" to="/" class="mx-2 text-white">Logout</router-link>
-      <router-link v-if="userLoggedIn" to="/dashboard" class="mx-2 text-white">Hello, User!</router-link>
+      <router-link v-if="isAuth == null" to="/registration" class="mx-2 text-white">Login</router-link>
+      <router-link v-if="isAuth != null" to="/" @click="handleSignOut" class="mx-2 text-white">Logout</router-link>
+      <router-link v-if="isAuth == null" to="/dashboard" class="mx-2 text-white">Hello, User!</router-link>
     </v-container>
   </v-app-bar>
 </template>
@@ -23,11 +23,21 @@
   import logoUrl from "@/assets/logo.jpg";
   import logoTitleUrl from "@/assets/logo-title.webp";
   import userLoggedIn from '@/components/users/registration.vue';
-  import {AUTH} from '@/firebase/config.js';
-  import {signOut} from 'firebase/auth';
+  import { AUTH } from '@/firebase/config.js';
+  import { signOut, onAuthStateChanged } from 'firebase/auth';
+  import { ref } from 'vue';
+
+  const isAuth = ref(AUTH.currentUser);
+
   const handleSignOut = () => {
     signOut(AUTH);
   }
+
+  onAuthStateChanged(AUTH, (user) => {
+    console.log(user);
+    isAuth.value = user;
+  })
+
 </script>
 
 <style scoped>
@@ -39,13 +49,13 @@
 }
 
 .router-link-active,
-a {
+a, p {
   text-decoration: none;
   padding: 6px 12px;
   border-radius: 4px;
   transition: background-color 0.3s;
 }
-a:hover {
+a:hover, p:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 </style>
