@@ -48,6 +48,7 @@ Modular, scalable application architecture
 bashCopy# Clone the repository
 git clone [your-repo-url]
 
+```bash
 # Install dependencies
 
 npm install
@@ -59,6 +60,7 @@ npm run dev
 # Build for production
 
 npm run build
+```
 
 ## 📦 Deployment
 
