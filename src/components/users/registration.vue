@@ -96,6 +96,7 @@
   import { useFirebaseAuth } from '@/composables/useFirebaseAuth.js'
   import {useRouter} from 'vue-router';
   import {errorMessages} from '@/composables/authErrorMessaging.js';
+  
   const registering= ref(false);
   const {formData, v$, showPassword} = useValidateUserRegistration();
   const {registerUser} = useFirebaseAuth();
@@ -145,9 +146,9 @@
     const {user, error} = await registerUser(formData.email, formData.password);
   
   //========================UI Alert to notify user of unsuccessful/successful registration===========//
-    if('register', error) {
+    if(error) {
       snackbarColor.value = 'error';
-      snackbarMessage.value = getErrorMessage(error.code);
+      snackbarMessage.value = getErrorMessage('register', error.code);
       snackbar.value = true;
       console.log("Registration failed:", error.message);
       return;
@@ -177,9 +178,9 @@
     const {user, error} = await loginUser(formData.email, formData.password);
 
 //========================UI Alert to notify user of unsuccessful/successful registration===========//
-    if('login',error) {
+    if(error) {
         snackbarColor.value = 'error';
-        snackbarMessage.value = getErrorMessage(error.code);
+        snackbarMessage.value = getErrorMessage('register', error.code);
         snackbar.value = true;
         console.log("Login failed:", error.message);
         return;
