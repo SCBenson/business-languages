@@ -14,7 +14,15 @@
       <router-link to="/registration" class="mx-2 text-white">Register</router-link>
       <router-link v-if="isAuth == null" to="/registration" class="mx-2 text-white">Login</router-link>
       <router-link v-if="isAuth != null" to="/" @click="handleSignOut" class="mx-2 text-white">Logout</router-link>
-      <router-link v-if="isAuth == null" to="/dashboard" class="mx-2 text-white">Hello, User!</router-link>
+      <v-card v-if="isAuth != null"
+        density="compact"
+        prepend-avatar="https://randomuser.me/api/portraits/women/10.jpg"
+        subtitle="Member"
+        title="Jennifer"
+        variant="text"
+      >
+      </v-card>
+      <!-- <router-link v-if="isAuth != null" to="/dashboard" class="mx-2 text-white">Hello, User!</router-link> -->
     </v-container>
   </v-app-bar>
 </template>
@@ -22,14 +30,14 @@
 <script setup>
   import logoUrl from "@/assets/logo.jpg";
   import logoTitleUrl from "@/assets/logo-title.webp";
-  import userLoggedIn from '@/components/users/registration.vue';
   import { AUTH } from '@/firebase/config.js';
   import { signOut, onAuthStateChanged } from 'firebase/auth';
   import { ref } from 'vue';
-
+//check if the user is logged in...
   const isAuth = ref(AUTH.currentUser);
 
   const handleSignOut = () => {
+    //sign out the user...
     signOut(AUTH);
   }
 
