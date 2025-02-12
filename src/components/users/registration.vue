@@ -12,7 +12,7 @@
                   <v-text-field
                     v-model="formData.name"
                     :error-messages="
-                      v$.formData.name.$errors.map((e) => e.$message)
+                      v$.formData.name.$errors?.map((e) => e.$message) || []
                     "
                     label="Name"
                     required
@@ -26,7 +26,7 @@
                   <v-text-field
                     v-model="formData.email"
                     :error-messages="
-                      v$.formData.email.$errors.map((e) => e.$message)
+                      v$.formData.email.$errors?.map((e) => e.$message) || []
                     "
                     label="Email"
                     required
@@ -42,7 +42,7 @@
                     v-model="formData.password"
                     :type="showPassword ? 'text' : 'password'"
                     :error-messages="
-                      v$.formData.password.$errors.map((e) => e.$message)
+                      v$.formData.password.$errors?.map((e) => e.$message) || []
                     "
                     label="Password"
                     required
@@ -91,12 +91,11 @@
     </v-container>
   </template>
   <script setup>
-  import {ref} from 'vue'
-  // import { useValidateUserRegistration } from '@/composables/validateUserRegistration';
-  import { useAuthValidation } from '@/composables/validateUser';
+  import { ref } from 'vue'
+  import { useAuthValidation } from '@/composables/validateUser.js';
   import { useFirebaseAuth } from '@/composables/useFirebaseAuth.js'
-  import {useRouter} from 'vue-router';
-  import {errorMessages} from '@/composables/authErrorMessaging.js';
+  import { useRouter } from 'vue-router';
+  import { errorMessages } from '@/composables/authErrorMessaging.js';
   
   const registering= ref(false);
   const { formData, showPassword, v$, resetForm } = useAuthValidation();
