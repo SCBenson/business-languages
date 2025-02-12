@@ -7,6 +7,19 @@ import Blog from "@/components/blog/index.vue";
 import Register from "@/components/users/registration.vue";
 
 import Dashboard from "@/components/dashboard/dashboard.vue";
+//firebase
+import { AUTH } from "@/firebase/config.js";
+
+const isAuth = (to, from, next) => {
+  let user = AUTH.currentUser;
+  if (!user) {
+    next({ path: "/registration" });
+    return;
+  }
+  next();
+  return;
+};
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -16,7 +29,7 @@ const router = createRouter({
     { path: "/training", component: Training },
     { path: "/blog", component: Blog },
     { path: "/registration", component: Register },
-    { path: "/dashboard", component: Dashboard },
+    { path: "/dashboard", component: Dashboard, beforeEnter: isAuth },
   ],
 });
 
