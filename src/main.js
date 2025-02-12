@@ -8,17 +8,27 @@
 import { registerPlugins } from "@/plugins";
 import router from "@/router/index.js";
 import { createPinia } from "pinia";
+import { AUTH } from "@/firebase/config.js";
+import { onAuthStateChanged } from "firebase/auth";
+import Header from "@/components/header/index.vue";
 
 // Components
 import App from "./App.vue";
 
 // Composables
 import { createApp } from "vue";
-const pinia = createPinia();
-const app = createApp(App);
-app.use(router);
-app.use(pinia);
 
-registerPlugins(app);
+let pinia;
+let app;
 
-app.mount("#app");
+onAuthStateChanged(AUTH, () => {
+  if (!app) {
+    app = createApp(App);
+    pinia = createPinia();
+    app.component("app-header", Header);
+    app.use(router);
+    app.use(pinia);
+    registerPlugins(app);
+    app.mount("#app");
+  }
+});
