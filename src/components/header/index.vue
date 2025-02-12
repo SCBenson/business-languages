@@ -11,6 +11,7 @@
       <router-link to="/team" class="mx-2 text-white">Team</router-link>
       <router-link to="/about" class="mx-2 text-white">About Us</router-link>
       <router-link to="/blog" class="mx-2 text-white">Blog</router-link>
+      <!-- TODO: mode conditional using route and onMounted methods in registration.vue to direct to /registration?mode=register OR /registration?mode=login  -->
       <router-link to="/registration" class="mx-2 text-white">Register</router-link>
       <router-link v-if="isAuth == null" to="/registration" class="mx-2 text-white">Login</router-link>
       <router-link v-if="isAuth != null" to="/" @click="handleSignOut" class="mx-2 text-white">Logout</router-link>
@@ -22,7 +23,6 @@
         variant="text"
       >
       </v-card>
-      <!-- <router-link v-if="isAuth != null" to="/dashboard" class="mx-2 text-white">Hello, User!</router-link> -->
     </v-container>
   </v-app-bar>
 </template>
