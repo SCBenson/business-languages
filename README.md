@@ -25,6 +25,7 @@ Vuelidate: Form validation library
 
 Firebase Authentication: Secure user management
 Firestore: User data and course tracking
+Pinia: State Management for user storage.
 Firebase Cloud Functions: Backend logic and payment processing
 
 # Payment Integration
