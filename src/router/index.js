@@ -9,7 +9,7 @@ import Register from "@/components/users/registration.vue";
 import Dashboard from "@/components/dashboard/dashboard.vue";
 //firebase
 import { AUTH } from "@/firebase/config.js";
-
+//checks if the user is logged in, if not then redirect to registration page.
 const isAuth = (to, from, next) => {
   let user = AUTH.currentUser;
   if (!user) {
