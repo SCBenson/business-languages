@@ -1,9 +1,10 @@
-import { ref, reactive } from "vue";
+import { ref, reactive, computed } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 import { email, required, minLength, sameAs } from "@vuelidate/validators";
 
-export function useAuthValidation(isRegistering = false) {
+export function useAuthValidation() {
   const showPassword = ref(false);
+  const isRegistering = ref(false);
 
   const formData = reactive({
     name: "",
@@ -13,29 +14,29 @@ export function useAuthValidation(isRegistering = false) {
   });
 
   // Dynamic rules based on whether we're registering or logging in
-  const getRules = (isRegistering) => ({
+  const rules = computed(() => ({
     formData: {
-      ...(isRegistering && {
+      ...(isRegistering.value && {
         name: { required, minLength: minLength(4) },
       }),
       email: { required, email },
       password: { required, minLength: minLength(6) },
-      ...(isRegistering && {
+      ...(isRegistering.value && {
         confirmPassword: {
           required,
           sameAsPassword: sameAs(formData.password),
         },
       }),
     },
-  });
+  }));
 
-  const v$ = useVuelidate(getRules(isRegistering), { formData });
+  const v$ = useVuelidate(rules, { formData });
 
   // Helper function to reset form
   const resetForm = () => {
     formData.email = "";
     formData.password = "";
-    if (isRegistering) {
+    if (isRegistering.value) {
       formData.name = "";
       formData.confirmPassword = "";
     }
@@ -46,5 +47,6 @@ export function useAuthValidation(isRegistering = false) {
     showPassword,
     v$,
     resetForm,
+    isRegistering,
   };
 }
