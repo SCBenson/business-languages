@@ -13,7 +13,7 @@
             <v-col cols="3" class="d-flex align-center">
               <v-img
                 :src="member.path"
-                height="250"
+                height="500"
                 cover
                 class="bg-grey-lighten-2 mx-auto"
               />

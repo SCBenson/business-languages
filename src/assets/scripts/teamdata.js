@@ -16,7 +16,7 @@ export const data = [
   {
     name: "Elisabeth Rubenschmid",
     role: "Instructor",
-    path: "src/assets/team/elisabeth.png",
+    path: "./src/assets/team/elisabeth.png",
     description: "",
   },
   {
