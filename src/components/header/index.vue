@@ -19,7 +19,7 @@
         density="compact"
         prepend-avatar="https://randomuser.me/api/portraits/women/10.jpg"
         subtitle="Member"
-        title="Jennifer"
+        :title="profileData.firstName"
         variant="text"
       >
       </v-card>
@@ -28,14 +28,38 @@
 </template>
 
 <script setup>
+  import { useUserStore } from "@/composables/stores/userStore.js";
   import logoUrl from "@/assets/logo.jpg";
   import logoTitleUrl from "@/assets/logo-title.webp";
   import { AUTH } from '@/firebase/config.js';
   import { signOut, onAuthStateChanged } from 'firebase/auth';
-  import { ref } from 'vue';
+  import { ref, onMounted } from 'vue';
 //check if the user is logged in...
   const isAuth = ref(AUTH.currentUser);
 
+  const userStore = useUserStore();
+// Create local reactive data
+  const profileData = ref({
+    firstName: '',
+    lastName: '',
+    email: '',
+    languages: ''
+  });
+
+
+  // Update local data when component mounts
+  onMounted(() => {
+      if (userStore.userDetails) {
+        console.log("userStore entered")
+          profileData.value = {
+              firstName: userStore.userDetails['first-name'] || '',
+              lastName: userStore.userDetails['last-name'] || '',
+              email: userStore.userDetails.email || '',
+              languages: userStore.userDetails.languages || ''
+          };
+          console.log('profileData after set:', profileData.value);
+      }
+  });
   const handleSignOut = () => {
     //sign out the user...
     signOut(AUTH);
