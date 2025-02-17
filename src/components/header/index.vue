@@ -57,7 +57,6 @@
               email: userStore.userDetails.email || '',
               languages: userStore.userDetails.languages || ''
           };
-          console.log('profileData after set:', profileData.value);
       }
   });
   const handleSignOut = () => {
