@@ -3,7 +3,7 @@
     <v-container class="h-100 d-flex align-center px-16">
       <div class="text-center w-100">
         <h1 class="mb-3 text-h1 text-white font-weight-bold">
-          Online Language Learning for Business Success
+          This is our specialty.
         </h1>
         <h2 class="text-h2 text-custom-gold">Join a vibrant community!</h2>
         <v-btn
