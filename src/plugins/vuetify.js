@@ -14,8 +14,10 @@ import { createVuetify } from "vuetify";
 const mainTheme = {
   dark: false,
   colors: {
-    background: "#f4b754",
-    "custom-gold": "#f4b754",
+    background: "#e5e5e5",
+    primary: "#FFFFFF",
+    "custom-orange": "#f4b754",
+    "custom-purple": "#4B0082",
   },
 };
 
