@@ -1,73 +1,76 @@
-
 <template>
+  <v-app-bar
+    height="56"
+    class="px-16"
+    color="#f4b754"
+    scroll-behavior="hide"
+    scroll-threshold="100"
+    app
+  >
+    <template v-slot:prepend>
+      <img :src="logoUrl" height="40" width="auto" alt="Company Logo" />
 
-    <v-app-bar height="56" class="px-16" color="#f4b754" scroll-behavior="hide" scroll-threshold="100">
-      <template v-slot:prepend>
-        <img :src="logoUrl" height="40" width="auto" alt="Company Logo" />
+      <v-toolbar-title class="text-white text-body-1">
+        Business Languages
+      </v-toolbar-title>
+    </template>
 
-        <v-toolbar-title class="text-white text-body-1">
-          Business Languages 
-        </v-toolbar-title>
-      </template>
-      
-
-      <template v-slot:append>
-        <v-app-bar-nav-icon variant="text" color="white" @click.stop="drawer = !drawer">
-
-        </v-app-bar-nav-icon>
-      </template>
-    </v-app-bar>
-    <v-navigation-drawer v-model="drawer" location="right" temporary>
-      <v-list>
-        <v-list-item
-          v-for="item in data.menuItems"
-          :key="item.title"
-          :to="item.path"
-          :prepend-icon="item.icon"
-        >
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
+    <template v-slot:append>
+      <v-app-bar-nav-icon
+        variant="text"
+        color="white"
+        @click.stop="drawer = !drawer"
+      >
+      </v-app-bar-nav-icon>
+    </template>
+  </v-app-bar>
+  <v-navigation-drawer v-model="drawer" location="right" temporary app>
+    <v-list>
+      <v-list-item
+        v-for="item in data.menuItems"
+        :key="item.title"
+        :to="item.path"
+        :prepend-icon="item.icon"
+      >
+        <v-list-item-title>{{ item.title }}</v-list-item-title>
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
 </template>
 
 <script setup>
+import logoUrl from "@/assets/bl-anniversary-logo.png";
+import { data } from "@/assets/scripts/navDrawer.js";
 
-  import logoUrl from "@/assets/bl-anniversary-logo.png";
-  import { data } from "@/assets/scripts/navDrawer.js";
+import { ref } from "vue";
 
-  import { ref } from 'vue';
-
-  const drawer = ref(false);
-
-
+const drawer = ref(false);
 </script>
 <style scoped>
-
 .router-link-active,
-a, p {
+a,
+p {
   text-decoration: none;
   padding: 6px 12px;
   border-radius: 4px;
   transition: background-color 0.3s;
 }
-a:hover, p:hover {
+a:hover,
+p:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 </style>
 
-
-    <!-- <v-container class="d-flex justify-end align-center gap-4"> -->
-      <!-- <router-link to="/training" class="mx-2 text-white font-weight-bold"
+<!-- <v-container class="d-flex justify-end align-center gap-4"> -->
+<!-- <router-link to="/training" class="mx-2 text-white font-weight-bold"
         >Get Training
       </router-link> -->
-      <!-- <router-link to="/" class="mx-2 text-white">Home</router-link>
+<!-- <router-link to="/" class="mx-2 text-white">Home</router-link>
       <router-link to="/team" class="mx-2 text-white">Team</router-link>
       <router-link to="/about" class="mx-2 text-white">About Us</router-link>
       <router-link to="/blog" class="mx-2 text-white">Blog</router-link> -->
-      <!-- TODO: mode conditional using route and onMounted methods in registration.vue to direct to /registration?mode=register OR /registration?mode=login  -->
-      <!-- <router-link to="/registration" class="mx-2 text-white">Register</router-link>
+<!-- TODO: mode conditional using route and onMounted methods in registration.vue to direct to /registration?mode=register OR /registration?mode=login  -->
+<!-- <router-link to="/registration" class="mx-2 text-white">Register</router-link>
       <router-link v-if="isAuth == null" to="/registration" class="mx-2 text-white">Login</router-link>
       <router-link v-if="isAuth != null" to="/" @click="handleSignOut" class="mx-2 text-white">Logout</router-link>
       <v-card v-if="isAuth != null"
@@ -78,10 +81,10 @@ a:hover, p:hover {
         variant="text"
       >
       </v-card> -->
-    <!-- </v-container> -->
+<!-- </v-container> -->
 
 <!-- Script for Desktop Version -->
-    <!-- import { useUserStore } from "@/composables/stores/userStore.js";
+<!-- import { useUserStore } from "@/composables/stores/userStore.js";
     import { AUTH } from '@/firebase/config.js';
     import { signOut, onAuthStateChanged } from 'firebase/auth';
     import { ref, onMounted } from 'vue';
