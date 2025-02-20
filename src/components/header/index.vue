@@ -1,19 +1,61 @@
 
 <template>
-  <v-app-bar height="56" class="px-16" color="#f4b754" scroll-behavior="hide" scroll-threshold="100">
-    <div class="d-flex align-center">
-      <img :src="logoUrl" height="40" width="auto" alt="Company Logo" />
 
-      <v-toolbar-title class="text-white text-body-1">
-        Business Languages 
-      </v-toolbar-title>
-    </div>
+    <v-app-bar height="56" class="px-16" color="#f4b754" scroll-behavior="hide" scroll-threshold="100">
+      <template v-slot:prepend>
+        <img :src="logoUrl" height="40" width="auto" alt="Company Logo" />
+
+        <v-toolbar-title class="text-white text-body-1">
+          Business Languages 
+        </v-toolbar-title>
+      </template>
+      
+
+      <template v-slot:append>
+        <v-app-bar-nav-icon variant="text" color="white" @click.stop="drawer = !drawer">
+
+        </v-app-bar-nav-icon>
+      </template>
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" location="right" temporary>
+      <v-list>
+        <v-list-item
+          v-for="item in data.menuItems"
+          :key="item.title"
+          :to="item.path"
+          :prepend-icon="item.icon"
+        >
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+</template>
+
+<script setup>
+
+  import logoUrl from "@/assets/bl-anniversary-logo.png";
+  import { data } from "@/assets/scripts/navDrawer.js";
+
+  import { ref } from 'vue';
+
+  const drawer = ref(false);
 
 
+</script>
+<style scoped>
 
-
-
-
+.router-link-active,
+a, p {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+a:hover, p:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+</style>
 
 
     <!-- <v-container class="d-flex justify-end align-center gap-4"> -->
@@ -37,64 +79,43 @@
       >
       </v-card> -->
     <!-- </v-container> -->
-  </v-app-bar>
-</template>
 
-<script setup>
-
-  import logoUrl from "@/assets/bl-anniversary-logo.png";
-
-//   import { useUserStore } from "@/composables/stores/userStore.js";
-//   import { AUTH } from '@/firebase/config.js';
-//   import { signOut, onAuthStateChanged } from 'firebase/auth';
-//   import { ref, onMounted } from 'vue';
-// //check if the user is logged in...
-//   const isAuth = ref(AUTH.currentUser);
-
-//   const userStore = useUserStore();
-// // Create local reactive data
-//   const profileData = ref({
-//     firstName: '',
-//     lastName: '',
-//     email: '',
-//     languages: ''
-//   });
-
-
-//   // Update local data when component mounts
-//   onMounted(() => {
-//       if (userStore.userDetails) {
-//         console.log("userStore entered")
-//           profileData.value = {
-//               firstName: userStore.userDetails['first-name'] || '',
-//               lastName: userStore.userDetails['last-name'] || '',
-//               email: userStore.userDetails.email || '',
-//               languages: userStore.userDetails.languages || ''
-//           };
-//       }
-//   });
-//   const handleSignOut = () => {
-//     //sign out the user...
-//     signOut(AUTH);
-//   }
-
-//   onAuthStateChanged(AUTH, (user) => {
-//     console.log(user);
-//     isAuth.value = user;
-//   })
-
-</script>
-
-<style scoped>
-
-.router-link-active,
-a, p {
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-a:hover, p:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-</style>
+<!-- Script for Desktop Version -->
+    <!-- import { useUserStore } from "@/composables/stores/userStore.js";
+    import { AUTH } from '@/firebase/config.js';
+    import { signOut, onAuthStateChanged } from 'firebase/auth';
+    import { ref, onMounted } from 'vue';
+  //check if the user is logged in...
+    const isAuth = ref(AUTH.currentUser);
+  
+    const userStore = useUserStore();
+  // Create local reactive data
+    const profileData = ref({
+      firstName: '',
+      lastName: '',
+      email: '',
+      languages: ''
+    });
+  
+  
+    // Update local data when component mounts
+    onMounted(() => {
+        if (userStore.userDetails) {
+          console.log("userStore entered")
+            profileData.value = {
+                firstName: userStore.userDetails['first-name'] || '',
+                lastName: userStore.userDetails['last-name'] || '',
+                email: userStore.userDetails.email || '',
+                languages: userStore.userDetails.languages || ''
+            };
+        }
+    });
+    const handleSignOut = () => {
+      //sign out the user...
+      signOut(AUTH);
+    }
+  
+    onAuthStateChanged(AUTH, (user) => {
+      console.log(user);
+      isAuth.value = user;
+    }) -->
