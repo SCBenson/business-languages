@@ -1,33 +1,55 @@
 <template>
-  <v-sheet class="hero-section" height="100vh">
-    <v-container class="h-100 d-flex align-center px-16">
-      <div class="text-center w-100">
-        <h1 class="mb-3 text-h1 text-white font-weight-bold">
-          This is our specialty.
-        </h1>
-        <h2 class="text-h2 text-custom-gold">Join a vibrant community!</h2>
-        <v-btn
-          color="rgb(255, 244, 123)"
-          size="x-large"
-          rounded="xl"
-          class="font-weight-bold mt-16"
-          >Contact Us</v-btn
-        >
-      </div>
+  <v-sheet class="hero-section">
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <div class="language-container">
+            <transition name="fade" mode="out-in">
+              <h1
+                :key="indexVal"
+                class="text-h2 mt-12 text-custom-orange font-weight-bold"
+              >
+                {{ languages[indexVal] }}.
+              </h1>
+            </transition>
+          </div>
+
+          <h1 class="mt-12 mb-3 text-white font-weight-regular">
+            This is our
+            <span class="font-weight-bold text-custom-orange">specialty.</span>
+          </h1>
+
+          <h2 class="text-custom-orange">Join a vibrant community!</h2>
+          <v-btn
+            color="rgb(255, 244, 123)"
+            size="large"
+            rounded="xl"
+            class="font-weight-bold mt-16"
+            >Contact Us</v-btn
+          >
+        </v-col>
+      </v-row>
+      <div class="text-center w-100"></div>
     </v-container>
   </v-sheet>
   <v-container class="px-2">
     <v-row justify="center">
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="3">
         <div class="text-center bg-white rounded">
-          <h2 class="text-h3 font-weight-bold text-black mb-3">
+          <h2 class="font-weight-bold text-black mb-3">
             20th Year Anniversary Video!
           </h2>
         </div>
-        <v-responsive height="700" aspect-ratio="16/9">
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12" md="12">
+        <v-responsive
+          :aspect-ratio="$vuetify.display.mdAndUp ? '16/9' : '4/3'"
+          class="video-container"
+        >
           <iframe
-            width="100%"
-            height="100%"
+            class="w-100 h-100"
             :src="'https://www.youtube.com/embed/adXj8sz4ozU?si=8SHRWN0HZz767e9u'"
             title="Youtube Video Player"
             frameborder="0"
@@ -112,8 +134,8 @@
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
               >
-              </iframe
-            ></v-col>
+              </iframe>
+            </v-col>
           </v-row>
         </v-card>
       </v-col>
@@ -121,16 +143,75 @@
   </v-container>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+
+const indexVal = ref(0);
+let intervalID;
+const languages = [
+  "Language",
+  "Idioma",
+  "Langue",
+  "语言",
+  "Язык",
+  "لغة",
+  "भाषा",
+  "Língua",
+  "言語",
+  "Sprache",
+  "언어",
+  "Lingua",
+  "Dil",
+  "Ngôn ngữ",
+  "Język",
+  "Taal",
+];
+
+onMounted(() => {
+  intervalID = setInterval(() => {
+    indexVal.value = (indexVal.value + 1) % languages.length;
+  }, 4000);
+});
+
+onUnmounted(() => {
+  clearInterval(intervalID);
+});
+</script>
 <style scoped>
 .hero-section {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("@/assets/hero_placeholder.webp");
+    url("@/assets/hero-background.png");
   background-size: cover;
   background-position: center;
-  width: 100%;
+  height: 100vh;
 }
+
+.language-container {
+  min-height: 4rem;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .custom-color {
   color: #112a46 !important;
+}
+
+.video-container {
+  min-height: 300px;
 }
 </style>
