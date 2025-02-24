@@ -1,38 +1,38 @@
 <template>
   <v-sheet class="hero-section">
-    <v-container>
+    <v-container class="text-center fill-height">
       <v-row>
         <v-col cols="12">
           <div class="language-container">
             <transition name="fade" mode="out-in">
               <h1
                 :key="indexVal"
-                class="text-h2 mt-12 text-custom-orange font-weight-bold"
+                class="text-h2 text-custom-orange font-weight-bold"
               >
                 {{ languages[indexVal] }}.
               </h1>
             </transition>
           </div>
-
-          <h1 class="mt-12 mb-3 text-white font-weight-regular">
+          <h1 class="mt-12 text-white font-weight-regular">
             This is our
             <span class="font-weight-bold text-custom-orange">specialty.</span>
           </h1>
 
-          <h2 class="text-custom-orange">Join a vibrant community!</h2>
+          <h2 class="text-custom-orange font-weight-regular">
+            We are the solution for your busy lifestyle.
+          </h2>
           <v-btn
-            color="rgb(255, 244, 123)"
+            color="#f4b754"
             size="large"
             rounded="xl"
-            class="font-weight-bold mt-16"
+            class="font-weight-bold mt-16 text-white"
             >Contact Us</v-btn
           >
         </v-col>
       </v-row>
-      <div class="text-center w-100"></div>
     </v-container>
   </v-sheet>
-  <v-container class="px-2">
+  <v-container class="px-2 business-guiness">
     <v-row justify="center">
       <v-col cols="12" md="3">
         <div class="text-center bg-white rounded">
@@ -170,7 +170,7 @@ const languages = [
 onMounted(() => {
   intervalID = setInterval(() => {
     indexVal.value = (indexVal.value + 1) % languages.length;
-  }, 4000);
+  }, 2000);
 });
 
 onUnmounted(() => {
@@ -209,6 +209,10 @@ onUnmounted(() => {
 
 .custom-color {
   color: #112a46 !important;
+}
+
+.business-guiness {
+  height: 100vh;
 }
 
 .video-container {
