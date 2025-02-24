@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="px-8">
     <h1 class="text-custom-purple text-center">Our Team</h1>
     <v-row>
       <v-col cols="12">
