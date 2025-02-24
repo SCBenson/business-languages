@@ -18,6 +18,7 @@ const mainTheme = {
     primary: "#FFFFFF",
     "custom-orange": "#f4b754",
     "custom-purple": "#4B0082",
+    "custom-white": "#e5e5e5",
   },
 };
 
