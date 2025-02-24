@@ -10,7 +10,7 @@
     <template v-slot:prepend>
       <img :src="logoUrl" height="40" width="auto" alt="Company Logo" />
 
-      <v-toolbar-title class="text-white text-body-1">
+      <v-toolbar-title class="text-white font-weight-bold text-body-1">
         Business Languages
       </v-toolbar-title>
     </template>
