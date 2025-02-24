@@ -2,7 +2,7 @@
   <v-component class="footer-container px-8 text-center">
     <v-row>
       <v-col cols="12" class="pb-0 pt-6 text-custom-purple">
-        <h2>Join our Community!</h2>
+        <h2 class="font-weight-bold">Join our Community!</h2>
       </v-col>
     </v-row>
     <v-row>
@@ -68,7 +68,7 @@ import logoUrl from "@/assets/bl-anniversary-logo.png";
 
 <style scoped>
 .footer-container {
-  min-height: 620px;
+  min-height: 650px;
   background-color: #f4b754;
 }
 
