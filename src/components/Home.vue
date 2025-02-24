@@ -60,7 +60,7 @@
       </v-col>
     </v-row>
   </v-container>
-  <v-container class="px-16">
+  <v-container class="px-8">
     <v-row justify="center">
       <v-col cols="12" md="8">
         <v-card color="#f4b754" class="pa-6">
