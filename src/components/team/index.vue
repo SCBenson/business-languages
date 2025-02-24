@@ -1,5 +1,40 @@
 <template>
   <v-container>
+    <h1 class="text-custom-purple text-center">Our Team</h1>
+    <v-row>
+      <v-col cols="12">
+        <v-card color="#f4b754">
+          <v-row class="mt-2">
+            <v-col
+              v-for="(member, index) in data"
+              :key="index"
+              cols="6"
+              class="text-center"
+            >
+              <router-link
+                style="text-decoration: none"
+                :to="`/team/` + member.firstName"
+              >
+                <v-avatar size="100"
+                  ><v-img :src="member.path"></v-img>
+                </v-avatar>
+
+                <v-card-title class="card-title text-custom-purple"
+                  >{{ member.firstName }}<br />{{
+                    member.lastName
+                  }}</v-card-title
+                >
+                <v-card-subtitle>{{
+                  member.role
+                }}</v-card-subtitle></router-link
+              ></v-col
+            >
+          </v-row>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+  <!-- <v-container>
     <v-row>
       <v-col>
         <h1 style="color: #f4b754">Meet the team!</h1>
@@ -19,8 +54,8 @@
               />
             </v-col>
             <v-col cols="8">
-              <v-card-title style="color: purple" class="pb-0"
-                >{{ member.name }}
+              <v-card-title class="pb-0" style="color: #4b0082"
+                >{{ member.firstName }}
               </v-card-title>
               <p class="pl-4 font-weight-bold">
                 {{ member.role }}
@@ -53,7 +88,7 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-container>
+  </v-container> -->
 </template>
 
 <script setup>
@@ -66,3 +101,9 @@ const toggleDescription = (index) => {
   showFullDescription.value[index] = !showFullDescription.value[index];
 };
 </script>
+
+<style scoped>
+.card-title {
+  font-size: 16px;
+}
+</style>
