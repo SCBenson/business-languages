@@ -4,6 +4,17 @@ import Team from "@/components/team/index.vue";
 import About from "@/components/about/index.vue";
 import Training from "@/components/training/index.vue";
 import Blog from "@/components/blog/index.vue";
+import Donal from "@/components/team/team-profiles/donal.vue";
+import Matthew from "@/components/team/team-profiles/matthew.vue";
+import Kelsey from "@/components/team/team-profiles/kelsey.vue";
+import Silvia from "@/components/team/team-profiles/silvia.vue";
+import Alex from "@/components/team/team-profiles/alex.vue";
+import Irene from "@/components/team/team-profiles/irene.vue";
+import Aggie from "@/components/team/team-profiles/aggie.vue";
+import Elisabeth from "@/components/team/team-profiles/elisabeth.vue";
+import Liam from "@/components/team/team-profiles/liam.vue";
+import Divya from "@/components/team/team-profiles/divya.vue";
+import Sara from "@/components/team/team-profiles/sara.vue";
 // import Register from "@/components/users/registration.vue";
 
 // import Dashboard from "@/components/dashboard/dashboard.vue";
@@ -28,6 +39,17 @@ const router = createRouter({
     { path: "/about", component: About },
     { path: "/training", component: Training },
     { path: "/blog", component: Blog },
+    { path: "/team/Donal", component: Donal },
+    { path: "/team/Matthew", component: Matthew },
+    { path: "/team/Kelsey", component: Kelsey },
+    { path: "/team/Divya", component: Divya },
+    { path: "/team/Aggie", component: Aggie },
+    { path: "/team/Silvia", component: Silvia },
+    { path: "/team/Alex", component: Alex },
+    { path: "/team/Irene", component: Irene },
+    { path: "/team/Sara", component: Sara },
+    { path: "/team/Liam", component: Liam },
+    { path: "/team/Elisabeth", component: Elisabeth },
     // { path: "/registration", component: Register },
     // { path: "/dashboard", component: Dashboard, beforeEnter: isAuth },
   ],
