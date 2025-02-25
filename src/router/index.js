@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router/auto";
 import Home from "@/components/Home.vue";
 import Team from "@/components/team/index.vue";
 import About from "@/components/about/index.vue";
-import Training from "@/components/training/index.vue";
+import Training from "@/components/training-lessons/index.vue";
 import Blog from "@/components/blog/index.vue";
 import Donal from "@/components/team/team-profiles/donal.vue";
 import Matthew from "@/components/team/team-profiles/matthew.vue";
@@ -37,7 +37,7 @@ const router = createRouter({
     { path: "/", component: Home },
     { path: "/team", component: Team },
     { path: "/about", component: About },
-    { path: "/training", component: Training },
+    { path: "/training-lessons", component: Training },
     { path: "/blog", component: Blog },
     { path: "/team/Donal", component: Donal },
     { path: "/team/Matthew", component: Matthew },
