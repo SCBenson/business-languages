@@ -50,7 +50,7 @@
         >
       </v-col>
     </v-row>
-    <v-row class="d-flex align-center">
+    <v-row class="d-flex align-center mb-0">
       <v-col cols="2"
         ><img :src="logoUrl" height="40" width="40" alt="Company Logo"
       /></v-col>
