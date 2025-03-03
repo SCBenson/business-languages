@@ -26,6 +26,40 @@
   </v-app-bar>
   <v-navigation-drawer v-model="drawer" location="right" temporary app>
     <v-list>
+      <!-- For items WITHOUT sublinks -->
+      <v-list-item
+        v-for="item in data.menuItems.filter((item) => !item.sublinks)"
+        :key="item.title"
+        :to="item.path"
+        :prepend-icon="item.icon"
+      >
+        <v-list-item-title>{{ item.title }}</v-list-item-title>
+      </v-list-item>
+      <!-- For items WITH sublinks -->
+      <v-list-group
+        v-for="item in data.menuItems.filter((item) => item.sublinks)"
+        :key="item.title"
+        :value="item.title"
+      >
+        <template v-slot:activator="{ props }">
+          <v-list-item
+            v-bind="props"
+            :title="item.title"
+            :prepend-icon="item.icon"
+          ></v-list-item>
+        </template>
+        <!-- Render Sublinks -->
+        <v-list-item
+          v-for="sublink in item.sublinks"
+          :key="sublink.title"
+          :to="sublink.path"
+          :title="sublink.title"
+        ></v-list-item>
+      </v-list-group>
+    </v-list>
+  </v-navigation-drawer>
+  <!-- <v-navigation-drawer v-model="drawer" location="right" temporary app>
+    <v-list>
       <v-list-item
         v-for="item in data.menuItems"
         :key="item.title"
@@ -35,7 +69,7 @@
         <v-list-item-title>{{ item.title }}</v-list-item-title>
       </v-list-item>
     </v-list>
-  </v-navigation-drawer>
+  </v-navigation-drawer> -->
 </template>
 
 <script setup>

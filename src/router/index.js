@@ -3,9 +3,12 @@ import Home from "@/components/Home.vue";
 import Team from "@/components/team/index.vue";
 import About from "@/components/about/index.vue";
 import Training from "@/components/training-lessons/index.vue";
+import OnlineTraining from "@/components/online-training/index.vue";
+import Translations from "@/components/translations/index.vue";
 import Blog from "@/components/blog/index.vue";
 import Webseries from "@/components/webseries/index.vue";
-
+import LearningTrips from "@/components/learning-trips/index.vue";
+import OnlineTips from "@/components/online-tips/index.vue";
 import Donal from "@/components/team/team-profiles/donal.vue";
 import Matthew from "@/components/team/team-profiles/matthew.vue";
 import Kelsey from "@/components/team/team-profiles/kelsey.vue";
@@ -40,8 +43,12 @@ const router = createRouter({
     { path: "/team", component: Team },
     { path: "/about", component: About },
     { path: "/training-lessons", component: Training },
+    { path: "/online-trainings", component: OnlineTraining },
+    { path: "/translations", component: Translations },
     { path: "/blog", component: Blog },
     { path: "/webseries", component: Webseries },
+    { path: "/learning-trips", component: LearningTrips },
+    { path: "/online-tips", component: OnlineTips },
     { path: "/team/Donal", component: Donal },
     { path: "/team/Matthew", component: Matthew },
     { path: "/team/Kelsey", component: Kelsey },

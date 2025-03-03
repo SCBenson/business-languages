@@ -95,13 +95,13 @@
       </v-col>
     </v-row>
   </v-container>
-  <v-container class="px-16">
+  <v-container class="px-8">
     <v-row justify="center">
-      <v-col align="center" cols="12" md="8">
-        <v-card color="#f4b754" class="pa-6">
+      <v-col align="center" cols="12">
+        <v-card color="#f4b754" >
           <v-row>
             <v-col>
-              <v-card>
+              <v-card class="ma-6">
                 <v-row>
                   <v-col>
                     <h1 class="custom-color">Opening Hours</h1>
@@ -125,16 +125,18 @@
               </v-card>
             </v-col>
             <v-col>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5299.62989237724!2d10.849799!3d48.38329100000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ebcdc0a913c13%3A0xc251e675dd293f06!2sDr.-D%C3%BCrrwanger-Stra%C3%9Fe%2015F%2C%2086156%20Augsburg%2C%20Germany!5e0!3m2!1sen!2sus!4v1715632174435!5m2!1sen!2sus"
-                width="600"
-                height="450"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              >
-              </iframe>
+              <v-row>
+                <v-col>
+                  <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5299.62989237724!2d10.849799!3d48.38329100000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ebcdc0a913c13%3A0xc251e675dd293f06!2sDr.-D%C3%BCrrwanger-Stra%C3%9Fe%2015F%2C%2086156%20Augsburg%2C%20Germany!5e0!3m2!1sen!2sus!4v1715632174435!5m2!1sen!2sus"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  >
+                  </iframe>
+                </v-col>
+              </v-row>
             </v-col>
           </v-row>
         </v-card>
