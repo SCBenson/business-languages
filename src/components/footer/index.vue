@@ -7,7 +7,7 @@
     </v-row>
     <v-row>
       <v-col cols="12" class="pt-0"
-        ><p class="text-custom-white">
+        ><p class="text-white">
           Join our mailing list to receive the occasional emails about business
           languages and our community, including the latest news, sneak peeks
           and product discounts.
