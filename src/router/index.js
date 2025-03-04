@@ -3,12 +3,16 @@ import Home from "@/components/Home.vue";
 import Team from "@/components/team/index.vue";
 import About from "@/components/about/index.vue";
 import Training from "@/components/training-lessons/index.vue";
+import BLA from "@/components/bla/index.vue";
+import BusinessAndGuiness from "@/components/business-and-guiness/index.vue";
 import OnlineTraining from "@/components/online-training/index.vue";
 import Translations from "@/components/translations/index.vue";
 import Blog from "@/components/blog/index.vue";
 import Webseries from "@/components/webseries/index.vue";
 import LearningTrips from "@/components/learning-trips/index.vue";
 import OnlineTips from "@/components/online-tips/index.vue";
+import Disclaimer from "@/components/disclaimer/index.vue";
+import DataProtection from "@/components/data-protection/index.vue";
 import Donal from "@/components/team/team-profiles/donal.vue";
 import Matthew from "@/components/team/team-profiles/matthew.vue";
 import Kelsey from "@/components/team/team-profiles/kelsey.vue";
@@ -20,7 +24,7 @@ import Elisabeth from "@/components/team/team-profiles/elisabeth.vue";
 import Liam from "@/components/team/team-profiles/liam.vue";
 import Divya from "@/components/team/team-profiles/divya.vue";
 import Sara from "@/components/team/team-profiles/sara.vue";
-// import Register from "@/components/users/registration.vue";
+import Register from "@/components/users/registration.vue";
 
 // import Dashboard from "@/components/dashboard/dashboard.vue";
 //firebase
@@ -45,10 +49,14 @@ const router = createRouter({
     { path: "/training-lessons", component: Training },
     { path: "/online-trainings", component: OnlineTraining },
     { path: "/translations", component: Translations },
+    { path: "/bla-interactive", component: BLA },
+    { path: "/business-and-guiness", component: BusinessAndGuiness },
     { path: "/blog", component: Blog },
     { path: "/webseries", component: Webseries },
     { path: "/learning-trips", component: LearningTrips },
     { path: "/online-tips", component: OnlineTips },
+    { path: "/disclaimer", component: Disclaimer },
+    { path: "/data-protection", component: DataProtection },
     { path: "/team/Donal", component: Donal },
     { path: "/team/Matthew", component: Matthew },
     { path: "/team/Kelsey", component: Kelsey },
@@ -60,7 +68,7 @@ const router = createRouter({
     { path: "/team/Sara", component: Sara },
     { path: "/team/Liam", component: Liam },
     { path: "/team/Elisabeth", component: Elisabeth },
-    // { path: "/registration", component: Register },
+    { path: "/registration", component: Register },
     // { path: "/dashboard", component: Dashboard, beforeEnter: isAuth },
   ],
 });
