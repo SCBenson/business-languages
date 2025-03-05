@@ -216,7 +216,7 @@ onUnmounted(() => {
 
 .business-guiness {
   height: 70vh;
-  width: 100%;
+  width: 100% !important;
 }
 
 .video-container {
