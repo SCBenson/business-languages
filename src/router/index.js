@@ -4,7 +4,7 @@ import Team from "@/components/team/index.vue";
 import About from "@/components/about/index.vue";
 import Training from "@/components/training-lessons/index.vue";
 import BLA from "@/components/bla/index.vue";
-import BusinessAndGuiness from "@/components/business-and-guiness/index.vue";
+import BusinessAndGuinness from "@/components/business-and-guinness/index.vue";
 import OnlineTraining from "@/components/online-training/index.vue";
 import Translations from "@/components/translations/index.vue";
 import Blog from "@/components/blog/index.vue";
@@ -50,7 +50,7 @@ const router = createRouter({
     { path: "/online-trainings", component: OnlineTraining },
     { path: "/translations", component: Translations },
     { path: "/bla-interactive", component: BLA },
-    { path: "/business-and-guiness", component: BusinessAndGuiness },
+    { path: "/business-and-guinness", component: BusinessAndGuinness },
     { path: "/blog", component: Blog },
     { path: "/webseries", component: Webseries },
     { path: "/learning-trips", component: LearningTrips },
