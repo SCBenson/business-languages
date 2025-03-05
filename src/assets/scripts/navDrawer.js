@@ -27,7 +27,7 @@ export const data = {
       path: "",
       icon: "mdi-microphone",
       sublinks: [
-        { title: "Business and Guiness", path: "/business-and-guiness" },
+        { title: "Business and Guinness", path: "/business-and-guinness" },
         { title: "Webseries", path: "/webseries" },
       ],
     },
