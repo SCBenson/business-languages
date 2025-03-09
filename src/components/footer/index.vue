@@ -7,7 +7,7 @@
     </v-row>
     <v-row>
       <v-col cols="12" class="pt-0"
-        ><p class="text-white">
+        ><p class="text-black">
           Join our mailing list to receive the occasional emails about business
           languages and our community, including the latest news, sneak peeks
           and product discounts.
@@ -28,7 +28,7 @@
       <v-col cols="6">
         <v-row class="justify-center"
           ><h3 class="text-custom-purple mt-2">Company</h3>
-          <v-list class="footer-list text-custom-white">
+          <v-list class="footer-list text-black">
             <v-list-item
               v-for="item in data.menuItems"
               :key="item.title"
@@ -43,7 +43,7 @@
       <v-col cols="6">
         <v-row class="justify-center"
           ><h3 class="text-custom-purple mt-2">Legal</h3>
-          <v-list class="footer-list text-custom-white">
+          <v-list class="footer-list text-black">
             <v-list-item>Data Protection</v-list-item>
             <v-list-item>Disclaimer</v-list-item>
           </v-list></v-row
@@ -55,7 +55,7 @@
         ><img :src="logoUrl" height="40" width="40" alt="Company Logo"
       /></v-col>
       <v-col cols="2">
-        <p class="text-custom-white">©businesslanguages.de</p>
+        <p class="text-black">©businesslanguages.de</p>
       </v-col>
     </v-row>
   </v-component>

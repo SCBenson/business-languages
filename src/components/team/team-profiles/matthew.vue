@@ -10,7 +10,7 @@
               >
               <v-card-subtitle>Co-Founder</v-card-subtitle>
               <v-avatar size="250">
-                <v-img src="@/assets/team/matthew.png"></v-img>
+                <v-img src="/team/matthew.png"></v-img>
               </v-avatar>
             </v-col>
           </v-row>

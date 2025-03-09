@@ -6,7 +6,7 @@
           <v-row class="text-center">
             <v-col col="12"
               ><v-avatar size="250"
-                ><v-img src="@/assets/team/kelseybardon.png"></v-img></v-avatar
+                ><v-img src="/team/elisabeth.png"></v-img></v-avatar
             ></v-col>
           </v-row>
         </v-card>

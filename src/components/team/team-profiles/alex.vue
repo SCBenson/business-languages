@@ -10,7 +10,7 @@
               >
               <v-card-subtitle>Instructor</v-card-subtitle>
               <v-avatar size="250">
-                <v-img src="@/assets/team/alex.png"></v-img>
+                <v-img src="/team/alex.png"></v-img>
               </v-avatar>
             </v-col>
           </v-row>

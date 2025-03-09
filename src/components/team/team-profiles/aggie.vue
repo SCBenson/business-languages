@@ -5,10 +5,24 @@
         <v-card color="#f4b754">
           <v-row class="text-center">
             <v-col>
-              <v-card-title>Donal O'Riada</v-card-title>
+              <v-card-title class="text-custom-purple"
+                >Aggie Vierling</v-card-title
+              >
+              <v-card-subtitle>Instructor</v-card-subtitle>
               <v-avatar size="250">
-                <v-img src="@/assets/team/donal.png"></v-img>
+                <v-img src="/team/aggie.png"></v-img>
               </v-avatar>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col class="px-8">
+              <h2 class="text-custom-purple">Placeholder</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere,
+                maxime debitis adipisci ullam earum non illo a iusto dolorem
+                consectetur natus modi officia quos hic illum. Dolorum cumque
+                eveniet ex?
+              </p>
             </v-col>
           </v-row>
         </v-card>
@@ -16,3 +30,9 @@
     </v-row>
   </v-container>
 </template>
+
+<style scoped>
+p {
+  color: #fff1f1;
+}
+</style>
