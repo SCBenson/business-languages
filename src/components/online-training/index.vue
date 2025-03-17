@@ -2,13 +2,13 @@
   <v-component>
     <v-row class="text-center">
       <v-col>
-        <h1 class="mt-6">5 Tips to improve your online communication</h1>
+        <h1 class="mt-6">{{ locale === 'de' ? germanData.title.title : 'Online Training' }}</h1>
       </v-col>
     </v-row>
     <v-row>
       <v-col cols="12">
         <v-card
-          v-for="(member, index) in data"
+          v-for="(member, index) in displayData"
           :key="index"
           :color="member.color"
           class="mb-8"
@@ -26,5 +26,16 @@
   </v-component>
 </template>
 <script setup>
-import { data } from "@/assets/scripts/onlinetrainingdata.js";
+import { data as englishData } from "@/assets/scripts/onlinetrainingdata.js";
+import { ref, computed } from 'vue';
+
+import { useLanguage } from "@/composables/useLanguage";
+
+// Get the same reactive state used in the header
+const { activeLanguage, languages, changeLanguage, getCurrentLanguageDisplay } = useLanguage();
+
+
+
+
+
 </script>

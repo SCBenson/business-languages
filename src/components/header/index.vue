@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     height="56"
-    class="px-16"
+    class="px-8"
     color="#f4b754"
     scroll-behavior="hide"
     scroll-threshold="100"
@@ -19,7 +19,9 @@
     <v-spacer></v-spacer>
 
     <v-container class="d-none d-md-flex justify-end align-center gap-4">
-      <router-link to="/training" class="mx-2 text-white font-weight-bold"
+      <router-link
+        to="/training-lessons"
+        class="mx-2 text-white font-weight-bold"
         >Get Training
       </router-link>
       <router-link to="/" class="mx-2 text-white">Home</router-link>
@@ -55,6 +57,35 @@
     </v-container>
 
     <template v-slot:append>
+      <v-menu
+        transition="scale-transition"
+        v-model="languageMenu"
+        location="bottom"
+      >
+        <template v-slot:activator="{ props }">
+          <v-btn
+            v-bind="props"
+            class="language-selector ml-2"
+            variant="text"
+            color="black"
+            rounded
+            density="compact"
+          >
+            {{ getCurrentLanguageDisplay() }}
+            <v-icon right>mdi-chevron-down</v-icon></v-btn
+          > </template
+        ><v-list>
+          <v-list-item
+            v-for="(lang, i) in languages"
+            :key="i"
+            :value="lang.code"
+            @click="changeLanguage(lang.code)"
+          >
+            <v-list-item-title>{{ lang.name }}</v-list-item-title>
+          </v-list-item>
+        </v-list></v-menu
+      >
+
       <v-app-bar-nav-icon
         class="d-flex d-md-none"
         variant="text"
@@ -128,6 +159,10 @@ a:hover,
 p:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
+.language-selector {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 0 12px;
+}
 </style>
 
 <!-- Script for Desktop Version -->
@@ -138,12 +173,17 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { ref, onMounted } from "vue";
 import logoUrl from "@/assets/bl-anniversary-logo.png";
 import { data } from "@/assets/scripts/navDrawer.js";
+import { useLanguage } from "@/composables/useLanguage";
+
+const { activeLanguage, languages, changeLanguage, getCurrentLanguageDisplay } =
+  useLanguage();
 
 const drawer = ref(false);
 //check if the user is logged in...
 const isAuth = ref(AUTH.currentUser);
-
+const languageMenu = ref(false);
 const userStore = useUserStore();
+
 // Create local reactive data
 const profileData = ref({
   firstName: "",

@@ -11,6 +11,7 @@ import { createPinia } from "pinia";
 import { AUTH } from "@/firebase/config.js";
 import { onAuthStateChanged } from "firebase/auth";
 import Header from "@/components/header/index.vue";
+import i18n from "@/I18n/index.js";
 
 // Components
 import App from "./App.vue";
@@ -28,6 +29,7 @@ onAuthStateChanged(AUTH, () => {
     app.component("app-header", Header);
     app.use(router);
     app.use(pinia);
+    app.use(i18n);
     registerPlugins(app);
     app.mount("#app");
   }
