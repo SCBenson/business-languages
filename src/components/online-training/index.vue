@@ -29,7 +29,7 @@
 import { data as englishData } from "@/assets/scripts/onlinetrainingdata.js";
 import { ref, computed } from 'vue';
 
-import { useLanguage } from "@/composables/useLanguage";
+import { useLanguage } from "@/composables/stores/useLanguage.js";
 
 // Get the same reactive state used in the header
 const { activeLanguage, languages, changeLanguage, getCurrentLanguageDisplay } = useLanguage();

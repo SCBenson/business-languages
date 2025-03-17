@@ -14,7 +14,7 @@ export function useLanguage() {
   }
 
   // Languages available for selection
-  const languages = [
+  const availableLanguages = [
     { name: "English", code: "en" },
     { name: "Deutsch", code: "de" },
   ];
@@ -28,7 +28,7 @@ export function useLanguage() {
 
   // Get current language display name
   function getCurrentLanguageDisplay() {
-    const current = languages.find(
+    const current = availableLanguages.find(
       (lang) => lang.code === activeLanguage.value
     );
     return current ? current.name : "English";
@@ -36,7 +36,7 @@ export function useLanguage() {
 
   return {
     activeLanguage, // reactive ref that can be watched in any component
-    languages, // available languages
+    availableLanguages, // available languages
     changeLanguage, // function to change language
     getCurrentLanguageDisplay, // get display name of current language
   };

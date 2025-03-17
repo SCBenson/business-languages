@@ -76,7 +76,7 @@
           > </template
         ><v-list>
           <v-list-item
-            v-for="(lang, i) in languages"
+            v-for="(lang, i) in availableLanguages"
             :key="i"
             :value="lang.code"
             @click="changeLanguage(lang.code)"
@@ -173,10 +173,14 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { ref, onMounted } from "vue";
 import logoUrl from "@/assets/bl-anniversary-logo.png";
 import { data } from "@/assets/scripts/navDrawer.js";
-import { useLanguage } from "@/composables/useLanguage";
+import { useLanguage } from "@/composables/stores/useLanguage";
 
-const { activeLanguage, languages, changeLanguage, getCurrentLanguageDisplay } =
-  useLanguage();
+const {
+  activeLanguage,
+  availableLanguages,
+  changeLanguage,
+  getCurrentLanguageDisplay,
+} = useLanguage();
 
 const drawer = ref(false);
 //check if the user is logged in...
@@ -189,7 +193,7 @@ const profileData = ref({
   firstName: "",
   lastName: "",
   email: "",
-  languages: "",
+  availableLanguages: "",
 });
 
 // Update local data when component mounts
@@ -200,7 +204,7 @@ onMounted(() => {
       firstName: userStore.userDetails["first-name"] || "",
       lastName: userStore.userDetails["last-name"] || "",
       email: userStore.userDetails.email || "",
-      languages: userStore.userDetails.languages || "",
+      availableLanguages: userStore.userDetails.availableLanguages || "",
     };
   }
 });

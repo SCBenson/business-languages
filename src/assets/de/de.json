@@ -22,7 +22,8 @@
   },
   "home": {
     "hero": {
-      "title": "Dies ist unsere Spezialität",
+      "title-section1": "Dies ist unsere",
+      "title-section2": "Spezialität.",
       "sub-title": "Wir sind die Lösung für Ihren geschäftigen Lebensstil.",
       "button": "Kontakt"
     },

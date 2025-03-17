@@ -14,19 +14,20 @@
             </transition>
           </div>
           <h1 class="mt-12 text-white font-weight-regular">
-            This is our
-            <span class="font-weight-bold text-custom-orange">specialty.</span>
+            {{$t('home.hero.title-section1')}}
+            <span class="font-weight-bold text-custom-orange">{{$t('home.hero.title-section2')}}</span>
           </h1>
 
           <h2 class="text-custom-orange font-weight-regular">
-            We are the solution for your busy lifestyle.
+            {{$t('home.hero.sub-title')}}
+            <!-- We are the solution for your busy lifestyle. -->
           </h2>
           <v-btn
             color="#f4b754"
             size="large"
             rounded="xl"
             class="font-weight-bold mt-16 text-white"
-            >Contact Us</v-btn
+            >{{$t('home.hero.button')}}</v-btn
           >
         </v-col>
       </v-row>
@@ -148,6 +149,10 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import bgLogoUrl from "@/assets/business-and-guiness-logo.jpg";
+
+import { useLanguage } from "@/composables/stores/useLanguage";
+
+const { activeLanguage, availableLanguages, changeLanguage, getCurrentLanguageDisplay } = useLanguage();
 
 const indexVal = ref(0);
 let intervalID;

@@ -22,7 +22,8 @@
   },
   "home": {
     "hero": {
-      "title": "This is our specialty",
+      "title-section1": "This is our",
+      "title-section2": "speciality.",
       "sub-title": "We are the solution to your busy lifestyle",
       "button": "Contact Us"
     },
