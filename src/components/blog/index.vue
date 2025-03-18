@@ -1,6 +1,6 @@
 <template>
-  <v-container >
-    <v-row >
+  <v-container>
+    <v-row>
       <v-col>
         <h1>Blog Posts</h1>
         <v-card
@@ -16,7 +16,7 @@
           </v-row>
           <v-row
             ><v-col
-              ><v-card-title class="pb-0 pt-0">{{
+              ><v-card-title class="no-truncate pb-0 pt-0">{{
                 member.title
               }}</v-card-title></v-col
             ></v-row
@@ -53,5 +53,13 @@ import { data } from "@/assets/scripts/blogdata.js";
 <style scoped>
 .custom-text-color {
   color: #151619 !important;
+}
+
+.no-truncate {
+  overflow: visible;
+  text-overflow: clip !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  white-space: normal !important;
 }
 </style>

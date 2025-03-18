@@ -33,11 +33,12 @@
       </v-row>
     </v-container>
   </v-sheet>
-  <v-sheet class="bg-custom-orange">
+  <v-sheet class="bg-custom-white">
   <v-container class="px-8 business-guiness">
-    <v-row class="text-center">
+    <v-card color="#f4b754" rounded="lg">    <v-row class="text-center">
       <v-col> <img :src="bgLogoUrl" height="150"> </img> </v-col>
-    </v-row>
+    </v-row></v-card>
+
     <v-row justify="center">
       <v-col cols="12">
       </v-col>
