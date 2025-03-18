@@ -15,8 +15,8 @@ export function useLanguage() {
 
   // Languages available for selection
   const availableLanguages = [
-    { name: "English", code: "en" },
-    { name: "Deutsch", code: "de" },
+    { name: "EN", code: "en" },
+    { name: "DE", code: "de" },
   ];
 
   // Function to change language
@@ -31,7 +31,7 @@ export function useLanguage() {
     const current = availableLanguages.find(
       (lang) => lang.code === activeLanguage.value
     );
-    return current ? current.name : "English";
+    return current ? current.name : "EN";
   }
 
   return {

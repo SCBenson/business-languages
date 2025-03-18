@@ -2,15 +2,13 @@
   <v-component class="footer-container px-8 text-center">
     <v-row>
       <v-col cols="12" class="pb-0 pt-6 text-custom-purple">
-        <h2 class="font-weight-bold">Join our Community!</h2>
+        <h2 class="font-weight-bold">{{ $t("footer.news-letter.title") }}</h2>
       </v-col>
     </v-row>
     <v-row>
       <v-col cols="12" class="pt-0"
         ><p class="text-black">
-          Join our mailing list to receive the occasional emails about business
-          languages and our community, including the latest news, sneak peeks
-          and product discounts.
+          {{ $t("footer.news-letter.sub-title") }}
         </p></v-col
       >
     </v-row>
@@ -19,7 +17,9 @@
         <v-form class="d-flex">
           <v-text-field bg-color="#e5e5e5" label="you@example.com">
           </v-text-field>
-          <v-btn class="mt-3 ml-2" color="purple">Submit</v-btn>
+          <v-btn class="mt-3 ml-2" color="purple">{{
+            $t("footer.news-letter.button")
+          }}</v-btn>
         </v-form>
       </v-col>
     </v-row>
@@ -27,7 +27,9 @@
     <v-row>
       <v-col cols="6">
         <v-row class="justify-center"
-          ><h3 class="text-custom-purple mt-2">Company</h3>
+          ><h3 class="text-custom-purple mt-2">
+            {{ $t("footer.footer-nav.title-company") }}
+          </h3>
           <v-list class="footer-list text-black">
             <v-list-item
               v-for="item in data.menuItems"
@@ -42,10 +44,14 @@
       </v-col>
       <v-col cols="6">
         <v-row class="justify-center"
-          ><h3 class="text-custom-purple mt-2">Legal</h3>
+          ><h3 class="text-custom-purple mt-2">
+            {{ $t("footer.footer-nav.title-legal") }}
+          </h3>
           <v-list class="footer-list text-black">
-            <v-list-item>Data Protection</v-list-item>
-            <v-list-item>Disclaimer</v-list-item>
+            <v-list-item>{{
+              $t("footer.footer-nav.data-protection")
+            }}</v-list-item>
+            <v-list-item>{{ $t("footer.footer-nav.disclaimer") }}</v-list-item>
           </v-list></v-row
         >
       </v-col>

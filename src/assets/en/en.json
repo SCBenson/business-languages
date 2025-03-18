@@ -135,7 +135,9 @@
   },
   "language-training": {
     "title": {
-      "title": "Language Training"
+      "title": "Language Training",
+      "benefits": "Benefits",
+      "button": "Book an appointment"
     },
     "single-training": {
       "title": "Single Training",
@@ -179,6 +181,8 @@
       "paragraph1": "Business Languages Augsburg provides translations into and from almost every language, with or without Certification, as required. Our translators are highly qualified and boast many years experience.",
       "paragraph2": "A lot of our customers from the area of Augsburg and surroundings rely on our “on-site” translations. The benefits are, having a contact person directly available, along with the fact that the translation can be finished as soon as possible. You can, of course, also send us your documents for proofreading.",
       "paragraph3": "As the saying goes, “two eyes good, four eyes better”. A second qualified translator, when desired, checks all our translations.",
+      "paragraph4": "",
+      "paragraph5": "",
       "button": "Get a Quote"
     }
   },
@@ -196,26 +200,26 @@
         "paragraph2": "A language is most easily learned in a country where it is spoken.",
         "button": "Learn More"
       }
+    }
+  },
+  "footer": {
+    "news-letter": {
+      "title": "Join our community!",
+      "sub-title": "Join our mailing list to receive the occasional emails about business languages and our community, including the latest news, sneak peeks and product discounts.",
+      "button": "Submit"
     },
-    "footer": {
-      "news-letter": {
-        "title": "Join our community!",
-        "sub-title": "Join our mailing list to receive the occasional emails about business languages and our community, including the latest news, sneak peeks and product discounts.",
-        "button": "Submit"
-      },
-      "footer-nav": {
-        "title-company": "Company",
-        "title-legal": "Legal",
-        "home": "Home",
-        "about": "About",
-        "team": "Team",
-        "blog": "Blog",
-        "bla-interactive": "BLA Interactive",
-        "lessons": "Lessons",
-        "media": "Media",
-        "data-protection": "Data Protection",
-        "disclaimer": "Disclaimer"
-      }
+    "footer-nav": {
+      "title-company": "Company",
+      "title-legal": "Legal",
+      "home": "Home",
+      "about": "About",
+      "team": "Team",
+      "blog": "Blog",
+      "bla-interactive": "BLA Interactive",
+      "lessons": "Lessons",
+      "media": "Media",
+      "data-protection": "Data Protection",
+      "disclaimer": "Disclaimer"
     }
   }
 }

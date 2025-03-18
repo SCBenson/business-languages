@@ -2,33 +2,39 @@
   <v-component>
     <v-row class="text-center">
       <v-col>
-        <h1>Learning Trips</h1>
+        <h1 class="mt-4">{{ $t("translations.title.title") }}</h1>
       </v-col>
     </v-row>
-    <v-row class="mb-6">
+    <v-row>
       <v-col cols="12">
-        <v-card class="mb-8">
-          <v-row class="text-center">
+        <v-card class="mx-8 mb-4">
+          <v-row class="text-left">
             <v-col cols="12" md="6">
               <v-img src="@/assets/translations/img1.webp"></v-img>
             </v-col>
             <v-col cols="12" md="6">
-              <v-card-title>Translations</v-card-title>
-              <p>
-                Business Languages Augsburg provides translations into and from
-                almost every language, with or without Certification, as
-                required. Our translators are highly qualified and boast many
-                years experience. <br /><br />
-                A lot of our customers from the area of Augsburg and
-                surroundings rely on our “on-site” translations. The benefits
-                are, having a contact person directly available, along with the
-                fact that the translation can be finished as soon as possible.
-                You can, of course, also send us your documents for
-                Proofreading. <br /><br />
-                As the saying goes, “two eyes good, four eyes better”. A second
-                qualified translator, when desired, checks all our translations.
+              <v-card-title class="text-center">{{
+                $t("translations.card.title")
+              }}</v-card-title>
+
+              <p class="px-4">
+                {{ $t("translations.card.paragraph1") }}<br /><br />
+                {{ $t("translations.card.paragraph2") }} <br /><br />
+                {{ $t("translations.card.paragraph3") }}
               </p>
-              <v-btn>Get a Quote</v-btn>
+              <p class="px-4" v-if="$t('translations.card.paragraph4')">
+                <br />
+                {{ $t("translations.card.paragraph4") }}
+              </p>
+              <p class="px-4" v-if="$t('translations.card.paragraph5')">
+                <br />
+                {{ $t("translations.card.paragraph5") }}
+              </p>
+              <div class="text-center d-flex justify-center">
+                <v-btn class="my-4 text-black" color="#f4b754">{{
+                  $t("translations.card.button")
+                }}</v-btn>
+              </div>
             </v-col>
           </v-row>
         </v-card>

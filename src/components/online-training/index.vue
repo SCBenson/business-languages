@@ -8,7 +8,7 @@
     <v-row>
       <v-col cols="12">
         <v-card
-          v-for="(member, index) in displayData"
+          v-for="(member, index) in englishData"
           :key="index"
           :color="member.color"
           class="mb-8"

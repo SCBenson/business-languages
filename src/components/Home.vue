@@ -66,16 +66,16 @@
       <v-col cols="12" md="8">
         <v-card color="#f4b754" class="pa-6">
           <v-form align="center" class="custom-color">
-            <h1 class="font-weight-bold">Leave us a message...</h1>
+            <h1 class="font-weight-bold">{{ $t('home.contact-form.title') }}</h1>
             <v-row justify="center">
               <v-col cols="12" md="8">
                 <v-text-field
                   bg-color="white"
-                  label="First Name"
+                  :label="$t('home.contact-form.first-name')"
                 ></v-text-field>
               </v-col>
               <v-col cols="12" md="8">
-                <v-text-field bg-color="white" label="Last Name"></v-text-field>
+                <v-text-field bg-color="white" :label="$t('home.contact-form.last-name')"></v-text-field>
               </v-col>
             </v-row>
             <v-row justify="center">
@@ -87,7 +87,7 @@
               <v-col cols="12" md="8">
                 <v-textarea
                   bg-color="white"
-                  label="Please write your message here...(max 500 characters)"
+                  :label="$t('home.contact-form.description')"
                 ></v-textarea>
               </v-col>
             </v-row>
@@ -105,13 +105,13 @@
               <v-card class="ma-6">
                 <v-row>
                   <v-col>
-                    <h1 class="custom-color">Opening Hours</h1>
+                    <h1 class="custom-color">{{ $t('home.contact-info.opening-hours') }}</h1>
                   </v-col>
                 </v-row>
 
                 <v-row>
                   <v-col align="space-around">
-                    <p>Visit Us:</p>
+                    <p>{{ $t('home.contact-info.visit-us') }}</p>
                     <p>example</p>
                   </v-col>
                 </v-row>
@@ -150,9 +150,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import bgLogoUrl from "@/assets/business-and-guiness-logo.jpg";
 
-import { useLanguage } from "@/composables/stores/useLanguage";
 
-const { activeLanguage, availableLanguages, changeLanguage, getCurrentLanguageDisplay } = useLanguage();
 
 const indexVal = ref(0);
 let intervalID;

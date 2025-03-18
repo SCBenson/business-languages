@@ -135,7 +135,9 @@
   },
   "language-training": {
     "title": {
-      "title": "Sprachtrainings"
+      "title": "Sprachtrainings",
+      "benefits": "Vorteile",
+      "button": "Buchen Sie einen Termin"
     },
     "single-training": {
       "title": "Einzelunterricht",
@@ -199,26 +201,26 @@
         "paragraph2": "Eine Sprache lernt man am besten in dem Land, in dem sie gesprochen wird.",
         "button": "Mehr erfahren"
       }
+    }
+  },
+  "footer": {
+    "news-letter": {
+      "title": "Werden Sie Mitglied unserer Gemeinschaft!",
+      "sub-title": "Tragen Sie sich in unsere Mailingliste ein, um gelegentlich E-Mails über businesslanguages und unsere Community zu erhalten, einschließlich der neuesten Nachrichten, Sneak Peeks und Produktrabatte.",
+      "button": "Einreichen"
     },
-    "footer": {
-      "news-letter": {
-        "title": "Werden Sie Mitglied unserer Gemeinschaft!",
-        "sub-title": "Tragen Sie sich in unsere Mailingliste ein, um gelegentlich E-Mails über businesslanguages und unsere Community zu erhalten, einschließlich der neuesten Nachrichten, Sneak Peeks und Produktrabatte.",
-        "button": "Einreichen"
-      },
-      "footer-nav": {
-        "title-company": "Company",
-        "title-legal": "Rechtliches",
-        "home": "Home",
-        "about": "Über uns",
-        "team": "Team",
-        "blog": "Blog",
-        "bla-interactive": "BLA Interaktiv",
-        "lessons": "Lehren",
-        "media": "Media",
-        "data-protection": "Datenschutz",
-        "disclaimer": "Haftungsausschluss"
-      }
+    "footer-nav": {
+      "title-company": "Company",
+      "title-legal": "Rechtliches",
+      "home": "Home",
+      "about": "Über uns",
+      "team": "Team",
+      "blog": "Blog",
+      "bla-interactive": "BLA Interaktiv",
+      "lessons": "Lehren",
+      "media": "Media",
+      "data-protection": "Datenschutz",
+      "disclaimer": "Haftungsausschluss"
     }
   }
 }
