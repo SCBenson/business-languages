@@ -1,16 +1,18 @@
 <template>
   <v-sheet class="header-section" :style="coverImageStyle">
-    <v-container class="">
+    <v-container class="mx-2">
       <v-row class="align-start">
         <v-col class="">
           <div class="">
             <h1 class="text-start text-white">{{ blogData.title }}</h1>
+            <h2 class="text-white">{{ blogData.date }}</h2>
+            <p class="text-white">By: {{ blogData.author }}</p>
           </div>
         </v-col>
       </v-row>
     </v-container>
   </v-sheet>
-  <v-card class="overlapping-card mx-6" color="#f4b754">
+  <v-card class="overlapping-card ma-6" color="#f4b754">
     <div class="ma-4">
       <h2>{{ blogData.initialHeader }}</h2>
       <p>
@@ -21,8 +23,8 @@
         <p v-if="item.type === 'paragraph'">{{ item.content }}</p>
       </div>
     </div>
-    <v-btn @click="goBack">Edit Content</v-btn>
-    <v-btn>Publish</v-btn>
+    <v-btn @click="goBack" color="blue">Edit Content</v-btn>
+    <v-btn color="green">Publish</v-btn>
   </v-card>
 </template>
 

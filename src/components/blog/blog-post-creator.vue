@@ -5,11 +5,59 @@
       <v-form>
         <v-row>
           <v-col cols="12" class="pa-8">
+            <v-avatar size="80" v-if="author === 'Matthew Victor'"
+              ><v-img :src="`public/team/matthew.png`"></v-img>
+            </v-avatar>
+            <v-avatar size="100" v-if="author === 'Donal O\'Riada'"
+              ><v-img :src="`public/team/donal.png`"></v-img>
+            </v-avatar>
+            <v-menu transition="scale-transition" v-model="authorMenu"
+              ><template v-slot:activator="{ props }">
+                <v-select
+                  v-bind="props"
+                  v-model="author"
+                  :items="authorOptions"
+                  label="Author's Name"
+                  readonly
+                  variant="outlined"
+                  class="my-3"
+                >
+                </v-select>
+              </template>
+              <v-list>
+                <v-list-item @click="setAuthor('Donal O\'Riada')"
+                  >Donal O'Riada</v-list-item
+                >
+                <v-list-item @click="setAuthor('Matthew Victor')"
+                  >Matthew Victor</v-list-item
+                >
+              </v-list>
+            </v-menu>
+
+            <v-menu
+              v-model="dateMenu"
+              :close-on-content-click="false"
+              transition="scale-transition"
+              min-width="auto"
+            >
+              <template v-slot:activator="{ props }">
+                <v-text-field
+                  v-model="formattedDate"
+                  label="Date"
+                  prepend-inner-icon="mdi-calendar"
+                  readonly
+                  v-bind="props"
+                ></v-text-field>
+              </template>
+              <v-date-picker
+                v-model="datePublished"
+                @update:model-value="dateMenu = false"
+              ></v-date-picker>
+            </v-menu>
             <v-file-input
               v-model="coverImage"
               accept="image/*"
               label="Cover Image"
-              prepend-icon="mdi-camera"
               @change="handleImageUpload"
             ></v-file-input>
             <v-img
@@ -63,7 +111,7 @@
               </div>
             </div>
 
-            <v-menu transition="scale-transition" v-model="addMenu"
+            <v-menu transition="scale-transition" v-model="contentMenu"
               ><template v-slot:activator="{ props }">
                 <v-btn
                   v-bind="props"
@@ -89,17 +137,62 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-const addMenu = ref(false);
+const contentMenu = ref(false);
+const authorMenu = ref(false);
+const dateMenu = ref(false);
 const contentItems = ref([]);
 // Form Data
+const author = ref("");
+const datePublished = ref(null);
+const formattedDate = ref("");
 const coverImage = ref(null);
 const coverImagePreview = ref("");
 const blogTitle = ref("");
 const initialHeader = ref("");
 const initialParagraph = ref("");
+
+const setAuthor = (name) => {
+  author.value = name;
+  authorMenu.value = false; // Close the menu after selection
+  console.log(fDate.value);
+};
+
+// Function to format a date with ordinal suffix
+const formatDateWithOrdinal = (dateString) => {
+  if (!dateString) return "";
+
+  const date = new Date(dateString);
+
+  // Get day number
+  const day = date.getDate();
+
+  // Get ordinal suffix
+  let suffix = "th";
+  if (day % 10 === 1 && day !== 11) {
+    suffix = "st";
+  } else if (day % 10 === 2 && day !== 12) {
+    suffix = "nd";
+  } else if (day % 10 === 3 && day !== 13) {
+    suffix = "rd";
+  }
+
+  // Format complete date
+  return date
+    .toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    })
+    .replace(/(\d+)(?=(,))/, `$1${suffix}`);
+};
+
+// Watch for changes to datePublished and update formattedDate
+watch(datePublished, (newDate) => {
+  formattedDate.value = formatDateWithOrdinal(newDate);
+});
 
 // Handle image upload
 const handleImageUpload = (event) => {
@@ -114,6 +207,8 @@ const handleImageUpload = (event) => {
 //Method to collect the form data for preview
 const previewBlog = () => {
   const blogData = {
+    author: author.value,
+    date: formattedDate.value,
     title: blogTitle.value,
     initialHeader: initialHeader.value,
     initialParagraph: initialParagraph.value,
