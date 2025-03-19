@@ -5,10 +5,11 @@
       <v-form>
         <v-row>
           <v-col cols="12" class="pa-8">
-            <p>Upload an image to place at the top of the blog post.</p>
+            <p>Upload an image for the Blog Header:</p>
+            <v-file-input label="Choose Image"></v-file-input>
             <v-text-field label="Blog Title"></v-text-field>
             <v-text-field label="Initial Paragraph Header"></v-text-field>
-            <v-text-field label="Initial Paragraph"></v-text-field>
+            <v-textarea label="Initial Paragraph"></v-textarea>
             <div
               v-for="(item, index) in contentItems"
               :key="index"
@@ -51,22 +52,48 @@
                 >
               </template>
               <v-list>
-                <v-list-item @click="addHeader()">Header</v-list-item>
-                <v-list-item @click="addImage()">Image</v-list-item>
-                <v-list-item @click="addParagraph()">Paragraph</v-list-item>
+                <v-list-item @click="addContent('header')">Header</v-list-item>
+                <v-list-item @click="addContent('image')">Image</v-list-item>
+                <v-list-item @click="addContent('paragraph')"
+                  >Paragraph</v-list-item
+                >
               </v-list>
             </v-menu>
           </v-col>
         </v-row>
+        <v-btn @click="previewBlog" color="blue">Preview</v-btn>
       </v-form>
     </v-card>
   </v-component>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const addMenu = ref(false);
 const contentItems = ref([]);
+// Form Data
+const blogTitle = ref("");
+const initialHeader = ref("");
+const initialParagraph = ref("");
+const initialImage = ref("");
+
+//Method to collect the form data for preview
+const previewBlog = () => {
+  const blogData = {
+    title: blogTitle.value,
+    initialHeader: initialHeader.value,
+    initialParagraph: initialParagraph.value,
+    initialImage: initialImage.value,
+  };
+  // Create a route for a new preview component
+  router.push({
+    name: "blog-preview",
+    params: { id: "preview" },
+    state: { blogData },
+  });
+};
 
 const addContent = (type) => {
   contentItems.value.push({
@@ -79,10 +106,6 @@ const addContent = (type) => {
 const deleteContent = (index) => {
   contentItems.value.splice(index, 1);
 };
-
-const addParagraph = () => addContent("paragraph");
-const addHeader = () => addContent("header");
-const addImage = () => addContent("image");
 </script>
 
 <style scoped>

@@ -8,6 +8,8 @@ import BusinessAndGuinness from "@/components/business-and-guinness/index.vue";
 import OnlineTraining from "@/components/online-training/index.vue";
 import Translations from "@/components/translations/index.vue";
 import Blog from "@/components/blog/index.vue";
+import BlogPostCreator from "@/components/blog/blog-post-creator.vue";
+import BlogPreview from "@/components/blog/blog-preview.vue";
 import Webseries from "@/components/webseries/index.vue";
 import LearningTrips from "@/components/learning-trips/index.vue";
 import OnlineTips from "@/components/online-tips/index.vue";
@@ -25,7 +27,6 @@ import Liam from "@/components/team/team-profiles/liam.vue";
 import Divya from "@/components/team/team-profiles/divya.vue";
 import Sara from "@/components/team/team-profiles/sara.vue";
 import Register from "@/components/users/registration.vue";
-import BlogPostCreator from "@/components/blog/blog-post-creator.vue";
 
 // import Dashboard from "@/components/dashboard/dashboard.vue";
 //firebase
@@ -54,6 +55,12 @@ const router = createRouter({
     { path: "/business-and-guinness", component: BusinessAndGuinness },
     { path: "/blog", component: Blog },
     { path: "/blog-post-creator", component: BlogPostCreator },
+    {
+      path: "/blog/:id",
+      name: "blog-preview",
+      component: BlogPreview,
+      props: true,
+    },
     { path: "/webseries", component: Webseries },
     { path: "/learning-trips", component: LearningTrips },
     { path: "/online-tips", component: OnlineTips },
