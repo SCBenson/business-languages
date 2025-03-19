@@ -5,11 +5,35 @@
       <v-form>
         <v-row>
           <v-col cols="12" class="pa-8">
-            <p>Upload an image for the Blog Header:</p>
-            <v-file-input v-model="initialImage" label="Choose Image"></v-file-input>
-            <v-text-field v-model="blogTitle" required label="Blog Title"></v-text-field>
-            <v-text-field v-model="initialHeader" required label="Initial Header"></v-text-field>
-            <v-textarea v-model="initialParagraph" required label="Initial Paragraph"></v-textarea>
+            <v-file-input
+              v-model="coverImage"
+              accept="image/*"
+              label="Cover Image"
+              prepend-icon="mdi-camera"
+              @change="handleImageUpload"
+            ></v-file-input>
+            <v-img
+              v-if="coverImagePreview"
+              :src="coverImagePreview"
+              max-height="200"
+              contain
+              class="mb-4 grey lighten-2"
+            ></v-img>
+            <v-text-field
+              v-model="blogTitle"
+              required
+              label="Blog Title"
+            ></v-text-field>
+            <v-text-field
+              v-model="initialHeader"
+              required
+              label="Initial Header"
+            ></v-text-field>
+            <v-textarea
+              v-model="initialParagraph"
+              required
+              label="Initial Paragraph"
+            ></v-textarea>
             <div
               v-for="(item, index) in contentItems"
               :key="index"
@@ -18,11 +42,13 @@
               <div class="d-flex align-center">
                 <div class="flex-grow-1">
                   <v-textarea
-                    v-if="item.type === 'paragraph'" v-model="item.content"
+                    v-if="item.type === 'paragraph'"
+                    v-model="item.content"
                     :label="`Paragraph ${index + 2}`"
                   ></v-textarea>
                   <v-text-field
-                    v-if="item.type === 'header'" v-model="item.content"
+                    v-if="item.type === 'header'"
+                    v-model="item.content"
                     :label="`Header ${index + 2}`"
                   ></v-text-field>
                 </div>
@@ -69,10 +95,21 @@ const router = useRouter();
 const addMenu = ref(false);
 const contentItems = ref([]);
 // Form Data
+const coverImage = ref(null);
+const coverImagePreview = ref("");
 const blogTitle = ref("");
 const initialHeader = ref("");
 const initialParagraph = ref("");
-const initialImage = ref(null);
+
+// Handle image upload
+const handleImageUpload = (event) => {
+  const file = coverImage.value;
+  if (file) {
+    coverImagePreview.value = URL.createObjectURL(file);
+  } else {
+    coverImagePreview.value = "";
+  }
+};
 
 //Method to collect the form data for preview
 const previewBlog = () => {
@@ -80,11 +117,11 @@ const previewBlog = () => {
     title: blogTitle.value,
     initialHeader: initialHeader.value,
     initialParagraph: initialParagraph.value,
-    initialImage: initialImage.value,
-    contentItems: contentItems.value.map(item => ({
+    coverImageUrl: coverImagePreview.value,
+    contentItems: contentItems.value.map((item) => ({
       type: item.type,
-      content: item.content
-    }))
+      content: item.content,
+    })),
   };
   // Create a route for a new preview component
   router.push({
@@ -97,7 +134,7 @@ const previewBlog = () => {
 const addContent = (type) => {
   contentItems.value.push({
     type,
-    content: '',
+    content: "",
     id: Date.now(),
   });
   addMenu.value = false;
