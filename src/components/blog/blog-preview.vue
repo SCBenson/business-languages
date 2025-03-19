@@ -18,18 +18,36 @@
     <div v-for="(item, index) in blogData.contentItems" :key="index">
       <h2 v-if="item.type === 'header'">{{ item.content }}</h2>
       <p v-if="item.type === 'paragraph'">{{ item.content }}</p>
-      <img
-        v-if="item.type === 'image'"
-        :src="item.imageUrl"
-        :alt="item.altText"
-      />
     </div>
+    <v-btn @click="goBack">Edit Content</v-btn>
+    <v-btn>Publish</v-btn>
   </v-card>
 </template>
 
 <script setup>
-import { ref } from "vue";
-const blogData = ref({});
+import { useRouter, useRoute } from "vue-router";
+import { ref, onMounted } from "vue";
+
+const router = useRouter();
+const route = useRoute();
+
+const blogData = ref({ title: '',
+  initialHeader: '',
+  initialParagraph: '',
+  initialImage: '',
+  contentItems: []});
+
+onMounted(() => {
+// Get the blog data from router state
+if (router.currentRoute.value.state && router.currentRoute.value.state.blogData) {
+    blogData.value = router.currentRoute.value.state.blogData;
+  }
+});
+
+const goBack = () => {
+  router.back();
+}
+
 </script>
 
 <style scoped>

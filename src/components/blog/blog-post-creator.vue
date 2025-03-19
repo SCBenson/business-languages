@@ -1,15 +1,15 @@
 <template>
-  <v-component>
+  <v-container>
     <v-card class="my-4 mx-4">
       <v-card-title>Create a Blog Post!</v-card-title>
       <v-form>
         <v-row>
           <v-col cols="12" class="pa-8">
             <p>Upload an image for the Blog Header:</p>
-            <v-file-input label="Choose Image"></v-file-input>
-            <v-text-field label="Blog Title"></v-text-field>
-            <v-text-field label="Initial Paragraph Header"></v-text-field>
-            <v-textarea label="Initial Paragraph"></v-textarea>
+            <v-file-input v-model="initialImage" label="Choose Image"></v-file-input>
+            <v-text-field v-model="blogTitle" required label="Blog Title"></v-text-field>
+            <v-text-field v-model="initialHeader" required label="Initial Header"></v-text-field>
+            <v-textarea v-model="initialParagraph" required label="Initial Paragraph"></v-textarea>
             <div
               v-for="(item, index) in contentItems"
               :key="index"
@@ -18,17 +18,13 @@
               <div class="d-flex align-center">
                 <div class="flex-grow-1">
                   <v-textarea
-                    v-if="item.type === 'paragraph'"
+                    v-if="item.type === 'paragraph'" v-model="item.content"
                     :label="`Paragraph ${index + 2}`"
                   ></v-textarea>
                   <v-text-field
-                    v-if="item.type === 'header'"
+                    v-if="item.type === 'header'" v-model="item.content"
                     :label="`Header ${index + 2}`"
                   ></v-text-field>
-                  <div v-if="item.type === 'image'" class="my-2">
-                    <p>Upload image:</p>
-                    <v-file-input label="Choose Image"></v-file-input>
-                  </div>
                 </div>
                 <v-btn
                   icon
@@ -53,7 +49,6 @@
               </template>
               <v-list>
                 <v-list-item @click="addContent('header')">Header</v-list-item>
-                <v-list-item @click="addContent('image')">Image</v-list-item>
                 <v-list-item @click="addContent('paragraph')"
                   >Paragraph</v-list-item
                 >
@@ -64,7 +59,7 @@
         <v-btn @click="previewBlog" color="blue">Preview</v-btn>
       </v-form>
     </v-card>
-  </v-component>
+  </v-container>
 </template>
 
 <script setup>
@@ -77,7 +72,7 @@ const contentItems = ref([]);
 const blogTitle = ref("");
 const initialHeader = ref("");
 const initialParagraph = ref("");
-const initialImage = ref("");
+const initialImage = ref(null);
 
 //Method to collect the form data for preview
 const previewBlog = () => {
@@ -86,6 +81,10 @@ const previewBlog = () => {
     initialHeader: initialHeader.value,
     initialParagraph: initialParagraph.value,
     initialImage: initialImage.value,
+    contentItems: contentItems.value.map(item => ({
+      type: item.type,
+      content: item.content
+    }))
   };
   // Create a route for a new preview component
   router.push({
@@ -98,6 +97,7 @@ const previewBlog = () => {
 const addContent = (type) => {
   contentItems.value.push({
     type,
+    content: '',
     id: Date.now(),
   });
   addMenu.value = false;
