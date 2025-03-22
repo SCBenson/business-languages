@@ -26,7 +26,7 @@ import Elisabeth from "@/components/team/team-profiles/elisabeth.vue";
 import Liam from "@/components/team/team-profiles/liam.vue";
 import Divya from "@/components/team/team-profiles/divya.vue";
 import Sara from "@/components/team/team-profiles/sara.vue";
-import Register from "@/components/users/registration.vue";
+import AdministratorLogin from "@/components/users/admins.vue";
 
 // import Dashboard from "@/components/dashboard/dashboard.vue";
 //firebase
@@ -77,7 +77,7 @@ const router = createRouter({
     { path: "/team/Sara", component: Sara },
     { path: "/team/Liam", component: Liam },
     { path: "/team/Elisabeth", component: Elisabeth },
-    { path: "/registration", component: Register },
+    { path: "/admins", component: AdministratorLogin },
     // { path: "/dashboard", component: Dashboard, beforeEnter: isAuth },
   ],
 });

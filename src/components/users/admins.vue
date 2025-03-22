@@ -65,7 +65,7 @@
 import { ref, nextTick } from "vue";
 import { DB, AUTH } from "@/firebase/config.js";
 import { signOut } from "firebase/auth";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { useUserStore } from "@/composables/stores/userStore.js";
 import { useAuthValidation } from "@/composables/validateUser.js";
 import { useFirebaseAuth } from "@/composables/useFirebaseAuth.js";
@@ -80,7 +80,7 @@ const {
   resetForm,
   isRegistering: registering,
 } = useAuthValidation();
-const { registerUser, loginUser } = useFirebaseAuth();
+const { loginUser } = useFirebaseAuth();
 const router = useRouter();
 const snackbar = ref(false);
 const snackbarColor = ref("error");
@@ -116,36 +116,50 @@ const login = async () => {
   //========================UI Alert to notify user of unsuccessful/successful registration===========//
   if (error) {
     snackbarColor.value = "error";
-    snackbarMessage.value = getErrorMessage("login", error.code);
+    snackbarMessage.value = getErrorMessage(error.code);
     snackbar.value = true;
     console.log("Login failed:", error.message);
     return;
   }
 
   try {
-    const userDocRef = doc(DB, "users", user.uid);
-    const userDoc = await getDoc(userDocRef);
+    // Check if this user's email exists in any admin document
+    const adminsCollection = collection(DB, "admins");
+    const q = query(adminsCollection, where("email", "==", user.email));
+    const querySnapshot = await getDocs(q);
 
-    if (userDoc.exists()) {
-      userStore.setUserDetails(userDoc.data());
-      console.log("User data fetched:", userDoc.data());
+    if (!querySnapshot.empty) {
+      // User's email is found in admins collection
+      const adminDoc = querySnapshot.docs[0];
+      userStore.setUserDetails(adminDoc.data());
+      console.log("Admin user data fetched:", adminDoc.data());
+      
+      // Success handling
+      snackbarColor.value = "success";
+      snackbar.value = true;
+      userLoggedIn.value = true;
+      snackbarMessage.value = "Login successful! Redirecting...";
+      console.log("Successfully logged in:", user);
+      
+      //set a timer for the snackbar to exist before redirecting...
+      setTimeout(() => {
+        router.replace("/").catch((err) => {
+          console.error("Navigation failed:", err);
+        });
+      }, 3000);
     } else {
-      console.log("No user document found!");
+      // User is authenticated but not in admins collection
+      console.log("User authenticated but not an admin");
+      await signOut(AUTH); // Sign them out
+      snackbarColor.value = "error";
+      snackbarMessage.value = "You do not have admin access";
+      snackbar.value = true;
     }
   } catch (error) {
-    console.error("Error fetching user data:", fetchError);
+    console.error("Error fetching user data:", error);
+    snackbarColor.value = "error";
+    snackbarMessage.value = "Error verifying admin status";
+    snackbar.value = true;
   }
-
-  snackbarColor.value = "success";
-  snackbar.value = true;
-  userLoggedIn.value = false;
-  snackbarMessage.value = "Login successful! Redirecting...";
-  console.log("Successfully logged in:", user);
-  //set a timer for the snackbar to exist before redirecting...
-  setTimeout(() => {
-    router.replace("/dashboard").catch((err) => {
-      console.error("Navigation failed:", err);
-    });
-  }, 3000);
 };
 </script>

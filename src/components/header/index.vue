@@ -34,9 +34,9 @@
       > -->
       <router-link
         v-if="isAuth == null"
-        to="/registration"
+        to="/admins"
         class="mx-2 text-white"
-        >Login</router-link
+        >Admin</router-link
       >
       <router-link
         v-if="isAuth != null"
