@@ -221,7 +221,6 @@ const previewBlog = () => {
   // Create a route for a new preview component
   router.push({
     name: "blog-preview",
-    params: { id: "preview" },
     state: { blogData },
   });
 };

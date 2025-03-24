@@ -27,6 +27,7 @@ import Liam from "@/components/team/team-profiles/liam.vue";
 import Divya from "@/components/team/team-profiles/divya.vue";
 import Sara from "@/components/team/team-profiles/sara.vue";
 import AdministratorLogin from "@/components/users/admins.vue";
+import BlogPost from "@/components/blog/blog-template.vue";
 
 // import Dashboard from "@/components/dashboard/dashboard.vue";
 //firebase
@@ -56,11 +57,12 @@ const router = createRouter({
     { path: "/blog", component: Blog },
     { path: "/blog-post-creator", component: BlogPostCreator },
     {
-      path: "/blog/:id",
+      path: "/blog/preview",
       name: "blog-preview",
       component: BlogPreview,
       props: true,
     },
+    { path: "/blog/:slug", name: "blogPost", component: BlogPost, props: true },
     { path: "/webseries", component: Webseries },
     { path: "/learning-trips", component: LearningTrips },
     { path: "/online-tips", component: OnlineTips },

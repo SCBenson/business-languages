@@ -13,9 +13,9 @@ service cloud.firestore {
          request.auth.token.email == get(/databases/$(database)/documents/admins/config).data.adminEmail;
     }
     
-    // Default deny all
+    // Default deny all but admin.
     match /{document=**} {
-      allow read, write: if false;
+      allow read, write: if isAdmin();
     }
     
     // Allow querying the admins collection to check admin status

@@ -25,6 +25,12 @@
     </div>
     <v-btn @click="goBack" color="blue">Edit Content</v-btn>
     <v-btn @click="publishBlog" color="green">Publish</v-btn>
+    <v-snackbar v-model="snackbar.show" :color="snackbar.color">
+      {{ snackbar.text }}
+      <template v-slot:actions>
+        <v-btn variant="text" @click="snackbar.show = false">Close</v-btn>
+      </template>
+    </v-snackbar>
   </v-card>
 </template>
 
@@ -33,12 +39,20 @@ import { useRouter } from "vue-router";
 
 import { ref, onMounted, computed } from "vue";
 
-import { DB as db } from "@/firebase/config.js";
-import { collection, addDoc, setDoc } from "firebase/firestore";
+import { DB } from "@/firebase/config.js";
+import { collection, addDoc, updateDoc } from "firebase/firestore";
 
 const router = useRouter();
+const isPublishing = ref(false);
+
+const snackbar = ref({
+  show: false,
+  text: '',
+  color: 'info'
+});
 
 const blogData = ref({
+  id: "",
   title: "",
   date: "",
   initialHeader: "",
@@ -46,6 +60,14 @@ const blogData = ref({
   coverImageUrl: "",
   contentItems: [],
 });
+
+
+
+const generateSlug = (title) => {
+  
+  return title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').substring(0,60);
+
+};
 
 // Compute the background style based on image URL
 const coverImageStyle = computed(() => {
@@ -77,23 +99,61 @@ const goBack = () => {
   router.back();
 };
 
-const publishBlog = () => {
+const publishBlog = async () => {
+  isPublishing.value = true;
   // Create a reference to the "blog-posts" collection
-  const blogPostsCollection = collection(db, "blog-posts");
+  const blogPostsCollection = collection(DB, "blog-posts");
+  const slug = generateSlug(blogData.value.title);
   try {
-    addDoc(blogPostsCollection, {
-      author: "blogData.value.author",
-      date: "blogData.value.date",
-      title: "blogData.value.title",
-      initialHeader: "blogData.value.initialHeader",
-      initialParagraph: "blogData.value.initialParagraph",
+    const docRef = await addDoc(blogPostsCollection, {
+      author: blogData.value.author,
+      date: blogData.value.date,
+      title: blogData.value.title,
+      initialHeader: blogData.value.initialHeader,
+      initialParagraph: blogData.value.initialParagraph,
+      contentItems: blogData.value.contentItems,
+      coverImageUrl: blogData.value.coverImageUrl,
+      slug: slug
     });
+    await updateDoc(docRef, {
+      id: docRef.id
+    });
+
+    blogData.value.id = docRef.id;
+
+    console.log("Blog post created with ID:", docRef.id);
+    console.log("Blog post slug:", slug);
+
+    snackbar.value = {
+      show: true,
+      text: 'Blog post published successfully!',
+      color: 'success'
+    };
+
+    setTimeout(() => {
+      router.push(`/blog/${slug}`);
+    }, 1500);
+
+    setTimeout(() => {
+        router.replace(`/blog/${slug}`).catch((err) => {
+          console.error("Navigation failed:", err);
+        });
+      }, 3000);
+
   } catch (error) {
     console.error("Error publishing blog post:", error);
+    snackbar.value = {
+      show: true,
+      text: `Publishing failed: ${error.messages}`,
+      color: 'error'
+    };
     // Handle the error appropriately (e.g., show a notification to the user)
+  } finally {
+    isPublishing.value = false;
   }
   //Create a new document for the blog post in the database
 };
+
 
 // TODO: Create a document in the blog-posts database and initialize minimum required fields.
 
