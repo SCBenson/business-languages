@@ -10,7 +10,7 @@ service cloud.firestore {
     // Helper function to check if user's email exists in admins collection
     function isAdmin() {
       return isAuthenticated() && 
-             exists(/databases/$(database)/documents/admins/$(request.auth.email));
+         request.auth.token.email == get(/databases/$(database)/documents/admins/config).data.adminEmail;
     }
     
     // Default deny all

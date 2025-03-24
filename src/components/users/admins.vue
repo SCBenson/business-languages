@@ -65,7 +65,15 @@
 import { ref, nextTick } from "vue";
 import { DB, AUTH } from "@/firebase/config.js";
 import { signOut } from "firebase/auth";
-import { doc, getDoc, setDoc, collection, query, where, getDocs } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import { useUserStore } from "@/composables/stores/userStore.js";
 import { useAuthValidation } from "@/composables/validateUser.js";
 import { useFirebaseAuth } from "@/composables/useFirebaseAuth.js";
@@ -100,6 +108,61 @@ const submitForm = () => {
   login();
 };
 
+const checkAdminStatus = async (email, attempts = 3) => {
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const adminDocRef = doc(DB, "admins", "config");
+      console.log("Fetching admin config document...");
+      const adminDocSnap = await getDoc(adminDocRef);
+      console.log("Admin doc exists:", adminDocSnap.exists());
+      if (adminDocSnap.exists()) {
+        console.log("Admin email in database:", adminDocSnap.data().adminEmail);
+        console.log("User email:", email);
+        return {
+          isAdmin: adminDocSnap.data().adminEmail === email,
+          adminData: adminDocSnap.data(),
+        };
+      } else {
+        console.log("Admin config document not found");
+      }
+      console.log("Attempting to list all admin documents...");
+      const adminsCollectionRef = collection(DB, "admins");
+      const allAdminsSnap = await getDocs(adminsCollectionRef);
+
+      console.log("Total admin documents found:", allAdminsSnap.size);
+      let foundAdmin = false;
+      allAdminsSnap.forEach((doc) => {
+        console.log(`Document ID: ${doc.id}, Data:`, doc.data());
+        if (
+          doc.data().email === email ||
+          (doc.data().adminEmail && doc.data().adminEmail === email)
+        ) {
+          foundAdmin = true;
+          return {
+            isAdmin: true,
+            adminData: doc.data(),
+          };
+        }
+      });
+      if (foundAdmin) {
+        return { isAdmin: true, adminData: { email } };
+      }
+
+      return { isAdmin: false };
+    } catch (error) {
+      console.error(`Admin check attempt ${i + 1} failed:`, {
+        code: error.code,
+        message: error.message,
+      });
+      if (i === attempts - 1) {
+        throw error;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+  }
+  return { isAdmin: false };
+};
+
 //==LOGGING=IN=USER===============================================//
 const login = async () => {
   console.log("Login function called");
@@ -110,45 +173,41 @@ const login = async () => {
     return;
   }
   console.log("Attempting to login user...");
-
-  const { user, error } = await loginUser(formData.email, formData.password);
-
-  //========================UI Alert to notify user of unsuccessful/successful registration===========//
-  if (error) {
-    snackbarColor.value = "error";
-    snackbarMessage.value = getErrorMessage(error.code);
-    snackbar.value = true;
-    console.log("Login failed:", error.message);
-    return;
-  }
-
   try {
-    // Check if this user's email exists in any admin document
-    const adminsCollection = collection(DB, "admins");
-    const q = query(adminsCollection, where("email", "==", user.email));
-    const querySnapshot = await getDocs(q);
+    const { user, error } = await loginUser(formData.email, formData.password);
 
-    if (!querySnapshot.empty) {
-      // User's email is found in admins collection
-      const adminDoc = querySnapshot.docs[0];
-      userStore.setUserDetails(adminDoc.data());
-      console.log("Admin user data fetched:", adminDoc.data());
-      
+    //========================UI Alert to notify user of unsuccessful/successful registration===========//
+    if (error) {
+      snackbarColor.value = "error";
+      snackbarMessage.value = getErrorMessage(error.code);
+      snackbar.value = true;
+      console.log("Login failed:", error.message);
+      return;
+    }
+    console.log("User authenticated successfully, checking admin status...");
+    const { isAdmin, adminData } = await checkAdminStatus(user.email);
+
+    if (isAdmin) {
+      userStore.setUserDetails({
+        email: user.email,
+        uid: user.uid,
+        isAdmin: true,
+        ...adminData,
+      });
       // Success handling
       snackbarColor.value = "success";
       snackbar.value = true;
       userLoggedIn.value = true;
       snackbarMessage.value = "Login successful! Redirecting...";
-      console.log("Successfully logged in:", user);
-      
-      //set a timer for the snackbar to exist before redirecting...
+      console.log("Admin login successful:", user);
+
       setTimeout(() => {
         router.replace("/").catch((err) => {
           console.error("Navigation failed:", err);
         });
       }, 3000);
     } else {
-      // User is authenticated but not in admins collection
+      // User is authenticated but not an admin
       console.log("User authenticated but not an admin");
       await signOut(AUTH); // Sign them out
       snackbarColor.value = "error";
@@ -156,9 +215,13 @@ const login = async () => {
       snackbar.value = true;
     }
   } catch (error) {
-    console.error("Error fetching user data:", error);
+    console.error("Error during login process:", {
+      code: error.code,
+      message: error.message,
+      stack: error.stack,
+    });
     snackbarColor.value = "error";
-    snackbarMessage.value = "Error verifying admin status";
+    snackbarMessage.value = `Error: ${error.message}`;
     snackbar.value = true;
   }
 };
