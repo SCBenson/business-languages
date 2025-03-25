@@ -1,4 +1,96 @@
 <template>
+  <v-container class="text-center px-8">
+    <h1 class="text-custom-purple">About Us</h1>
+    <v-row>
+      <v-col cols="12">
+        <v-card color="#f4b754">
+          <v-card-title class="text-custom-purple"
+            >BLA Interactive</v-card-title
+          >
+          <v-card-text class="text-white"
+            >Your key to sustainable business English Experience a new dimension
+            of language learning with BLA Interactive - the revolutionary
+            platform that will transform your English training.</v-card-text
+          >
+        </v-card>
+      </v-col>
+      <v-col cols="12">
+        <v-card color="#f4b754">
+          <v-card-title class="text-custom-purple"
+            >Exclusive Benefits</v-card-title
+          >
+          <v-card-text class="text-white"
+            >Developed exclusively for our existing customers, BLA Interactive
+            offers a world of interactive learning opportunities, tailored to
+            the needs of modern needs of modern business professionals. Immerse
+            yourself in an environment that not only teaches, but inspires,
+            motivates and aims for sustainable improvement</v-card-text
+          >
+        </v-card>
+      </v-col>
+      <v-col cols="12">
+        <v-card color="#f4b754">
+          <v-card-title class="text-custom-purple"
+            >Beginner Friendly</v-card-title
+          >
+          <v-card-text class="text-white"
+            >This platform is aimed at all employees of our existing customers
+            who want to improve their business English effectively and
+            sustainably from beginners to advanced learners
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12">
+        <v-card color="#f4b754">
+          <v-card-title class="text-custom-purple"
+            >Exclusive Benefits</v-card-title
+          >
+          <v-card-text class="text-white"
+            ><v-list class="bg-transparent">
+              <v-list-item prepend-icon="mdi-star"
+                >Extensive video library</v-list-item
+              >
+              <v-list-item prepend-icon="mdi-star">Accessibility</v-list-item>
+              <v-list-item prepend-icon="mdi-star"
+                >Regular updates and new content</v-list-item
+              >
+              <v-list-item prepend-icon="mdi-star"
+                >Flexible learning paths</v-list-item
+              >
+              <v-list-item prepend-icon="mdi-star"
+                >Interactive training modules</v-list-item
+              >
+              <v-list-item prepend-icon="mdi-star">TechTalks</v-list-item>
+            </v-list>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12">
+        <v-card color="#f4b754">
+          <v-card-title class="text-custom-purple"
+            >Support for Newcomers</v-card-title
+          >
+          <v-card-text class="text-white"
+            >We have been very sucessful in training new arrivals to companies
+            in the German language. We will support you in learning both the
+            German language and business culture.
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12">
+        <v-card color="#f4b754">
+          <v-card-title class="text-custom-purple"
+            >Translation Services</v-card-title
+          >
+          <v-card-text class="text-white"
+            >We provide translation services, as well as certified translations
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-btn class="mt-4" color="purple">Book Now</v-btn>
+  </v-container>
+  <!-- OLD BLA FORMAT -->
   <v-sheet class="bg-custom-purple pb-3">
     <v-component class="px-8">
       <v-row justify="center">
@@ -56,71 +148,6 @@
           </v-list>
         </v-col>
       </v-row>
-      <!-- <v-row class="text-center">
-        <v-col cols="6" class="d-flex align-center justify-center"
-          ><v-card color="#f4b754" class="pa-3"
-            ><h2>BLA Interactive</h2></v-card
-          ></v-col
-        >
-        <v-col cols="6" class="bg-custom-white d-flex align-center"
-          ><p>
-            Your key to sustainable business English Experience a new dimension
-            of language learning with BLA Interactive - the revolutionary
-            platform that will transform your English training.
-          </p></v-col
-        >
-      </v-row>
-      <v-row class="text-center">
-        <v-col cols="6" class="d-flex align-center justify-center text-center"
-          ><h2>Exclusive Benefits</h2></v-col
-        >
-        <v-col cols="6" class="bg-custom-white d-flex align-center"
-          ><p>
-            Developed exclusively for our existing customers, BLA Interactive
-            offers a world of interactive learning opportunities, tailored to
-            the needs of modern needs of modern business professionals. Immerse
-            yourself in an environment that not only teaches, but inspires,
-            motivates and aims for sustainable improvement
-          </p></v-col
-        >
-      </v-row>
-      <v-row class="text-center">
-        <v-col cols="6" class="d-flex align-center justify-center text-center"
-          ><h2>Beginner Friendly</h2></v-col
-        >
-        <v-col cols="6" class="bg-custom-white d-flex align-center"
-          ><p>
-            This platform is aimed at all employees of our existing customers
-            who want to improve their business English effectively and
-            sustainably from beginners to advanced learners
-          </p></v-col
-        >
-      </v-row>
-      <v-row class="text-center">
-        <v-col cols="6" class="d-flex align-center justify-center text-center"
-          ><h2>A unique experience</h2></v-col
-        >
-        <v-col
-          cols="6"
-          class="bg-custom-white justify-center d-flex align-center"
-          ><v-list class="bg-transparent">
-            <v-list-item prepend-icon="mdi-star"
-              >Extensive video library</v-list-item
-            >
-            <v-list-item prepend-icon="mdi-star">Accessibility</v-list-item>
-            <v-list-item prepend-icon="mdi-star"
-              >Regular updates and new content</v-list-item
-            >
-            <v-list-item prepend-icon="mdi-star"
-              >Flexible learning paths</v-list-item
-            >
-            <v-list-item prepend-icon="mdi-star"
-              >Interactive training modules</v-list-item
-            >
-            <v-list-item prepend-icon="mdi-star">TechTalks</v-list-item>
-          </v-list>
-        </v-col>
-      </v-row> -->
     </v-component>
   </v-sheet>
 </template>
