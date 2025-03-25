@@ -47,7 +47,25 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import { data } from "@/assets/scripts/blogdata.js";
+import { DB } from "@/firebase/config.js";
+import { collection, getDoc } from "firebase/firestore";
+
+const loading = ref(false);
+const error = ref(null);
+//Fetch all of the documents inside the 'blog-posts collection'
+const fetchBlogPosts = async () => {
+  loading.value = true;
+  error.value = "";
+  try {
+    const collectionRef = collection(DB, "blog-posts");
+  } catch (err) {}
+};
+
+onMounted(() => {
+  fetchBlogPosts();
+});
 </script>
 
 <style scoped>
