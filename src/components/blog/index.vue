@@ -57,7 +57,7 @@ const error = ref(null);
 //Fetch all of the documents inside the 'blog-posts collection'
 const fetchBlogPosts = async () => {
   loading.value = true;
-  error.value = "";
+  error.value = null;
   try {
     const collectionRef = collection(DB, "blog-posts");
   } catch (err) {}
