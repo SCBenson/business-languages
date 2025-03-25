@@ -19,6 +19,7 @@
                   :items="authorOptions"
                   label="Author's Name"
                   readonly
+                  required
                   variant="outlined"
                   class="my-3"
                 >
@@ -42,7 +43,7 @@
             >
               <template v-slot:activator="{ props }">
                 <v-text-field
-                  v-model="formattedDate"
+                  v-model="editedDate"
                   label="Date"
                   prepend-inner-icon="mdi-calendar"
                   readonly
@@ -147,27 +148,35 @@ const contentItems = ref([]);
 // Form Data
 const author = ref("");
 const datePublished = ref(null);
-const formattedDate = ref("");
+const editedDate = ref("");
 const coverImage = ref(null);
 const coverImagePreview = ref("");
+const avatarPath = ref("");
 const blogTitle = ref("");
 const initialHeader = ref("");
 const initialParagraph = ref("");
-
+const authorOptions = ref(['Donal O\'Riada', 'Matthew Victor']);
+const basePublicPath = import.meta.env.BASE_URL || "/";
 const setAuthor = (name) => {
   author.value = name;
   authorMenu.value = false; // Close the menu after selection
-  console.log(fDate.value);
+
+  if(author.value === "Matthew Victor"){
+    avatarPath.value = `${basePublicPath}team/matthew.png`;
+
+  }else{
+    avatarPath.value = `${basePublicPath}team/donal.png`;
+  }
 };
 
 // Function to format a date with ordinal suffix
 const formatDateWithOrdinal = (dateString) => {
   if (!dateString) return "";
 
-  const date = new Date(dateString);
+  const formattedDate = new Date(dateString);
 
   // Get day number
-  const day = date.getDate();
+  const day = formattedDate.getDate();
 
   // Get ordinal suffix
   let suffix = "th";
@@ -180,7 +189,7 @@ const formatDateWithOrdinal = (dateString) => {
   }
 
   // Format complete date
-  return date
+  return formattedDate
     .toLocaleDateString("en-US", {
       month: "long",
       day: "numeric",
@@ -191,7 +200,7 @@ const formatDateWithOrdinal = (dateString) => {
 
 // Watch for changes to datePublished and update formattedDate
 watch(datePublished, (newDate) => {
-  formattedDate.value = formatDateWithOrdinal(newDate);
+  editedDate.value = formatDateWithOrdinal(newDate);
 });
 
 // Handle image upload
@@ -207,8 +216,9 @@ const handleImageUpload = (event) => {
 //Method to collect the form data for preview
 const previewBlog = () => {
   const blogData = {
+    avatarPath: avatarPath.value,
     author: author.value,
-    date: formattedDate.value,
+    formattedDate: formattedDate.value,
     title: blogTitle.value,
     initialHeader: initialHeader.value,
     initialParagraph: initialParagraph.value,

@@ -28,7 +28,7 @@
           <v-col class="">
             <div class="">
               <h1 class="text-start text-white">{{ blogData.title }}</h1>
-              <h2 class="text-white">{{ blogData.date }}</h2>
+              <h2 class="text-white">{{ blogData.formattedDate }}</h2>
               <p class="text-white">By: {{ blogData.author }}</p>
             </div>
           </v-col>
@@ -55,7 +55,7 @@ import { ref, onMounted, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { DB } from "@/firebase/config.js";
 import { collection, getDocs, query, where } from "firebase/firestore";
-
+const basePublicPath = import.meta.env.BASE_URL || "/";
 const route = useRoute();
 const router = useRouter();
 const slug = route.params.slug;
@@ -66,6 +66,7 @@ const error = ref(null);
 const blogData = ref({
   id: "",
   title: "",
+  formattedDate: "",
   date: "",
   initialHeader: "",
   initialParagraph: "",
@@ -93,8 +94,9 @@ const fetchBlogData = async () => {
   loading.value = true;
   error.value = null;
   try {
-    //Query the blog-posts collection for a document with the matching slug.
+    // get the reference to the blog posts collection..
     const blogsCollection = collection(DB, "blog-posts");
+    //Query the blog-posts collection for a document with the matching slug.
     //where(field, conditional, ref(defined above))
     const q = query(blogsCollection, where("slug", "==", slug));
     // q returns a reference to the document, so now we can use getDoc() and point to it.

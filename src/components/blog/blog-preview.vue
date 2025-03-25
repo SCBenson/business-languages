@@ -6,6 +6,9 @@
           <div class="">
             <h1 class="text-start text-white">{{ blogData.title }}</h1>
             <h2 class="text-white">{{ blogData.date }}</h2>
+            <v-avatar v-if="blogData.avatarPath" size="80"
+              ><v-img  :src="blogData.avatarPath"></v-img>
+            </v-avatar>
             <p class="text-white">By: {{ blogData.author }}</p>
           </div>
         </v-col>
@@ -40,8 +43,8 @@ import { useRouter } from "vue-router";
 import { ref, onMounted, computed } from "vue";
 
 import { DB } from "@/firebase/config.js";
-import { collection, addDoc, updateDoc } from "firebase/firestore";
-
+import { collection, addDoc, updateDoc, Timestamp } from "firebase/firestore";
+const basePublicPath = import.meta.env.BASE_URL || "/";
 const router = useRouter();
 const isPublishing = ref(false);
 
@@ -52,6 +55,8 @@ const snackbar = ref({
 });
 
 const blogData = ref({
+  avatarPath: "",
+  author: "",
   id: "",
   title: "",
   date: "",
@@ -106,8 +111,10 @@ const publishBlog = async () => {
   const slug = generateSlug(blogData.value.title);
   try {
     const docRef = await addDoc(blogPostsCollection, {
+      avatar: blogData.value.avatarUrl,
       author: blogData.value.author,
-      date: blogData.value.date,
+      formattedDate: blogData.value.date,
+      date: new Date(blogData.value.date),
       title: blogData.value.title,
       initialHeader: blogData.value.initialHeader,
       initialParagraph: blogData.value.initialParagraph,
