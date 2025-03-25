@@ -42,7 +42,8 @@
   },
   "about": {
     "title": {
-      "title": "About Us"
+      "title": "About Us",
+      "button": "Book Now"
     },
     "global-team": {
       "title": "Global Team",
