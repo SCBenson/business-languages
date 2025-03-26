@@ -11,7 +11,7 @@
         >
           <v-row>
             <v-col
-              ><v-card-text class="pb-0">{{ member.date }}</v-card-text></v-col
+              ><v-card-text class="pb-0">{{ member.formattedDate }}</v-card-text></v-col
             >
           </v-row>
           <v-row
@@ -37,7 +37,7 @@
           </v-row>
           <v-row>
             <v-col
-              ><v-btn class="ml-4 mb-4" color="purple">Explore ➝</v-btn></v-col
+              ><v-btn @click="goToBlog(member.slug)" class="ml-4 mb-4" color="purple">Explore ➝</v-btn></v-col
             >
           </v-row>
         </v-card>
@@ -54,10 +54,11 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { data } from "@/assets/scripts/blogdata.js";
+import { useRouter } from "vue-router"
 import { DB } from "@/firebase/config.js";
 import { collection, getDocs, query } from "firebase/firestore";
 
+const router = useRouter();
 const loading = ref(false);
 const error = ref(null);
 const errorFlag = ref(false);
@@ -82,9 +83,10 @@ const fetchBlogPosts = async () => {
       const blogData = doc.data();
       posts.push({
         author: blogData.author || "",
-        date: blogData.date || "",
-        title: blogData.initialHeader || "",
-        initialParagraph: blogData.initialParagraph || ""
+        formattedDate: blogData.formattedDate || "",
+        title: blogData.title || "",
+        initialParagraph: blogData.initialParagraph || "",
+        slug: blogData.slug
       });
     });
     blogPosts.value = posts;
@@ -98,6 +100,9 @@ const fetchBlogPosts = async () => {
   }
 };
 
+const goToBlog = (slug) => {
+  router.push(`/blog/${slug}`);
+}
 
 onMounted(() => {
   fetchBlogPosts();

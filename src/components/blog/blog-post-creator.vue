@@ -204,7 +204,7 @@ watch(datePublished, (newDate) => {
 });
 
 // Handle image upload
-const handleImageUpload = (event) => {
+const handleImageUpload = async (event) => {
   const file = coverImage.value;
   if (file) {
     coverImagePreview.value = URL.createObjectURL(file);
@@ -218,7 +218,7 @@ const previewBlog = () => {
   const blogData = {
     avatarPath: avatarPath.value,
     author: author.value,
-    formattedDate: formattedDate.value,
+    formattedDate: editedDate.value,
     title: blogTitle.value,
     initialHeader: initialHeader.value,
     initialParagraph: initialParagraph.value,

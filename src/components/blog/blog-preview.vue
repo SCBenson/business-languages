@@ -5,7 +5,7 @@
         <v-col class="">
           <div class="">
             <h1 class="text-start text-white">{{ blogData.title }}</h1>
-            <h2 class="text-white">{{ blogData.date }}</h2>
+            <h2 class="text-white">{{ blogData.formattedDate }}</h2>
             <v-avatar v-if="blogData.avatarPath" size="80"
               ><v-img  :src="blogData.avatarPath"></v-img>
             </v-avatar>
@@ -41,8 +41,8 @@
 import { useRouter } from "vue-router";
 
 import { ref, onMounted, computed } from "vue";
-
-import { DB } from "@/firebase/config.js";
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
+import { DB, storage } from "@/firebase/config.js";
 import { collection, addDoc, updateDoc, Timestamp } from "firebase/firestore";
 const basePublicPath = import.meta.env.BASE_URL || "/";
 const router = useRouter();
@@ -109,17 +109,55 @@ const publishBlog = async () => {
   // Create a reference to the "blog-posts" collection
   const blogPostsCollection = collection(DB, "blog-posts");
   const slug = generateSlug(blogData.value.title);
+
   try {
+      let dateObj = new Date();
+        // Try to create a valid date object
+      if (blogData.value.formattedDate) {
+        // Parse the formatted date (e.g., "March 25th, 2025") into a valid date object
+        // Remove any ordinal suffixes (st, nd, rd, th) which cause parsing issues
+        const cleanDateStr = blogData.value.formattedDate
+          .replace(/(\d+)(st|nd|rd|th)/, '$1');
+        const parsedDate = new Date(cleanDateStr);
+        
+        // Check if the date is valid
+        if (isNaN(dateObj.getTime())) {
+          // If date is invalid, use current date as fallback
+          console.warn("Invalid date format, using current date instead");
+          dateObj = parsedDate;
+        }
+      } else {
+        console.warn("Could not parse date string, using current date instead.")
+      }
+      // Upload image if it exists
+      let imageUrl = "";
+      if(blogData.value.coverImageUrl && blogData.value.coverImageUrl.startsWith('blob:')){
+        try{
+          const response = await fetch(blogData.value.coverImageUrl);
+          const blob = await response.blob();
+          const imageRef = storageRef(storage, `blog-images/${slug}-${Date.now()}`);
+          await uploadBytes(imageRef, blob);
+          imageUrl = await getDownloadURL(imageRef);
+          console.log("Image uploaded, URL:", imageUrl);
+        } catch (error){
+          console.error("Error uploading image:", error);
+          imageUrl = blogData.value.coverImageUrl;
+        }
+      } else {
+          imageUrl = blogData.value.coverImageUrl || '';
+      }
+
+
     const docRef = await addDoc(blogPostsCollection, {
-      avatar: blogData.value.avatarUrl,
+      avatar: blogData.value.avatarPath,
       author: blogData.value.author,
-      formattedDate: blogData.value.date,
-      date: new Date(blogData.value.date),
+      formattedDate: blogData.value.formattedDate || '',
+      date: Timestamp.fromDate(dateObj),
       title: blogData.value.title,
       initialHeader: blogData.value.initialHeader,
       initialParagraph: blogData.value.initialParagraph,
       contentItems: blogData.value.contentItems,
-      coverImageUrl: blogData.value.coverImageUrl,
+      coverImageUrl: imageUrl,
       slug: slug
     });
     await updateDoc(docRef, {
