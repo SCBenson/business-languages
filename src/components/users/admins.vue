@@ -1,12 +1,13 @@
 <template>
   <v-container theme="mainTheme">
-    <v-card color="#f4b754">
+    <v-card color="#f4b754" class="pa-4">
       <v-form @submit.prevent="submitForm">
-        <v-row justify="center">
-          <v-col md="6">
-            <h1>Log in to your account</h1>
-            <v-row>
-              <v-col>
+        <v-row justify="center" class="text-center">
+          <v-col cols="12" md="12">
+            <h1>Admin Login</h1>
+            <v-row justify="center">
+              <v-col cols="12" class="d-flex justify-center">
+               <div style="width: 350px">
                 <v-text-field
                   v-model="formData.email"
                   :error-messages="
@@ -17,11 +18,15 @@
                   @blur="v$?.formData?.email?.$touch()"
                   prepend-icon="mdi-mail"
                 />
+              </div>
+             
               </v-col>
             </v-row>
-            <v-row>
-              <v-col>
+            <v-row justify="center">
+              <v-col cols="12" class="d-flex justify-center">
+                <div style="width: 350px">
                 <v-text-field
+
                   v-model="formData.password"
                   :type="showPassword ? 'text' : 'password'"
                   :error-messages="
@@ -34,12 +39,13 @@
                   :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                   @click:append="showPassword = !showPassword"
                 />
+              </div>
               </v-col>
             </v-row>
 
-            <v-row>
+            <v-row class="text-center">
               <v-col>
-                <v-btn type="submit">Sign In</v-btn>
+                <v-btn type="submit" color="blue">Sign In</v-btn>
               </v-col>
             </v-row>
           </v-col>
