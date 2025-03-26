@@ -95,7 +95,7 @@
       </v-app-bar-nav-icon>
     </template>
   </v-app-bar>
-  <v-navigation-drawer v-model="drawer" location="right" temporary app>
+  <v-navigation-drawer v-model="drawer" location="right" app temporary class="overflow-x-hidden">
     <v-list>
       <!-- For items WITHOUT sublinks -->
       <v-list-item
