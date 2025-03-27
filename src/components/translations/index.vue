@@ -15,7 +15,7 @@
    
             <v-col cols="12" md="6" class="pa-0 d-md-flex align-md-center">
               <div class="mx-6">
-              <v-card-title class="text-center responsive-title">{{
+              <v-card-title class="mt-4 text-center responsive-title">{{
                 $t("translations.card.title")
               }}</v-card-title>
 
