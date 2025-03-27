@@ -15,7 +15,7 @@
           :key="key"
           :color="$t(`language-training.${key}.color`)"
           :max-width="$vuetify.display.mdAndUp ? '1000px' : '100%'"
-          class="mb-8 mx-auto"
+          class="mb-8 mx-6 mx-md-auto"
         >
           <v-row>
             <v-col cols="4" class="d-flex justify-center align-center"
@@ -52,6 +52,7 @@
 <style scoped>
 .responsive-title {
   font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .responsive-text {
@@ -61,6 +62,7 @@
 @media (min-width: 960px) {
   .responsive-title {
     font-size: 1.4rem;
+    font-weight: 700;
   }
   
   .responsive-text {
