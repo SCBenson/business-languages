@@ -12,8 +12,8 @@
         </p></v-col
       >
     </v-row>
-    <v-row>
-      <v-col cols="12" class="pb-0">
+    <v-row justify="center">
+      <v-col cols="12" lg="2" class="pb-0">
         <v-form class="d-flex">
           <v-text-field bg-color="#e5e5e5" label="you@example.com">
           </v-text-field>

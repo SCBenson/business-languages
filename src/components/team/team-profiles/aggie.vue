@@ -17,7 +17,7 @@
           <v-row>
             <v-col class="px-8">
               <h2 class="text-custom-purple">Placeholder</h2>
-              <p>
+              <p class="text-black">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere,
                 maxime debitis adipisci ullam earum non illo a iusto dolorem
                 consectetur natus modi officia quos hic illum. Dolorum cumque

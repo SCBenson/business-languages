@@ -174,7 +174,7 @@ const data = [
     firstName: "Kelsey",
     lastName: "Bardon",
     role: "Instructor",
-    path: `${basePublicPath}team/kelsey.png`,
+    path: `${basePublicPath}team/kelseybardon.png`,
     description: "",
   },
 ];

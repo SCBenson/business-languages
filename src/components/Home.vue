@@ -35,16 +35,19 @@
   </v-sheet>
   <v-sheet class="bg-custom-white">
   <v-container class="px-8 business-guiness">
-    <v-card color="#f4b754" rounded="lg">    <v-row class="text-center">
-      <v-col> <img :src="bgLogoUrl" height="150"> </img> </v-col>
-    </v-row></v-card>
+    <v-row class="text-center" justify="center">
+      <v-card color="#f4b754" rounded="lg" class="px-6 mt-4">
+      <v-col cols="12" lg="6"> <img :src="bgLogoUrl" height="150"> </img> </v-col>
+    </v-card>
+    </v-row>
+        
 
     <v-row justify="center">
       <v-col cols="12">
       </v-col>
     </v-row>
-    <v-row>
-      <v-col cols="12">
+    <v-row justify="center">
+      <v-col cols="12" lg="6">
         <v-responsive
           :aspect-ratio="$vuetify.display.mdAndUp ? '16/9' : '4/3'"
           class="video-container"
@@ -62,12 +65,12 @@
     </v-row>
   </v-container>
   </v-sheet>
-  <v-container class="px-8">
+  <v-container class="px-8 mt-12">
     <v-row justify="center">
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="6" lg="6">
         <v-card color="#f4b754" class="pa-6">
           <v-form align="center" class="custom-color">
-            <h1 class="font-weight-bold">{{ $t('home.contact-form.title') }}</h1>
+            <h1 class="font-weight-bold mb-2">{{ $t('home.contact-form.title') }}</h1>
             <v-row justify="center">
               <v-col cols="12" md="8">
                 <v-text-field
@@ -92,46 +95,65 @@
                 ></v-textarea>
               </v-col>
             </v-row>
+            <v-row><v-col><v-btn color="purple">{{$t('home.contact-form.button')}}</v-btn></v-col></v-row>
           </v-form>
         </v-card>
       </v-col>
     </v-row>
   </v-container>
-  <v-container class="px-8">
+  <v-container class="px-8 contact-info-container">
     <v-row justify="center">
-      <v-col align="center" cols="12">
-        <v-card color="#f4b754" >
+      <v-col align="center" cols="12" md="6" lg="6">
+        <v-card color="#f4b754">
           <v-row>
-            <v-col>
-              <v-card class="ma-6">
+            <v-col cols="12" md="6" lg="6">
+              <v-card class="ma-4">
                 <v-row>
                   <v-col>
-                    <h1 class="custom-color">{{ $t('home.contact-info.opening-hours') }}</h1>
+                    <h1 class="custom-color">{{ $t('home.contact-info.title') }}</h1>
                   </v-col>
                 </v-row>
 
                 <v-row>
+                  <v-col><v-icon>mdi-pin</v-icon></v-col>
                   <v-col align="space-around">
                     <p>{{ $t('home.contact-info.visit-us') }}</p>
-                    <p>example</p>
+                    <p>Dr. Durrwanger Strasse 15F <br/> 86156 <br/>Augsburg</p>
                   </v-col>
                 </v-row>
 
                 <v-row>
-                  <p></p>
+                  <v-col><v-icon>mdi-email</v-icon></v-col>
+                  <v-col align="space-around">
+                    
+                    <p>Email</p>
+                    <p>info@buisinesslanguages.de</p></v-col>
+                  
                 </v-row>
 
                 <v-row>
-                  <p></p>
+                  <v-col><v-icon>mdi-phone</v-icon></v-col>
+                  <v-col>
+                  <p>{{ $t('home.contact-info.phone') }}</p>
+                  <p>+ 49 1733825029</p>
+                </v-col>
+                </v-row>
+                <v-row>
+                  <v-col><v-icon>mdi-clock</v-icon></v-col>
+                  <v-col>
+                  <p>{{ $t('home.contact-info.opening-hours') }}</p>
+                  <p>M-F: 9:00AM-6:00PM</p>
+                </v-col>
                 </v-row>
               </v-card>
             </v-col>
-            <v-col>
+            <v-col cols="12" lg="6" md="6">
               <v-row>
-                <v-col>
+                <v-col
+                class="my-4 mx-4 map-container">
                   <iframe
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5299.62989237724!2d10.849799!3d48.38329100000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ebcdc0a913c13%3A0xc251e675dd293f06!2sDr.-D%C3%BCrrwanger-Stra%C3%9Fe%2015F%2C%2086156%20Augsburg%2C%20Germany!5e0!3m2!1sen!2sus!4v1715632174435!5m2!1sen!2sus"
-                  style="border: 0"
+                  style="border: 0; width: 100%; height: 100%;"
                   allowfullscreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
@@ -224,274 +246,14 @@ onUnmounted(() => {
 }
 
 .video-container {
-  min-height: 300px;
+  min-height: 700px;
 }
 
-/* Add additional bubbles */
-.business-guiness.bubble-container .v-row:last-child::after {
-  width: 75px;
-  height: 75px;
-  left: 15%;
-  bottom: -20px;
-  animation: float-1 5.5s linear infinite;
-  animation-delay: 0.7s;
+.contact-info-container{
+  height: 40vh;
 }
 
-.business-guiness.bubble-container .video-container::before {
-  width: 55px;
-  height: 55px;
-  left: 35%;
-  bottom: -20px;
-  animation: float-3 6.5s linear infinite;
-  animation-delay: 1.2s;
+.map-container{
+  height: 400px;
 }
-
-.business-guiness.bubble-container .video-container::after {
-  width: 95px;
-  height: 95px;
-  left: 75%;
-  bottom: -20px;
-  animation: float-2 7.5s linear infinite;
-  animation-delay: 0.2s;
-}
-
-.business-guiness.bubble-container .v-responsive::before {
-  width: 70px;
-  height: 70px;
-  left: 50%;
-  bottom: -20px;
-  animation: float-5 5.8s linear infinite;
-  animation-delay: 2.5s;
-}
-
-.business-guiness.bubble-container .v-responsive::after {
-  width: 60px;
-  height: 60px;
-  left: 90%;
-  bottom: -20px;
-  animation: float-4 6.8s linear infinite;
-  animation-delay: 3.2s;
-}/* Container styling for bubbles inside Vuetify component */
-.business-guiness.bubble-container {
-  position: relative;
-  background: #f4b754;
-  overflow: hidden;
-}
-
-/* Create more bubbles using additional pseudo-elements */
-.business-guiness.bubble-container::before,
-.business-guiness.bubble-container::after,
-.business-guiness.bubble-container .v-row:first-child::before,
-.business-guiness.bubble-container .v-row:first-child::after,
-.business-guiness.bubble-container .v-row:last-child::before,
-.business-guiness.bubble-container .v-row:last-child::after,
-.business-guiness.bubble-container .video-container::before,
-.business-guiness.bubble-container .video-container::after,
-.business-guiness.bubble-container .v-responsive::before,
-.business-guiness.bubble-container .v-responsive::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  border-radius: 50%;
-  pointer-events: none;
-  background: rgba(128, 0, 128, 0.6);
-}
-
-/* Ensure content stays above bubbles */
-.business-guiness.bubble-container > .v-row {
-  position: relative;
-  z-index: 2;
-}
-
-/* Custom styling for the video container */
-.business-guiness .video-container {
-  position: relative;
-  z-index: 2;
-  backdrop-filter: blur(0px);
-}
-
-/* Individual bubble styling with unique animations */
-.business-guiness.bubble-container::before {
-  width: 75px;
-  height: 75px;
-  left: 10%;
-  bottom: -20px;
-  animation: float-1 5s linear infinite;
-}
-
-.business-guiness.bubble-container::after {
-  width: 55px;
-  height: 55px;
-  left: 25%;
-  bottom: -20px;
-  animation: float-2 7s linear infinite;
-  animation-delay: 1s;
-}
-
-.business-guiness.bubble-container .v-row:first-child::before {
-  width: 12px;
-  height: 12px;
-  left: 40%;
-  bottom: -20px;
-  animation: float-3 6s linear infinite;
-  animation-delay: 0.5s;
-}
-
-.business-guiness.bubble-container .v-row:first-child::after {
-  width: 95px;
-  height: 95px;
-  left: 60%;
-  bottom: -20px;
-  animation: float-4 8s linear infinite;
-  animation-delay: 1.5s;
-}
-
-.business-guiness.bubble-container .v-row:last-child::before {
-  width: 70px;
-  height: 70px;
-  left: 80%;
-  bottom: -20px;
-  animation: float-5 6s linear infinite;
-  animation-delay: 2s;
-}
-
-/* Individual keyframes for each bubble */
-@keyframes float-1 {
-  0% {
-    transform: translateY(105vh) translateX(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.7;
-    transform: translateY(90vh) translateX(10px);
-  }
-  30% {
-    transform: translateY(70vh) translateX(-5px);
-  }
-  50% {
-    transform: translateY(50vh) translateX(15px);
-  }
-  70% {
-    transform: translateY(30vh) translateX(-10px);
-  }
-  90% {
-    opacity: 0.5;
-    transform: translateY(10vh) translateX(5px);
-  }
-  100% {
-    transform: translateY(-10px) translateX(0);
-    opacity: 0;
-  }
-}
-
-@keyframes float-2 {
-  0% {
-    transform: translateY(105vh) translateX(0) rotate(0deg);
-    opacity: 0;
-  }
-  15% {
-    opacity: 0.6;
-    transform: translateY(85vh) translateX(-10px) rotate(45deg);
-  }
-  35% {
-    transform: translateY(65vh) translateX(15px) rotate(90deg);
-  }
-  55% {
-    transform: translateY(45vh) translateX(-5px) rotate(180deg);
-  }
-  75% {
-    transform: translateY(25vh) translateX(10px) rotate(270deg);
-  }
-  95% {
-    opacity: 0.4;
-    transform: translateY(5vh) translateX(-15px) rotate(330deg);
-  }
-  100% {
-    transform: translateY(-10px) translateX(0) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-@keyframes float-3 {
-  0% {
-    transform: translateY(105vh) translateX(0);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.8;
-    transform: translateY(80vh) translateX(15px);
-  }
-  40% {
-    transform: translateY(60vh) translateX(-10px);
-  }
-  60% {
-    transform: translateY(40vh) translateX(5px);
-  }
-  80% {
-    transform: translateY(20vh) translateX(-15px);
-  }
-  95% {
-    opacity: 0.3;
-  }
-  100% {
-    transform: translateY(-10px) translateX(0);
-    opacity: 0;
-  }
-}
-
-@keyframes float-4 {
-  0% {
-    transform: translateY(105vh) translateX(0) rotate(0deg) scale(1);
-    opacity: 0;
-  }
-  15% {
-    opacity: 0.7;
-    transform: translateY(85vh) translateX(-15px) rotate(90deg) scale(1.1);
-  }
-  35% {
-    transform: translateY(65vh) translateX(10px) rotate(180deg) scale(0.9);
-  }
-  55% {
-    transform: translateY(45vh) translateX(-5px) rotate(270deg) scale(1.1);
-  }
-  75% {
-    transform: translateY(25vh) translateX(15px) rotate(320deg) scale(0.9);
-  }
-  95% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(-10px) translateX(0) rotate(360deg) scale(1);
-    opacity: 0;
-  }
-}
-
-@keyframes float-5 {
-  0% {
-    transform: translateY(105vh) translateX(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.6;
-    transform: translateY(90vh) translateX(-5px);
-  }
-  30% {
-    transform: translateY(70vh) translateX(10px);
-  }
-  50% {
-    transform: translateY(50vh) translateX(-15px);
-  }
-  70% {
-    transform: translateY(30vh) translateX(5px);
-  }
-  90% {
-    opacity: 0.4;
-    transform: translateY(10vh) translateX(-10px);
-  }
-  100% {
-    transform: translateY(-10px) translateX(0);
-    opacity: 0;
-  }
-}
-
 </style>

@@ -7,11 +7,19 @@
           color="#f4b754"
           v-for="(member, index) in blogPosts"
           :key="index"
-          class="mb-4"
+          class="mb-4 pa-4"
         >
+        <v-row>
+          <v-col>
+            <v-avatar>
+              <v-img size="32" :src="member.avatar">
+                
+              </v-img></v-avatar><span class="ml-2 font-weight-medium">{{member.author}}</span></v-col>
+        
+        </v-row>
           <v-row>
             <v-col
-              ><v-card-text class="pb-0">{{ member.formattedDate }}</v-card-text></v-col
+              ><v-card-text class="pb-0 pt-0">{{ member.formattedDate }}</v-card-text></v-col
             >
           </v-row>
           <v-row
@@ -56,7 +64,7 @@
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router"
 import { DB } from "@/firebase/config.js";
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 
 const router = useRouter();
 const loading = ref(false);
@@ -70,7 +78,7 @@ const fetchBlogPosts = async () => {
   error.value = null;
   try {
     const blogsCollection = collection(DB, "blog-posts");
-    const q = query(blogsCollection);
+    const q = query(blogsCollection, orderBy("date", "desc"));
     const querySnapshot = await getDocs(q);
     if(querySnapshot.empty){
       errorFlag.value = true;
@@ -82,6 +90,7 @@ const fetchBlogPosts = async () => {
     querySnapshot.forEach((doc) =>{
       const blogData = doc.data();
       posts.push({
+        avatar: blogData.avatar,
         author: blogData.author || "",
         formattedDate: blogData.formattedDate || "",
         title: blogData.title || "",

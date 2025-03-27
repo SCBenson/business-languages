@@ -31,7 +31,8 @@
       "title": "Leave us a message...",
       "first-name": "First name",
       "last-name": "Last name",
-      "description": "Please write your message here..."
+      "description": "Please write your message here...",
+      "button": "Submit"
     },
     "contact-info": {
       "title": "Contact Information",

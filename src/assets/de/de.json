@@ -31,7 +31,8 @@
       "title": "Kontakt",
       "first-name": "Vorname",
       "last-name": "Nachname",
-      "description": "Bitte schreiben Sie Ihre Nachricht hier..."
+      "description": "Bitte schreiben Sie Ihre Nachricht hier...",
+      "button": "Einreichen"
     },
     "contact-info": {
       "title": "Kontaktinformationen",
