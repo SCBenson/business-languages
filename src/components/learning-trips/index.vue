@@ -2,19 +2,20 @@
   <v-component>
     <v-row class="text-center">
       <v-col>
-        <h1>Learning Trips</h1>
+        <h1 class="mt-8 text-custom-purple">Learning Trips</h1>
       </v-col>
     </v-row>
     <v-row class="mb-6">
       <v-col cols="12">
-        <v-card class="mb-8">
+        <v-card class="mb-8 mx-12">
           <v-row class="text-center">
             <v-col cols="12" md="6">
-              <v-img src="@/assets/dún-aonghasa.jpg"></v-img>
+              <v-img cover height="100%" src="@/assets/dún-aonghasa.jpg"></v-img>
             </v-col>
-            <v-col cols="12" md="6">
-              <v-card-title>Study in Ireland</v-card-title>
-              <p>
+            <v-col cols="12" md="6" class="d-md-flex align-md-center">
+              <div>
+              <v-card-title class="responsive-title">Study in Ireland</v-card-title>
+              <p class="text-left px-8 responsive-text">
                 The Glasson Academy is a combination of activity, learning and
                 relaxation. The Hotel, with its family atmosphere, provides
                 top-level service, first class accommodation and care, as well
@@ -29,7 +30,9 @@
                 attention is directed towards your particular language
                 requirements.
               </p>
-              <v-btn>Learn More</v-btn>
+            
+              <v-btn color="#f4b754" class="my-4 responsive-text">Learn More</v-btn>
+            </div>
             </v-col>
           </v-row>
         </v-card>
@@ -37,14 +40,15 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <v-card>
+        <v-card class="mx-12 mb-12">
           <v-row class="text-center">
             <v-col cols="12" md="6">
-              <v-img src="@/assets/seans-bar.jpg"></v-img>
+              <v-img cover height="100%" src="@/assets/seans-bar.jpg"></v-img>
             </v-col>
-            <v-col cols="12" md="6">
-              <v-card-title>Perfect your English</v-card-title>
-              <p>
+            <v-col cols="12" md="6" class="d-md-flex align-md-center">
+              <div>
+              <v-card-title class="responsive-title">Perfect your English</v-card-title>
+              <p class="text-left px-8 responsive-text">
                 Our English trainers will equip you with perfect English skills
                 so that you achieve competence and security in both written and
                 spoken English. The lessons can be chosen as single, group or a
@@ -61,11 +65,35 @@
                 country in the EU. A language is most easily learned in a
                 country where it is spoken.
               </p>
-              <v-btn>Learn More</v-btn>
+              <v-btn color="#f4b754" class="my-4 responsive-text">Learn More</v-btn>
+            </div>
             </v-col>
+          
           </v-row>
         </v-card>
       </v-col>
     </v-row>
   </v-component>
 </template>
+
+<style scoped>
+.responsive-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.responsive-text {
+  font-size: 0.95rem;
+}
+
+@media (min-width: 960px) {
+  .responsive-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  
+  .responsive-text {
+    font-size: 1.4rem;
+  }
+}
+</style>
