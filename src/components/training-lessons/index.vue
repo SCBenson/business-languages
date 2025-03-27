@@ -3,7 +3,7 @@
     <v-row class="text-center">
       <v-col>
         <h1 class="mt-4 text-custom-purple">{{ $t("language-training.title.title") }}</h1>
-        <v-btn class="mt-6 text-black responsive-text" color="#f4b754">{{
+        <v-btn @click="openEmailClient" class="mt-6 text-black responsive-text" color="#f4b754">{{
           $t("language-training.title.button")
         }}</v-btn>
       </v-col>
@@ -42,7 +42,7 @@
     </v-row>
     <v-row class="text-center">
       <v-col class="pt-0">
-        <v-btn class="mb-6 text-black responsive-text" color="#f4b754">{{
+        <v-btn @click="openEmailClient" class="mb-6 text-black responsive-text" color="#f4b754">{{
           $t("language-training.title.button")
         }}</v-btn>
       </v-col>
@@ -91,4 +91,10 @@ const trainingTypes = computed(() => {
   });
   return result;
 });
+
+const openEmailClient = () => {
+  const email = 'info@businesslanguages.de'
+  const subject = encodeURIComponent('Language Lessons: Book an appointment');
+  window.location.href = `mailto:${email}?subject=${subject}`;
+}
 </script>

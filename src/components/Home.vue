@@ -23,6 +23,7 @@
             <!-- We are the solution for your busy lifestyle. -->
           </h2>
           <v-btn
+            @click="scrollToContact"
             color="#f4b754"
             size="large"
             rounded="xl"
@@ -65,10 +66,11 @@
     </v-row>
   </v-container>
   </v-sheet>
+  <div ref="contactSection">
   <v-container class="px-8 mt-12">
     <v-row justify="center">
       <v-col cols="12" md="6" lg="6">
-        <v-card color="#f4b754" class="pa-6">
+        <v-card color="#f4b754" class="pa-6 mt-8">
           <v-form align="center" class="custom-color">
             <h1 class="font-weight-bold mb-2">{{ $t('home.contact-form.title') }}</h1>
             <v-row justify="center">
@@ -101,6 +103,7 @@
       </v-col>
     </v-row>
   </v-container>
+</div>
   <v-container class="px-8 contact-info-container">
     <v-row justify="center">
       <v-col align="center" cols="12" md="6" lg="6">
@@ -173,7 +176,11 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import bgLogoUrl from "@/assets/business-and-guiness-logo.jpg";
 
+const contactSection = ref(null);
 
+const scrollToContact = () => {
+  contactSection.value.scrollIntoView({ behaviour: 'smooth' });
+}
 
 const indexVal = ref(0);
 let intervalID;

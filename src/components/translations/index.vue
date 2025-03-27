@@ -49,7 +49,7 @@
 <script setup>
 const openEmailClient = () => {
   const email = 'info@businesslanguages.de'
-  const subject = encodeURIComponent('Translation Services: Requesting more info');
+  const subject = encodeURIComponent('Translation Services: Requesting a quote');
   window.location.href = `mailto:${email}?subject=${subject}`;
 }
 </script>

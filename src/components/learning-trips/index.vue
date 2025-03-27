@@ -31,7 +31,7 @@
                 requirements.
               </p>
             
-              <v-btn color="#f4b754" class="my-4 responsive-text">Learn More</v-btn>
+              <v-btn @click="openEmailClient" color="#f4b754" class="my-4 responsive-text">Learn More</v-btn>
             </div>
             </v-col>
           </v-row>
@@ -65,7 +65,7 @@
                 country in the EU. A language is most easily learned in a
                 country where it is spoken.
               </p>
-              <v-btn color="#f4b754" class="my-4 responsive-text">Learn More</v-btn>
+              <v-btn @click="openEmailClient" color="#f4b754" class="my-4 responsive-text">Learn More</v-btn>
             </div>
             </v-col>
           
@@ -75,7 +75,13 @@
     </v-row>
   </v-component>
 </template>
-
+<script setup>
+const openEmailClient = () => {
+  const email = 'info@businesslanguages.de'
+  const subject = encodeURIComponent('Language Trips: Requesting more information');
+  window.location.href = `mailto:${email}?subject=${subject}`;
+}
+</script>
 <style scoped>
 .responsive-title {
   font-size: 1.1rem;
