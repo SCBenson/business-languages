@@ -33,7 +33,7 @@
                 {{ $t("translations.card.paragraph5") }}
               </p>
               <div class="text-center d-flex justify-center mb-4">
-                <v-btn class="my-4 text-black responsive-text" color="#f4b754">{{
+                <v-btn @click="openEmailClient" class="my-4 text-black responsive-text" color="#f4b754">{{
                   $t("translations.card.button")
                 }}</v-btn>
               </div>
@@ -46,7 +46,13 @@
     </v-row>
   </v-component>
 </template>
-
+<script setup>
+const openEmailClient = () => {
+  const email = 'info@businesslanguages.de'
+  const subject = encodeURIComponent('Translation Services: Requesting more info');
+  window.location.href = `mailto:${email}?subject=${subject}`;
+}
+</script>
 <style scoped>
 .responsive-title {
   font-size: 1.1rem;
