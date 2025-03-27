@@ -32,7 +32,7 @@
                 <br />
                 {{ $t("translations.card.paragraph5") }}
               </p>
-              <div class="text-center d-flex justify-center">
+              <div class="text-center d-flex justify-center mb-4">
                 <v-btn class="my-4 text-black responsive-text" color="#f4b754">{{
                   $t("translations.card.button")
                 }}</v-btn>
