@@ -1,14 +1,14 @@
 <template>
   <v-container class="px-8">
     <h1 class="text-custom-purple text-center">Our Team</h1>
-    <v-row>
+    <v-row justify="center">
       <v-col cols="12">
-        <v-card color="#f4b754">
-          <v-row class="mt-2">
+        <v-card color="#f4b754" class="mx-auto my-4" :max-width="$vuetify.display.mdAndUp ? '1000px' : '100%'">
+          <v-row class="my-2">
             <v-col
               v-for="(member, index) in data"
               :key="index"
-              cols="6"
+              cols="6" lg="3"
               class="text-center"
             >
               <router-link
