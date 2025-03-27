@@ -7,7 +7,7 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <v-card class="mx-8 mb-4">
+        <v-card class="mx-8 mb-12">
           <v-row class="text-left" style="min-height: 100%">
             <v-col cols="12" md="6" class="d-flex pa-0">
               <v-img cover height="100%" src="@/assets/translations/img1.webp"></v-img>
