@@ -2,19 +2,21 @@
   <v-container v-if="!errorFlag">
     <v-row>
       <v-col>
-        <h1>Blog Posts</h1>
+        <div class="d-flex justify-center">
+        <h1 >Blog Posts</h1>
+      </div>
         <v-card
           color="#f4b754"
           v-for="(member, index) in blogPosts"
           :key="index"
-          class="mb-4 pa-4"
+          class="pa-4 mx-auto mt-4" :max-width="$vuetify.display.mdAndUp ? '1200px' : '100%'"
         >
         <v-row>
           <v-col>
             <v-avatar>
               <v-img size="32" :src="member.avatar">
                 
-              </v-img></v-avatar><span class="ml-2 font-weight-medium">{{member.author}}</span></v-col>
+              </v-img></v-avatar><span class="ml-2 font-weight-medium responsive-text">{{member.author}}</span></v-col>
         
         </v-row>
           <v-row>
@@ -33,12 +35,12 @@
             <v-col>
               <!-- Shortening the description to a max character limit. -->
               <v-card-text
-                class="pt-0 custom-text-color"
+                class="pt-0 custom-text-color responsive-text"
                 v-if="member.initialParagraph && member.initialParagraph.length > 500"
               >
                 {{ member.initialParagraph.slice(0, 500) + "..." }}
               </v-card-text>
-              <v-card-text class="pt-0 custom-text-color" v-else>{{
+              <v-card-text class="pt-0 custom-text-color responsive-text" v-else>{{
                 member.initialParagraph
               }}</v-card-text>
             </v-col>
@@ -129,5 +131,22 @@ onMounted(() => {
   word-wrap: break-word !important;
   word-break: break-word !important;
   white-space: normal !important;
+}
+.responsive-title {
+  font-size: 1.1rem;
+}
+
+.responsive-text {
+  font-size: 0.95rem;
+}
+
+@media (min-width: 960px) {
+  .responsive-title {
+    font-size: 1.4rem;
+  }
+  
+  .responsive-text {
+    font-size: 1.1rem;
+  }
 }
 </style>
