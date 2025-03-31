@@ -18,31 +18,29 @@
     </template>
     <v-spacer></v-spacer>
 
+
+
     <v-container class="d-none d-md-flex justify-end align-center gap-4">
       <router-link
         to="/training-lessons"
-        class="mx-2 text-white font-weight-bold"
+        class="mx-2 text-black font-weight-bold"
         >Get Training
       </router-link>
-      <router-link to="/" class="mx-2 text-white">Home</router-link>
-      <router-link to="/team" class="mx-2 text-white">Team</router-link>
-      <router-link to="/about" class="mx-2 text-white">About Us</router-link>
-      <router-link to="/blog" class="mx-2 text-white">Blog</router-link>
-
-      <!-- <router-link to="/registration" class="mx-2 text-white"
-        >Register</router-link
-      > -->
+      <router-link to="/" class="mx-2 text-black">Home</router-link>
+      <router-link to="/team" class="mx-2 text-black">Team</router-link>
+      <router-link to="/about" class="mx-2 text-black">About Us</router-link>
+      <router-link to="/blog" class="mx-2 text-black">Blog</router-link>
       <router-link
         v-if="isAuth == null"
         to="/admins"
-        class="mx-2 text-white"
+        class="mx-2 text-black"
         >Admin</router-link
       >
       <router-link
         v-if="isAuth != null"
         to="/"
         @click="handleSignOut"
-        class="mx-2 text-white"
+        class="mx-2 text-black"
         >Logout</router-link
       >
       <v-card
@@ -55,7 +53,7 @@
       >
       </v-card>
     </v-container>
-
+  
     <template v-slot:append>
       <v-menu
         transition="scale-transition"
@@ -144,27 +142,7 @@
   </v-navigation-drawer> -->
 </template>
 
-<style scoped>
-.nav-title {
-  font-family: Comfortaa;
-}
-.router-link-active,
-a,
-p {
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-a:hover,
-p:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.language-selector {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  padding: 0 12px;
-}
-</style>
+
 
 <!-- Script for Desktop Version -->
 <script setup>
@@ -175,6 +153,7 @@ import { ref, onMounted } from "vue";
 import logoUrl from "@/assets/bl-anniversary-logo.png";
 import { data } from "@/assets/scripts/navDrawer.js";
 import { useLanguage } from "@/composables/stores/useLanguage";
+
 
 const {
   activeLanguage,
@@ -199,6 +178,7 @@ const profileData = ref({
 
 // Update local data when component mounts
 onMounted(() => {
+
   if (userStore.userDetails) {
     console.log("userStore entered");
     profileData.value = {
@@ -218,4 +198,33 @@ onAuthStateChanged(AUTH, (user) => {
   console.log(user);
   isAuth.value = user;
 });
+
+
+
+
+
+
 </script>
+
+<style scoped>
+.nav-title {
+  font-family: Comfortaa;
+}
+.router-link-active,
+a,
+p {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+a:hover,
+p:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.language-selector {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 0 12px;
+}
+
+</style>
