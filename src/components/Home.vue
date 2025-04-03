@@ -204,9 +204,12 @@ const languages = [
 ];
 
 onMounted(() => {
-  intervalID = setInterval(() => {
+  setTimeout(() => {
+    intervalID = setInterval(() => {
     indexVal.value = (indexVal.value + 1) % languages.length;
   }, 2000);
+  })
+  
 });
 
 onUnmounted(() => {
