@@ -216,7 +216,7 @@ onUnmounted(() => {
 <style scoped>
 .hero-section {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("@/assets/hero-background.png");
+    url("@/assets/hero-background.webp");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -257,7 +257,7 @@ onUnmounted(() => {
 }
 
 .contact-info-container{
-  height: 40vh;
+  height: auto;
 }
 
 .map-container{

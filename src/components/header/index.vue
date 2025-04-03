@@ -195,7 +195,6 @@ const handleSignOut = () => {
 };
 
 onAuthStateChanged(AUTH, (user) => {
-  console.log(user);
   isAuth.value = user;
 });
 
