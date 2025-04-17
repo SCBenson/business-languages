@@ -77,7 +77,7 @@ import logoUrl from "@/assets/bl-anniversary-logo.webp";
 
 <style scoped>
 .footer-container {
-  min-height: 650px;
+  min-height: 700px;
   background-color: #f4b754;
 }
 

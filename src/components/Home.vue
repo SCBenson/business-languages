@@ -164,6 +164,7 @@
                   loading="lazy"
                   referrerpolicy="no-referrer"
                   sandbox="allow-scripts allow-same-origin allow-popups"
+
                   importance="low"
                   >
                   </iframe>
@@ -237,7 +238,7 @@ onUnmounted(() => {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .fade-enter-from,

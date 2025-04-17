@@ -8,7 +8,7 @@
     app
   >
     <template v-slot:prepend>
-      <img :src="logoUrl" height="40" width="auto" alt="Company Logo" />
+      <img :src="logoUrl" height="40" width="40" alt="Company Logo" />
 
       <v-toolbar-title
         class="nav-title text-black font-weight-bold text-body-1"
