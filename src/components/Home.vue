@@ -55,12 +55,14 @@
         >
           <iframe
             class="w-100 h-100"
-            :src="'https://www.youtube.com/embed/adXj8sz4ozU?si=8SHRWN0HZz767e9u'"
+            :src="'https://www.youtube-nocookie.com/embed/adXj8sz4ozU?si=8SHRWN0HZz767e9u'"
             title="Youtube Video Player"
             loading="lazy"
+            samesite="lax"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
           ></iframe>
         </v-responsive>
       </v-col>
@@ -160,7 +162,9 @@
                   style="border: 0; width: 100%; height: 100%;"
                   allowfullscreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
+                  referrerpolicy="no-referrer"
+                  sandbox="allow-scripts allow-same-origin allow-popups"
+                  importance="low"
                   >
                   </iframe>
                 </v-col>
