@@ -38,7 +38,7 @@
   <v-container class="px-8 business-guiness">
     <v-row class="text-center" justify="center">
       <v-card color="#f4b754" rounded="lg" class="px-6 mt-4">
-      <v-col cols="12" lg="6"> <img :src="bgLogoUrl" height="150"> </img> </v-col>
+      <v-col cols="12" lg="6"> <img :src="bgLogoUrl" height="150" width="266"> </img> </v-col>
     </v-card>
     </v-row>
         
@@ -57,6 +57,7 @@
             class="w-100 h-100"
             :src="'https://www.youtube.com/embed/adXj8sz4ozU?si=8SHRWN0HZz767e9u'"
             title="Youtube Video Player"
+            loading="lazy"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
@@ -204,13 +205,14 @@ const languages = [
 ];
 
 onMounted(() => {
+  // Delay animation start to prioritize initial render
   setTimeout(() => {
     intervalID = setInterval(() => {
-    indexVal.value = (indexVal.value + 1) % languages.length;
-  }, 2000);
-  })
-  
+      indexVal.value = (indexVal.value + 1) % languages.length;
+    }, 2000);
+  }, 3000); // Wait 3 seconds before starting animation
 });
+
 
 onUnmounted(() => {
   clearInterval(intervalID);
@@ -231,7 +233,7 @@ onUnmounted(() => {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .fade-enter-from,
@@ -244,6 +246,12 @@ onUnmounted(() => {
 .fade-leave-from {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Add this to enable transform transitions after initial render */
+.animations-enabled .fade-enter-active,
+.animations-enabled .fade-leave-active {
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .custom-color {

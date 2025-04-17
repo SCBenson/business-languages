@@ -1,5 +1,6 @@
 <template>
-  <v-component class="footer-container px-8 text-center">
+  <v-sheet class="footer-container">
+  <v-container class="px-8 text-center">
     <v-row>
       <v-col cols="12" class="pb-0 pt-6 text-custom-purple">
         <h2 class="font-weight-bold">{{ $t("footer.news-letter.title") }}</h2>
@@ -64,12 +65,14 @@
         <p class="text-black">©businesslanguages.de</p>
       </v-col>
     </v-row>
-  </v-component>
+  </v-container>
+</v-sheet>
 </template>
 
 <script setup>
 import { data } from "@/assets/scripts/navDrawer.js";
-import logoUrl from "@/assets/bl-anniversary-logo.png";
+import logoUrl from "@/assets/bl-anniversary-logo.webp";
+
 </script>
 
 <style scoped>

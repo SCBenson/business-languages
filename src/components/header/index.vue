@@ -150,7 +150,7 @@ import { useUserStore } from "@/composables/stores/userStore.js";
 import { AUTH } from "@/firebase/config.js";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { ref, onMounted } from "vue";
-import logoUrl from "@/assets/bl-anniversary-logo.png";
+import logoUrl from "@/assets/bl-anniversary-logo.webp";
 import { data } from "@/assets/scripts/navDrawer.js";
 import { useLanguage } from "@/composables/stores/useLanguage";
 
