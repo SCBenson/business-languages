@@ -17,12 +17,12 @@ import Footer from "@/components/footer/index.vue";
 </script>
 
 <style>
-#app {
+/* #app {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   overflow-x: hidden;
-}
+} */
 
 .main-content{
   position: relative;

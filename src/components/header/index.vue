@@ -21,15 +21,92 @@
 
 
     <v-container class="d-none d-md-flex justify-end align-center gap-4">
-      <router-link
-        to="/training-lessons"
-        class="mx-2 text-black font-weight-bold"
-        >Get Training
-      </router-link>
+      <div class="text-center">
+        <v-menu
+          open-on-hover
+        >
+          <template v-slot:activator="{ props }">
+            <router-link
+              v-bind="props"
+              to="/training-lessons"
+              class="mx-2 text-black font-weight-bold"
+            >
+              Get Training
+            </router-link>
+          </template>
+
+          <v-list>
+            <v-list-item>
+              <router-link to="/online-trainings" class="mx-2 text-black">Online Trainings</router-link>
+            </v-list-item>
+            <v-list-item>
+              <router-link to="/training-lessons" class="mx-2 text-black">Language Training</router-link>
+            </v-list-item>
+            <v-list-item>
+              <router-link to="/translations" class="mx-2 text-black">Translations</router-link>
+            </v-list-item>
+            <v-list-item>
+              <router-link to="/learning-trips" class="mx-2 text-black">Learning Trips</router-link>
+            </v-list-item>
+          </v-list>
+         </v-menu>
+      </div>
       <router-link to="/" class="mx-2 text-black">Home</router-link>
-      <router-link to="/team" class="mx-2 text-black">Team</router-link>
-      <router-link to="/about" class="mx-2 text-black">About Us</router-link>
+
+      <div class="text-center">
+        <v-menu
+          open-on-hover
+        >
+          <template v-slot:activator="{ props }">
+            <router-link
+              v-bind="props"
+              to="/about"
+              class="mx-2 text-black"
+            >
+              About Us
+            </router-link>
+          </template>
+
+          <v-list>
+            <v-list-item>
+              <router-link to="/team" class="mx-2 text-black">Meet the Team</router-link>
+            </v-list-item>
+            <v-list-item>
+              <router-link to="/legal" class="mx-2 text-black">Legal</router-link>
+            </v-list-item>
+            <v-list-item>
+              <router-link to="/disclaimer" class="mx-2 text-black">Dislaimer</router-link>
+            </v-list-item>
+          </v-list>
+         </v-menu>
+      </div>
       <router-link to="/blog" class="mx-2 text-black">Blog</router-link>
+      <div class="text-center">
+        <v-menu
+          open-on-hover
+        >
+          <template v-slot:activator="{ props }">
+            <router-link
+              v-bind="props"
+              to="/about"
+              class="mx-2 text-black"
+            >
+              Media
+            </router-link>
+          </template>
+
+          <v-list>
+            <v-list-item>
+              <router-link to="/business-and-guinness" class="mx-2 text-black">Business & Guiness</router-link>
+            </v-list-item>
+            <v-list-item>
+              <router-link to="/webseries" class="mx-2 text-black">Web Series</router-link>
+            </v-list-item>
+          </v-list>
+         </v-menu>
+      </div>
+
+      
       <router-link
         v-if="isAuth == null"
         to="/admins"
@@ -43,7 +120,7 @@
         class="mx-2 text-black"
         >Logout</router-link
       >
-      <v-card
+      <!-- <v-card
         v-if="isAuth != null"
         density="compact"
         prepend-avatar="https://randomuser.me/api/portraits/women/10.jpg"
@@ -51,7 +128,7 @@
         :title="profileData.firstName"
         variant="text"
       >
-      </v-card>
+      </v-card> -->
     </v-container>
   
     <template v-slot:append>
@@ -224,6 +301,9 @@ p:hover {
 .language-selector {
   border: 1px solid rgba(0, 0, 0, 0.3);
   padding: 0 12px;
+}
+.no-uppercase {
+  text-transform: none !important;
 }
 
 </style>
