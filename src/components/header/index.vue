@@ -80,7 +80,28 @@
           </v-list>
          </v-menu>
       </div>
-      <router-link to="/blog" class="mx-2 text-black">Blog</router-link>
+
+      <div class="text-center">
+        <v-menu
+          open-on-hover
+        >
+          <template v-slot:activator="{ props }">
+            <router-link
+              v-bind="props"
+              to="/blog"
+              class="mx-2 text-black"
+            >
+              Blog
+            </router-link>
+          </template>
+
+          <v-list v-if="isAuth != null">
+            <v-list-item>
+              <router-link  to="/blog-post-creator" class="mx-2 text-black">Create a Blog</router-link>
+            </v-list-item>
+          </v-list>
+         </v-menu>
+      </div>
       <div class="text-center">
         <v-menu
           open-on-hover
