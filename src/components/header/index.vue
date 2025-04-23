@@ -13,7 +13,8 @@
       <v-toolbar-title
         class="nav-title text-black font-weight-bold text-body-1"
       >
-        Business Languages
+      <router-link to="/" class="text-black">Business Languages</router-link>
+        
       </v-toolbar-title>
     </template>
     <v-spacer></v-spacer>

@@ -10,7 +10,7 @@
         <v-card rounded="lg" class="mb-8 mx-12">
           <v-row class="text-center">
             <v-col cols="12" md="6">
-              <v-img cover height="100%" src="@/assets/dún-aonghasa.jpg"></v-img>
+              <v-img cover height="100%" src="@/assets/dún-aonghasa.webp"></v-img>
             </v-col>
             <v-col cols="12" md="6" class="d-md-flex align-md-center">
               <div>
@@ -43,7 +43,7 @@
         <v-card rounded="lg" class="mx-12 mb-12">
           <v-row class="text-center">
             <v-col cols="12" md="6">
-              <v-img cover height="100%" src="@/assets/seans-bar.jpg"></v-img>
+              <v-img cover height="100%" src="@/assets/seans-bar.webp"></v-img>
             </v-col>
             <v-col cols="12" md="6" class="d-md-flex align-md-center">
               <div>
