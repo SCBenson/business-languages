@@ -13,13 +13,11 @@
       <v-toolbar-title
         class="nav-title text-black font-weight-bold text-body-1"
       >
-      <router-link to="/" class="text-black">Business Languages</router-link>
-        
+        <router-link to="/" class="text-black">Business Languages</router-link>
       </v-toolbar-title>
     </template>
+
     <v-spacer></v-spacer>
-
-
 
     <v-container class="d-none d-md-flex justify-end align-center gap-4">
       <div class="text-center">
@@ -36,9 +34,9 @@
             </router-link>
           </template>
 
-          <v-list>
+          <v-list bg-color="#f4b754">
             <v-list-item>
-              <router-link to="/online-trainings" class="mx-2 text-black">Online Trainings</router-link>
+              <router-link to="/bla-interactive" class="mx-2 text-black">BLA Interactive</router-link>
             </v-list-item>
             <v-list-item>
               <router-link to="/training-lessons" class="mx-2 text-black">Language Training</router-link>
@@ -68,7 +66,7 @@
             </router-link>
           </template>
 
-          <v-list>
+          <v-list bg-color="#f4b754">
             <v-list-item>
               <router-link to="/team" class="mx-2 text-black">Meet the Team</router-link>
             </v-list-item>
@@ -83,7 +81,7 @@
       </div>
 
       <div class="text-center">
-        <v-menu
+        <v-menu 
           open-on-hover
         >
           <template v-slot:activator="{ props }">
@@ -96,7 +94,7 @@
             </router-link>
           </template>
 
-          <v-list v-if="isAuth != null">
+          <v-list bg-color="#f4b754" v-if="isAuth != null">
             <v-list-item>
               <router-link  to="/blog-post-creator" class="mx-2 text-black">Create a Blog</router-link>
             </v-list-item>
@@ -110,14 +108,14 @@
           <template v-slot:activator="{ props }">
             <router-link
               v-bind="props"
-              to="/about"
+              to="/business-and-guiness"
               class="mx-2 text-black"
             >
               Media
             </router-link>
           </template>
 
-          <v-list>
+          <v-list bg-color="#f4b754">
             <v-list-item>
               <router-link to="/business-and-guinness" class="mx-2 text-black">Business & Guiness</router-link>
             </v-list-item>

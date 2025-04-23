@@ -27,6 +27,15 @@ service cloud.firestore {
       allow write: if false;
     }
     
+    // Blog posts collection - Allow public read access
+    match /blog-posts/{document} {
+      // Anyone can read blog posts
+      allow read: if true;
+      
+      // Only admins can write to blog posts
+      allow write: if isAdmin();
+    }
+    
     // Add rules for other collections that admins should access
     match /your-collection/{document} {
       // Only admins can read and write

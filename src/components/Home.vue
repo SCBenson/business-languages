@@ -35,78 +35,78 @@
     </v-container>
   </v-sheet>
   <v-sheet class="bg-custom-white">
-  <v-container class="px-8 business-guiness">
-    <v-row class="text-center" justify="center">
-      <v-card color="#f4b754" rounded="lg" class="px-6 mt-4">
-      <v-col cols="12" lg="6"> <img :src="bgLogoUrl" height="150" width="266"> </img> </v-col>
-    </v-card>
-    </v-row>
-        
+    <v-container class="px-8 business-guiness">
+      <v-row class="text-center" justify="center">
+        <v-card color="#f4b754" rounded="lg" class="px-6 mt-4">
+        <v-col cols="12" lg="6"> <img :src="bgLogoUrl" height="150" width="266"> </img> </v-col>
+      </v-card>
+      </v-row>
+          
 
-    <v-row justify="center">
-      <v-col cols="12">
-      </v-col>
-    </v-row>
-    <v-row justify="center">
-      <v-col cols="12" lg="6">
-        <v-responsive
-          :aspect-ratio="$vuetify.display.mdAndUp ? '16/9' : '4/3'"
-          class="video-container"
-        >
-          <iframe
-            class="w-100 h-100"
-            :src="'https://www.youtube-nocookie.com/embed/adXj8sz4ozU?si=8SHRWN0HZz767e9u'"
-            title="Youtube Video Player"
-            loading="lazy"
-            samesite="lax"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            referrerpolicy="strict-origin-when-cross-origin"
-          ></iframe>
-        </v-responsive>
-      </v-col>
-    </v-row>
-  </v-container>
+      <v-row justify="center">
+        <v-col cols="12">
+        </v-col>
+      </v-row>
+      <v-row justify="center">
+        <v-col cols="12" lg="6">
+          <v-responsive
+            :aspect-ratio="$vuetify.display.mdAndUp ? '16/9' : '4/3'"
+            class="video-container"
+          >
+            <iframe
+              class="w-100 h-100"
+              :src="'https://www.youtube-nocookie.com/embed/adXj8sz4ozU?si=8SHRWN0HZz767e9u'"
+              title="Youtube Video Player"
+              loading="lazy"
+              samesite="lax"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </v-responsive>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-sheet>
   <div ref="contactSection">
-  <v-container class="px-8 mt-12">
-    <v-row justify="center">
-      <v-col cols="12" md="6" lg="6">
-        <v-card color="#f4b754" class="pa-6 mt-8">
-          <v-form align="center" class="custom-color">
-            <h1 class="font-weight-bold mb-2">{{ $t('home.contact-form.title') }}</h1>
-            <v-row justify="center">
-              <v-col cols="12" md="8">
-                <v-text-field
-                  bg-color="white"
-                  :label="$t('home.contact-form.first-name')"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="8">
-                <v-text-field bg-color="white" :label="$t('home.contact-form.last-name')"></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row justify="center">
-              <v-col cols="12" md="8">
-                <v-text-field bg-color="white" label="E-Mail"></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row justify="center">
-              <v-col cols="12" md="8">
-                <v-textarea
-                  bg-color="white"
-                  :label="$t('home.contact-form.description')"
-                ></v-textarea>
-              </v-col>
-            </v-row>
-            <v-row><v-col><v-btn color="purple">{{$t('home.contact-form.button')}}</v-btn></v-col></v-row>
-          </v-form>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
-</div>
+    <v-container class="px-8 mt-12">
+      <v-row justify="center">
+        <v-col cols="12" md="6" lg="6">
+          <v-card color="#f4b754" class="pa-6 mt-8">
+            <v-form align="center" class="custom-color">
+              <h1 class="font-weight-bold mb-2">{{ $t('home.contact-form.title') }}</h1>
+              <v-row justify="center">
+                <v-col cols="12" md="8">
+                  <v-text-field
+                    bg-color="white"
+                    :label="$t('home.contact-form.first-name')"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" md="8">
+                  <v-text-field bg-color="white" :label="$t('home.contact-form.last-name')"></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row justify="center">
+                <v-col cols="12" md="8">
+                  <v-text-field bg-color="white" label="E-Mail"></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row justify="center">
+                <v-col cols="12" md="8">
+                  <v-textarea
+                    bg-color="white"
+                    :label="$t('home.contact-form.description')"
+                  ></v-textarea>
+                </v-col>
+              </v-row>
+              <v-row><v-col><v-btn color="purple">{{$t('home.contact-form.button')}}</v-btn></v-col></v-row>
+            </v-form>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
   <v-container class="px-8 contact-info-container">
     <v-row justify="center">
       <v-col align="center" cols="12" md="6" lg="6">
@@ -121,34 +121,34 @@
                 </v-row>
 
                 <v-row>
-                  <v-col><v-icon>mdi-pin</v-icon></v-col>
-                  <v-col align="space-around">
+                  <v-col cols="6"><v-icon>mdi-pin</v-icon></v-col>
+                  <v-col cols="6" align="space-around">
                     <p>{{ $t('home.contact-info.visit-us') }}</p>
-                    <p>Dr. Durrwanger Strasse 15F <br/> 86156 <br/>Augsburg</p>
+                    <p class="pr-2 pb-2">Dr. Durrwanger Strasse 15F <br/> 86156 <br/>Augsburg</p>
                   </v-col>
                 </v-row>
 
                 <v-row>
-                  <v-col><v-icon>mdi-email</v-icon></v-col>
-                  <v-col align="space-around">
+                  <v-col cols="6"><v-icon>mdi-email</v-icon></v-col>
+                  <v-col cols="6" align="space-around">
                     
                     <p>Email</p>
-                    <p>info@buisinesslanguages.de</p></v-col>
+                    <p class="pr-2 pb-2">info@buisinesslanguages.de</p></v-col>
                   
                 </v-row>
 
                 <v-row>
-                  <v-col><v-icon>mdi-phone</v-icon></v-col>
-                  <v-col>
+                  <v-col cols="6"><v-icon>mdi-phone</v-icon></v-col>
+                  <v-col cols="6">
                   <p>{{ $t('home.contact-info.phone') }}</p>
-                  <p>+ 49 1733825029</p>
+                  <p class="pr-2 pb-2">+ 49 1733825029</p>
                 </v-col>
                 </v-row>
                 <v-row>
-                  <v-col><v-icon>mdi-clock</v-icon></v-col>
-                  <v-col>
+                  <v-col cols="6"><v-icon>mdi-clock</v-icon></v-col>
+                  <v-col cols="6">
                   <p>{{ $t('home.contact-info.opening-hours') }}</p>
-                  <p>M-F: 9:00AM-6:00PM</p>
+                  <p class="pr-2 pb-2">M-F: 9:00AM-6:00PM</p>
                 </v-col>
                 </v-row>
               </v-card>
@@ -164,7 +164,6 @@
                   loading="lazy"
                   referrerpolicy="no-referrer"
                   sandbox="allow-scripts allow-same-origin allow-popups"
-
                   importance="low"
                   >
                   </iframe>
@@ -264,7 +263,7 @@ onUnmounted(() => {
 }
 
 .business-guiness {
-  height: 70vh;
+  height: 900px;
   width: 100% !important;
 }
 
