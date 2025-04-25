@@ -10,7 +10,7 @@
               >
               <v-card-subtitle>Co-Founder</v-card-subtitle>
               <v-avatar size="250">
-                <v-img src="/team/donal.png"></v-img>
+                <v-img src="/team/donal.webp"></v-img>
               </v-avatar>
             </v-col>
           </v-row>
@@ -60,7 +60,7 @@
               <h2 class="text-custom-purple">
                 Blending Experience and Innovation
               </h2>
-              <p class="text-black">
+              <p class="text-black pb-3">
                 Our success lies in our ability to adapt and thrive. We've
                 weathered recessions, pandemics, and financial crises while
                 consistently providing training at the top level. We've kept up

@@ -222,7 +222,9 @@
           :title="sublink.title"
         ></v-list-item>
       </v-list-group>
-      <v-list-item to="/admins">Admin</v-list-item>
+      <v-list-item v-if="isAuth != null" to="/blog-post-creator">Create a blog post</v-list-item>
+      <v-list-item v-if="isAuth == null" to="/admins">Admin</v-list-item>
+      <v-list-item v-if="isAuth != null" to="/" @click="handleSignOut">Logout</v-list-item>
     </v-list>
   </v-navigation-drawer>
   <!-- <v-navigation-drawer v-model="drawer" location="right" temporary app>
