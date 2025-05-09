@@ -34,38 +34,12 @@
       </v-row>
     </v-container>
   </v-sheet>
-  <v-sheet class="bg-custom-white">
-    <v-container class="px-8 business-guiness">
-      <v-row class="text-center" justify="center">
-        <v-card color="#f4b754" rounded="lg" class="px-6 mt-4">
-        <v-col cols="12" lg="6"> <img :src="bgLogoUrl" height="150" width="266"> </img> </v-col>
-      </v-card>
-      </v-row>
-          
-
-      <v-row justify="center">
-        <v-col cols="12">
-        </v-col>
-      </v-row>
-      <v-row justify="center">
-        <v-col cols="12" lg="6">
-          <v-responsive
-            :aspect-ratio="$vuetify.display.mdAndUp ? '16/9' : '4/3'"
-            class="video-container"
-          >
-            <iframe
-              class="w-100 h-100"
-              :src="'https://www.youtube-nocookie.com/embed/adXj8sz4ozU?si=8SHRWN0HZz767e9u'"
-              title="Youtube Video Player"
-              loading="lazy"
-              samesite="lax"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              referrerpolicy="strict-origin-when-cross-origin"
-            ></iframe>
-          </v-responsive>
-        </v-col>
+  <v-sheet class="mx-0 bg-custom-white">
+    <v-container class="business-guiness d-flex align-center justify-center">
+      <v-row class="mx-4 mx-sm-6 mx-md-12" dense style="max-width: 1200px;">
+        <v-col cols="4"><v-card class="home-card">hadhad</v-card></v-col>
+        <v-col cols="4"><v-card class="home-card">hadhad</v-card></v-col>
+        <v-col cols="4"><v-card class="home-card">hadhad</v-card></v-col>
       </v-row>
     </v-container>
   </v-sheet>
@@ -265,6 +239,11 @@ onUnmounted(() => {
 .business-guiness {
   height: 900px;
   width: 100% !important;
+}
+
+.home-card {
+  height: 150px;
+  width: auto;
 }
 
 .video-container {
