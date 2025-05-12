@@ -11,7 +11,7 @@ export const data = {
     },
     {
       title: "Lessons",
-      path: "",
+      path: "/training-lessons",
       icon: "mdi-pencil",
       sublinks: [
         { title: "Online Trainings", path: "/online-trainings" },
@@ -24,7 +24,7 @@ export const data = {
 
     {
       title: "Media",
-      path: "",
+      path: "/business-and-guinness",
       icon: "mdi-microphone",
       sublinks: [
         { title: "Business and Guinness", path: "/business-and-guinness" },
@@ -33,7 +33,7 @@ export const data = {
     },
     {
       title: "Legal",
-      path: "",
+      path: "/legal",
       icon: "",
       sublinks: [
         { title: "Disclaimer", path: "/disclaimer" },

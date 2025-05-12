@@ -1,17 +1,17 @@
 <template>
   <v-sheet class="bg-custom-white mx-6 my-6">
     <v-component>
-      <v-row class="text-center">
-        <v-col>
-          <h1>Disclaimer</h1>
+      <v-row class="text-left" justify="center">
+        <v-col cols="12" md="4">
+          <h1><strong>Impressum</strong></h1>
           <p>Angaben gemäß § 5 TMG:</p>
           <p>
             <br />
             Donal O’Riada <br />
             Business Languages Augsburg <br />
             Dr. Dürrwangerstr. 15f <br />
-            86156 Augsburg <br />
-            Contact: <br />
+            86156 Augsburg <br /><br/>
+            <strong style="font-size: 1.2rem;">Contact:</strong> <br />
             Telefon: +49 (0) 0821 79083976 <br />
             Telefax: +49 (0) 0821 79083977 <br />
             E-Mail: info@businesslanguages.de
@@ -29,7 +29,7 @@
             86156 Augsburg
           </p>
           <p>
-            <br />Allgemeine Datenschutzerklärung <br />Durch die Nutzung
+            <br /><strong style="font-size: 1.2rem;">Allgemeine Datenschutzerklärung</strong> <br />Durch die Nutzung
             unserer Website erklären Sie sich mit der Erhebung, Verarbeitung und
             Nutzung von Daten gemäß der nachfolgenden Beschreibung
             einverstanden. Unsere Website kann grundsätzlich ohne Registrierung
@@ -42,7 +42,7 @@
             erfolgt keine Weitergabe der Daten an Dritte.
           </p>
           <p>
-            <br />Datenschutzerklärung für Facebook <br />
+            <br /><strong style="font-size: 1.2rem;">Datenschutzerklärung für Facebook</strong> <br />
             Disclaimer Angaben gemäß § 5 TMG: Donal O’Riada Business Languages
             Augsburg Dr. Dürrwangerstr. 15f 86156 Augsburg Contact: Telefon: +49
             (0) 0821 79083976 Telefax: +49 (0) 0821 79083977 E-Mail:
@@ -74,7 +74,7 @@
             erfahren Sie unter https://de-de.facebook.com/about/privacy.
           </p>
           <p>
-            <br />Disclaimer <br />
+            <br /><strong style="font-size: 1.2rem;">Disclaimer</strong> <br />
             Inhalt und Werke dieser Website sind urheberrechtlich geschützt.
             Trotz höchster Sorgfalt kann nicht für die Richtigkeit der
             wiedergegebenen Informationen oder die permanente technische

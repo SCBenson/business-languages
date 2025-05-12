@@ -6,7 +6,7 @@
           <v-row class="text-center">
             <v-col>
               <v-card-title class="text-custom-purple"
-                >Alex Traurwein</v-card-title
+                >Alex Trautwein</v-card-title
               >
               <v-card-subtitle>Instructor</v-card-subtitle>
               <v-avatar size="250">

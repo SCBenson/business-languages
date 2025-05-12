@@ -36,11 +36,18 @@
   </v-sheet>
   <v-sheet class="mx-0 bg-custom-white">
     <v-container class="business-guiness d-flex align-center justify-center">
+      
       <v-row class="mx-4 mx-sm-6 mx-md-12" dense style="max-width: 1200px;">
-        <v-col cols="4"><v-card class="home-card">hadhad</v-card></v-col>
-        <v-col cols="4"><v-card class="home-card">hadhad</v-card></v-col>
-        <v-col cols="4"><v-card class="home-card">hadhad</v-card></v-col>
-      </v-row>
+        <v-col align="center" cols="12" class="pb-4"><h1>What we offer</h1></v-col>
+        <v-col align="center" cols="12" md="3" class="px-4"><v-card class="home-card card-slide-up">
+          <v-img src="@/assets/home/briefcase.webp" alt="briefcase icon representing tailored services" class="icons"></v-img><v-card-title class="text-no-wrap title-height">Tailored for Business</v-card-title><p class="card-text">Custom language programs designed specifically for your industry needs.</p></v-card></v-col>
+        <v-col align="center" cols="12" md="3" class="px-4"><v-card class="home-card card-slide-up">
+          <v-img src="@/assets/home/interactive.webp" alt="interactive icon representing online learning" class="icons"></v-img><v-card-title class="text-no-wrap title-height">Interactive & Online</v-card-title><p class="card-text">Engage in dynamic lessons from anywhere with our live, interactive virtual classroom experience that feels just like being there in person.</p></v-card></v-col>
+        <v-col align="center" cols="12" md="3" class="px-4"><v-card class="home-card card-slide-up">
+          <v-img src="@/assets/home/communication.webp" alt="Communication icon representing coversation focused learning" class="icons"></v-img><v-card-title class="text-no-wrap title-height">Communication Focused</v-card-title><p class="card-text">Master practical conversation skills through real-world scenarios that prepare you to speak confidently in any situation.</p></v-card></v-col>
+        <v-col align="center" cols="12" md="3" class="px-4"><v-card class="home-card card-slide-up">
+          <v-img src="@/assets/home/rocket.webp" alt="Rocket icon representing advanced comprehension language education" class="icons"></v-img><v-card-title class="text-no-wrap title-height">More than just a Language School</v-card-title><p class="card-text">Dive into cultural immersion, career-specific terminology, and personalized learning paths.</p></v-card></v-col>
+        </v-row>
     </v-container>
   </v-sheet>
   <div ref="contactSection">
@@ -86,7 +93,7 @@
       <v-col align="center" cols="12" md="6" lg="6">
         <v-card color="#f4b754">
           <v-row>
-            <v-col cols="12" md="6" lg="6">
+            <v-col cols="12">
               <v-card class="ma-4">
                 <v-row>
                   <v-col>
@@ -94,16 +101,16 @@
                   </v-col>
                 </v-row>
 
-                <v-row>
-                  <v-col cols="6"><v-icon>mdi-pin</v-icon></v-col>
+                <v-row justify="center">
+                  <v-col cols="2" class="d-flex align-center justify-center"><v-icon>mdi-pin</v-icon></v-col>
                   <v-col cols="6" align="space-around">
                     <p>{{ $t('home.contact-info.visit-us') }}</p>
                     <p class="pr-2 pb-2">Dr. Durrwanger Strasse 15F <br/> 86156 <br/>Augsburg</p>
                   </v-col>
                 </v-row>
 
-                <v-row>
-                  <v-col cols="6"><v-icon>mdi-email</v-icon></v-col>
+                <v-row justify="center">
+                  <v-col cols="2" class="d-flex align-center justify-center"><v-icon>mdi-email</v-icon></v-col>
                   <v-col cols="6" align="space-around">
                     
                     <p>Email</p>
@@ -111,15 +118,15 @@
                   
                 </v-row>
 
-                <v-row>
-                  <v-col cols="6"><v-icon>mdi-phone</v-icon></v-col>
+                <v-row justify="center">
+                  <v-col cols="2" class="d-flex align-center justify-center"><v-icon>mdi-phone</v-icon></v-col>
                   <v-col cols="6">
                   <p>{{ $t('home.contact-info.phone') }}</p>
                   <p class="pr-2 pb-2">+ 49 1733825029</p>
                 </v-col>
                 </v-row>
-                <v-row>
-                  <v-col cols="6"><v-icon>mdi-clock</v-icon></v-col>
+                <v-row justify="center">
+                  <v-col cols="2" class="d-flex align-center justify-center"><v-icon>mdi-clock</v-icon></v-col>
                   <v-col cols="6">
                   <p>{{ $t('home.contact-info.opening-hours') }}</p>
                   <p class="pr-2 pb-2">M-F: 9:00AM-6:00PM</p>
@@ -127,7 +134,7 @@
                 </v-row>
               </v-card>
             </v-col>
-            <v-col cols="12" lg="6" md="6">
+            <v-col cols="12">
               <v-row>
                 <v-col
                 class="my-4 mx-4 map-container">
@@ -153,9 +160,9 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import bgLogoUrl from "@/assets/business-and-guiness-logo.jpg";
 
 const contactSection = ref(null);
+// const cardsContainer = ref(null);
 
 const scrollToContact = () => {
   contactSection.value.scrollIntoView({ behaviour: 'smooth' });
@@ -189,6 +196,27 @@ onMounted(() => {
       indexVal.value = (indexVal.value + 1) % languages.length;
     }, 2000);
   }, 3000); // Wait 3 seconds before starting animation
+
+  setTimeout(() => {
+    const cards = document.querySelectorAll('.card-slide-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '0px'
+    });
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  }, 500)
+
+
 });
 
 
@@ -237,13 +265,74 @@ onUnmounted(() => {
 }
 
 .business-guiness {
-  height: 900px;
+  height: 1500px;
   width: 100% !important;
 }
 
+@media (min-width: 960px) {
+  .business-guiness {
+    height: 900px;
+  }
+}
+
 .home-card {
-  height: 150px;
-  width: auto;
+  height: 100%;
+  width: 100%;
+  background-color: #d2d2d2;
+  padding-top: 15px;
+}
+
+.title-height{
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.card-text {
+  padding: 25px 25px 15px 25px;
+  font-size: 1.1rem;
+}
+
+.card-slide-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+
+.card-slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.v-col:nth-child(1) .card-slide-up.visible {
+  transition-delay: 0ms;
+}
+.v-col:nth-child(2) .card-slide-up.visible {
+  transition-delay: 150ms;
+}
+.v-col:nth-child(3) .card-slide-up.visible {
+  transition-delay: 300ms;
+}
+.v-col:nth-child(4) .card-slide-up.visible {
+  transition-delay: 450ms;
+}
+
+.text-no-wrap {
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  hyphens: auto !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  width: 100%;
+}
+
+.icons {
+  height: 70px;
+  width: 70px;
 }
 
 .video-container {

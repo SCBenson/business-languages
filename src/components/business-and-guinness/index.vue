@@ -3,6 +3,16 @@
     <v-container>
       <v-row>
         <v-col cols="12" class="text-center"> <img :src="bgLogoUrl" height="150"> </img> </v-col>
+        <v-col cols="12"><p>So, what is Business and Guinness and why do we, a language school, do it?
+It started as a pub evening which we organized for our customers and trainers; a social
+setting where class participants and anyone they wanted to bring along could meet up,
+get to know new people, get to know Business Languages better, play games (quizzes,
+billiards, darts etc.) and just have fun, all in English.
+Then along came Covid 19. And we were forced online. So, we adapted and now, every
+two weeks (or three or four!) Matt and Donal put on a show, incorporating all the fun of
+the pub with travel advice, comedy sections (St. Brendan really has to be seen to be
+believed!) and our famous pub quiz with wonderful prizes (see pictures) and a chance to
+go to New Orleans with Matt!</p></v-col>
         <template v-for="(item, index) in videoItems" :key="index">
           <v-col cols="12" sm="6" md="4" lg="4" xl="4">
             <v-sheet class="video-container">

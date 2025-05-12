@@ -36,10 +36,10 @@
 
           <v-list bg-color="#f4b754">
             <v-list-item>
-              <router-link to="/bla-interactive" class="mx-2 text-black">BLA Interactive</router-link>
+              <router-link to="/bla-interactive" class="mx-2 text-black">Language Training</router-link>
             </v-list-item>
             <v-list-item>
-              <router-link to="/training-lessons" class="mx-2 text-black">Language Training</router-link>
+              <router-link to="/training-lessons" class="mx-2 text-black">BLA Interactive</router-link>
             </v-list-item>
             <v-list-item>
               <router-link to="/translations" class="mx-2 text-black">Translations</router-link>
@@ -71,10 +71,35 @@
               <router-link to="/team" class="mx-2 text-black">Meet the Team</router-link>
             </v-list-item>
             <v-list-item>
-              <router-link to="/legal" class="mx-2 text-black">Legal</router-link>
+              <router-link to="/legal" class="mx-2 text-black">Data Protection</router-link>
             </v-list-item>
             <v-list-item>
-              <router-link to="/disclaimer" class="mx-2 text-black">Dislaimer</router-link>
+              <router-link to="/disclaimer" class="mx-2 text-black">Disclaimer</router-link>
+            </v-list-item>
+          </v-list>
+         </v-menu>
+      </div>
+      
+      <div class="text-center">
+        <v-menu
+          open-on-hover
+        >
+          <template v-slot:activator="{ props }">
+            <router-link
+              v-bind="props"
+              to="/business-and-guiness"
+              class="mx-2 text-black"
+            >
+              Media
+            </router-link>
+          </template>
+
+          <v-list bg-color="#f4b754">
+            <v-list-item>
+              <router-link to="/business-and-guinness" class="mx-2 text-black">Business & Guiness</router-link>
+            </v-list-item>
+            <v-list-item>
+              <router-link to="/webseries" class="mx-2 text-black">Web Series</router-link>
             </v-list-item>
           </v-list>
          </v-menu>
@@ -101,30 +126,7 @@
           </v-list>
          </v-menu>
       </div>
-      <div class="text-center">
-        <v-menu
-          open-on-hover
-        >
-          <template v-slot:activator="{ props }">
-            <router-link
-              v-bind="props"
-              to="/business-and-guiness"
-              class="mx-2 text-black"
-            >
-              Media
-            </router-link>
-          </template>
-
-          <v-list bg-color="#f4b754">
-            <v-list-item>
-              <router-link to="/business-and-guinness" class="mx-2 text-black">Business & Guiness</router-link>
-            </v-list-item>
-            <v-list-item>
-              <router-link to="/webseries" class="mx-2 text-black">Web Series</router-link>
-            </v-list-item>
-          </v-list>
-         </v-menu>
-      </div>
+      
 
       
       <router-link
