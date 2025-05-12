@@ -74,25 +74,22 @@
   "bla-interactive": {
     "bla-interactive": {
       "title": "BLA Interaktiv",
-      "description": "Ihr Schlüssel zu nachhaltigem Wirtschaftsenglisch Erleben Sie eine neue Dimension des Sprachenlernens mit BLA Interactive - der revolutionären Plattform, die Ihr Englischtraining verändern wird.",
-      "button": "Jetzt buchen"
-    },
-    "exclusive-benefits": {
-      "title": "Exklusive Vorteile",
-      "description": "BLA Interactive wurde exklusiv für unsere bestehenden Kunden entwickelt und bietet eine Welt interaktiver Lernmöglichkeiten, die auf die Bedürfnisse moderner Geschäftsleute zugeschnitten sind. Tauchen Sie ein in eine Umgebung, die nicht nur lehrt, sondern inspiriert, motiviert und auf nachhaltige Verbesserung abzielt."
-    },
-    "beginner-friendly": {
-      "title": "Anfängertauglich",
-      "description": "Diese Plattform richtet sich an alle Mitarbeiter unserer Bestandskunden, die ihr Geschäftsenglisch vom Anfänger bis zum Fortgeschrittenen effektiv und nachhaltig verbessern wollen."
+      "welcome": "Willkommen bei Business Languages Interaktiv (BLA Interaktiv)",
+      "description": "BLA Interaktiv ist unsere innovative, flexible und interaktive Erweiterung unserer Sprachtrainingsprogramme - entwickelt, um Ihre Lernerfahrung auf die nächste Stufe zu haben. BLA Interactive ist das Ergebnis unserer umfassenden Erfahrung im Online-Unterricht seit 2020 und wurde entwickelt, um die tatsächlichen Bedürfnisse der Lernenden zu erfüllen: Zugang zu hochwertigen Lernmaterialien nach dem Unterricht, eine zentrale Anlaufstelle für Kursressourcen und Kommunikation sowie Lösungen für die Kontinuität des Lernens bei Ausfallzeiten wie Krankheit oder Internetproblemen. Egal, ob Sie ein aktueller Mitarbeiter eines unserer Partnerunternehmen sind, ein neuer Kunde oder eine Einzelperson, die sich auf einen Kurs vorbereitet oder von einem Kurs zum nächsten wechselt - BLA Interaktiv bietet Ihnen maßgeschneiderte Unterstützung, damit Sie Ihre Kenntnisse in Wirtschaftsenglisch oder Deutsch kontinuierlich verbessern können.",
+      "button": "Mehr erfahren"
     },
     "a-unique-experience": {
       "title": "Eine einzigartige Erfahrung",
-      "bullet1": "Umfangreiche Videothek",
-      "bullet2": "Zugänglichkeit",
-      "bullet3": "Regelmäßige Aktualisierungen und neue Inhalte",
-      "bullet4": "Flexible Lernpfade",
-      "bullet5": "Interaktive Schulungsmodule",
-      "bullet6": "TechTalks"
+      "description": "Wir bieten zwei Mitgliedsstufen - Interactive Essentials und Interactive Premium - an:",
+      "bullet1": "Online-Kurse für jedes Niveau (Anfänger bis Fortgeschrittene)",
+      "bullet2": "Regelmäßig aktualisierte Business-Podcasts und herunterladbare Materialien",
+      "bullet3": "Maßgeschneiderte Lernmodule, die in enger Zusammenarbeit mit Ihrer HR Abteilung",
+      "bullet4": "Interaktive Inhalte wie Videos, Audios, Texte und Quizze",
+      "bullet5": "Zentraler Zugang zu all Ihren Lernressourcen, jederzeit und überall",
+      "footer": "Unser Tool fördert das selbstständige Lernen, unterstützt flexible Lernzeiten und ermöglicht den effizienten Austausch von Materialien und die Zusammenarbeit zwischen den Teilnehmern - für einen nachhaltigen, motivierenden Fortschritt über den traditionellen Unterricht hinaus."
+    },
+    "bla-slogan": {
+      "text": "BLA Interaktiv - Intelligenter lernen. Verbunden bleiben. Kontinuierlich wachsen."
     }
   },
   "online-training": {

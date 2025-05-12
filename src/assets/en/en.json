@@ -74,25 +74,22 @@
   "bla-interactive": {
     "bla-interactive": {
       "title": "BLA Interactive",
-      "description": "Your key to sustainable business English Experience a new dimension of language learning with BLA Interactive - the revolutionary platform that will transform your English training.",
-      "button": "Book Now"
-    },
-    "exclusive-benefits": {
-      "title": "Exclusive Benefits",
-      "description": "Developed exclusively for our existing customers, BLA Interactive offers a world of interactive learning opportunities, tailored to the needs of modern needs of modern business professionals. Immerse yourself in an environment that not only teaches, but inspires, motivates and aims for sustainable improvement."
-    },
-    "beginner-friendly": {
-      "title": "Beginner Friendly",
-      "description": "This platform is aimed at all employees of our existing customers who want to improve their business English effectively and sustainably from beginners to advanced learners."
+      "welcome": "Welcome to Business Languages Interactive (BLA Interactive)",
+      "description": "BLA Interactive is our innovative, exible, and interactive extension to our language training programs - designed to take your learning experience to the next level. Born from our extensive experience in online teaching since 2020, BLA Interactive was created to meet real learner needs: access to high-quality learning materials after lessons, a central hub for course resources and communication, and solutions for learning continuity during downtimes like illness or internet issues. Whether you are a current employee of one of our partner companies, a new customer, or an individual preparing for or transitioning between courses - BLA Interactive provides customized support to help you continuously improve your Business English or German skills.",
+      "button": "Learn More"
     },
     "a-unique-experience": {
-      "title": "A Unique Experience",
-      "bullet1": "Extensive video library",
-      "bullet2": "Accessibility",
-      "bullet3": "Regular updates and new content",
-      "bullet4": "Flexible learning paths",
-      "bullet5": "Interactive training modules",
-      "bullet6": "TechTalks"
+      "title": "Membership Levels",
+      "description": "With two membership levels - Interactive Essentials and Interactive Premium - we offer:",
+      "bullet1": "Online courses for every level (Beginner to Advanced)",
+      "bullet2": "Regularly updated business podcasts and downloadable materials",
+      "bullet3": "Tailor-made learning modules designed in close collaboration with your HR department",
+      "bullet4": "Interactive content including videos, audio, texts, and quizzes",
+      "bullet5": "Centralized access to all your learning resources, anytime and anywhere" ,
+      "footer": "Our tool fosters independent learning, supports flexible study times, and enables efficient material sharing and collaboration between participants — ensuring sustainable, motivating progress beyond traditional lessons."
+    },
+    "bla-slogan": {
+      "text": "BLA Intractive - Learn smarter. Stay connected. Grow continuously."
     }
   },
   "online-training": {

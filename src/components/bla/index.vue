@@ -3,68 +3,68 @@
     <h1 class="text-custom-purple">
       {{ $t("bla-interactive.bla-interactive.title") }}
     </h1>
-    <v-row>
+    <v-row justify="center">
       <v-col cols="12">
-        <v-card color="#f4b754">
-          <v-card-title class="text-custom-purple">{{
-            $t("bla-interactive.bla-interactive.title")
+        <v-card color="#f4b754" class="text-left ">
+          <v-card-title class="text-custom-purple responsive-title text-wrap">{{
+            $t("bla-interactive.bla-interactive.welcome")
           }}</v-card-title>
           <v-card-text class="text-black">{{
             $t("bla-interactive.bla-interactive.description")
           }}</v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="12">
-        <v-card color="#f4b754">
-          <v-card-title class="text-custom-purple">{{
-            $t("bla-interactive.exclusive-benefits.title")
-          }}</v-card-title>
-          <v-card-text class="text-black">{{
-            $t("bla-interactive.exclusive-benefits.description")
-          }}</v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12">
-        <v-card color="#f4b754">
-          <v-card-title class="text-custom-purple">{{
-            $t("bla-interactive.beginner-friendly.title")
-          }}</v-card-title>
-          <v-card-text class="text-black"
-            >{{ $t("bla-interactive.beginner-friendly.description") }}
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12">
-        <v-card color="#f4b754">
+      <v-col cols="12" md="4">
+        <v-card color="#f4b754" class="text-left">
           <v-card-title class="text-custom-purple">{{
             $t("bla-interactive.a-unique-experience.title")
           }}</v-card-title>
           <v-card-text class="text-black"
-            ><v-list class="bg-transparent">
-              <v-list-item prepend-icon="mdi-star">{{
+          >
+            <p>{{$t("bla-interactive.a-unique-experience.description")}}</p>
+            <v-list class="bg-transparent">
+              <v-list-item prepend-icon="mdi-stairs">{{
                 $t("bla-interactive.a-unique-experience.bullet1")
               }}</v-list-item>
-              <v-list-item prepend-icon="mdi-star">{{
+              <v-list-item prepend-icon="mdi-update">{{
                 $t("bla-interactive.a-unique-experience.bullet2")
               }}</v-list-item>
-              <v-list-item prepend-icon="mdi-star">{{
+              <v-list-item prepend-icon="mdi-handshake">{{
                 $t("bla-interactive.a-unique-experience.bullet3")
               }}</v-list-item>
-              <v-list-item prepend-icon="mdi-star">{{
+              <v-list-item prepend-icon="mdi-play-circle">{{
                 $t("bla-interactive.a-unique-experience.bullet4")
               }}</v-list-item>
-              <v-list-item prepend-icon="mdi-star">{{
+              <v-list-item prepend-icon="mdi-cloud">{{
                 $t("bla-interactive.a-unique-experience.bullet5")
-              }}</v-list-item>
-              <v-list-item prepend-icon="mdi-star">{{
-                $t("bla-interactive.a-unique-experience.bullet6")
               }}</v-list-item>
             </v-list>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
-    <v-btn class="mt-4" color="purple">{{
+    <v-row justify="center">
+      <v-col cols="12" md="8">
+        <v-card color="#f4b754" class="text-left ">
+
+          <v-card-text class="text-black">{{
+            $t("bla-interactive.a-unique-experience.footer")
+          }}</v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row justify=center>
+ 
+      <v-col cols="12" md="6">
+        <v-card color="#f4b754" class="text-left ">
+
+          <v-card-text class="text-black"><strong>{{
+            $t("bla-interactive.bla-slogan.text")
+          }}</strong></v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-btn href="https://blainteractive.app.mentortools.com/ng/lp/new-sales-27009" class="mt-4" color="purple">{{
       $t("bla-interactive.bla-interactive.button")
     }}</v-btn>
   </v-container>
@@ -108,5 +108,12 @@ export default {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+}
+
+.text-wrap {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  word-wrap: break-word !important;
 }
 </style>

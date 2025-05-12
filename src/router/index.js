@@ -86,10 +86,6 @@ const router = createRouter({
       component: () => import("@/components/team/team-profiles/matthew.vue"),
     },
     {
-      path: "/team/Kelsey",
-      component: () => import("@/components/team/team-profiles/kelsey.vue"),
-    },
-    {
       path: "/team/Divya",
       component: () => import("@/components/team/team-profiles/divya.vue"),
     },
@@ -104,10 +100,6 @@ const router = createRouter({
     {
       path: "/team/Alex",
       component: () => import("@/components/team/team-profiles/alex.vue"),
-    },
-    {
-      path: "/team/Irene",
-      component: () => import("@/components/team/team-profiles/irene.vue"),
     },
     {
       path: "/team/Sara",

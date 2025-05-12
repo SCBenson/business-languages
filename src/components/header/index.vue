@@ -36,10 +36,10 @@
 
           <v-list bg-color="#f4b754">
             <v-list-item>
-              <router-link to="/bla-interactive" class="mx-2 text-black">Language Training</router-link>
+              <router-link to="/training-lessons" class="mx-2 text-black">Language Training</router-link>
             </v-list-item>
             <v-list-item>
-              <router-link to="/training-lessons" class="mx-2 text-black">BLA Interactive</router-link>
+              <router-link to="/bla-interactive" class="mx-2 text-black">BLA Interactive</router-link>
             </v-list-item>
             <v-list-item>
               <router-link to="/translations" class="mx-2 text-black">Translations</router-link>
