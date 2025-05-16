@@ -1,8 +1,8 @@
 <template>
   <v-sheet class="bg-custom-white mx-6 my-6">
     <v-component>
-      <v-row class="text-center">
-        <v-col>
+      <v-row class="text-left" justify="center">
+        <v-col cols="12" md="4">
           <h1>Datenschutzerklärung Business Languages Augsburg</h1>
 
           <h2>1.) Allgemeine Hinweise</h2>

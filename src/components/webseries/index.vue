@@ -5,7 +5,7 @@
         <h1>Web Series</h1>
       </v-col>
     </v-row>
-    <v-row class="px-4">
+    <v-row class="pa-4">
       <template v-for="(item, index) in videoItems" :key="index">
         <v-col cols="12" sm="6" md="4" lg="4" xl="4">
           <v-sheet class="video-container">

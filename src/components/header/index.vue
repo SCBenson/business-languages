@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     height="56"
-    class="px-8"
+    class="px-2 px-sm-8"
     color="#f4b754"
     scroll-behavior="hide"
     scroll-threshold="100"
@@ -71,7 +71,7 @@
               <router-link to="/team" class="mx-2 text-black">Meet the Team</router-link>
             </v-list-item>
             <v-list-item>
-              <router-link to="/legal" class="mx-2 text-black">Data Protection</router-link>
+              <router-link to="/data-protection" class="mx-2 text-black">Data Protection</router-link>
             </v-list-item>
             <v-list-item>
               <router-link to="/disclaimer" class="mx-2 text-black">Disclaimer</router-link>
@@ -87,7 +87,7 @@
           <template v-slot:activator="{ props }">
             <router-link
               v-bind="props"
-              to="/business-and-guiness"
+              to="/business-and-guinness"
               class="mx-2 text-black"
             >
               Media

@@ -20,9 +20,10 @@ import Footer from "@/components/footer/index.vue";
 
 .main-content{
   position: relative;
-  min-height: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 /* Global transition styles */
@@ -34,6 +35,12 @@ import Footer from "@/components/footer/index.vue";
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 </style>
 
