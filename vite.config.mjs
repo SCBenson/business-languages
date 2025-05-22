@@ -12,7 +12,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/business-languages/' : '/',
+  base: '/',
   plugins: [
     Vue({
       template: { transformAssetUrls }
@@ -82,6 +82,27 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
+        // Configure JavaScript files to go in js/ folder
+        entryFileNames: 'js/[name]-[hash].js',
+        chunkFileNames: 'js/[name]-[hash].js',
+        
+        // Configure asset files (CSS, images, fonts) organization
+        assetFileNames: (assetInfo) => {
+          const extType = assetInfo.name.split('.').pop()
+          
+          if (extType === 'css') {
+            return 'css/[name]-[hash].[ext]'
+          }
+          if (['png', 'jpg', 'jpeg', 'gif', 'svg', 'ico', 'webp'].includes(extType)) {
+            return 'img/[name]-[hash].[ext]'
+          }
+          if (['woff', 'woff2', 'eot', 'ttf', 'otf'].includes(extType)) {
+            return 'fonts/[name]-[hash].[ext]'
+          }
+          
+          return 'assets/[name]-[hash].[ext]'
+        },
+        
         manualChunks: (id) => {
           if (id.includes('node_modules/vue/') || id.includes('node_modules/vue-router/')) {
             return 'vue-core';
