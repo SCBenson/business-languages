@@ -1,6 +1,6 @@
 <template>
   <v-sheet class="hero-section">
-    <v-container fluid class="pa-0 text-center fill-height">
+    <v-container fluid class="pa-0 text-center fill-height pb-0">
       <v-row>
         <v-col cols="12">
           <div class="language-container">
@@ -35,18 +35,18 @@
     </v-container>
   </v-sheet>
   <v-sheet class="mx-0 bg-custom-white">
-    <v-container class="business-guinness d-flex align-center justify-center">
+    <v-container class="business-guinness d-flex align-center justify-center pt-0">
       
-      <v-row class="mx-4 mx-sm-6 mx-md-12" dense style="max-width: 1200px;">
-        <v-col align="center" cols="12" class="pb-4"><h1>What we offer</h1></v-col>
+      <v-row class="mx-4 mx-sm-6 mx-md-12" style="max-width: 1200px;">
+        <v-col align="center" cols="12" class="py-6"><h1>{{$t('home.services.header')}}</h1></v-col>
         <v-col align="center" cols="12" md="3" class="px-4"><v-card class="home-card card-slide-up">
-          <v-img src="@/assets/home/briefcase.webp" alt="briefcase icon representing tailored services" class="icons"></v-img><v-card-title class="text-no-wrap title-height">Tailored for Business</v-card-title><p class="card-text">Custom language programs designed specifically for your industry needs.</p></v-card></v-col>
+          <v-img src="@/assets/home/briefcase.webp" alt="briefcase icon representing tailored services" class="icons"></v-img><v-card-title class="text-no-wrap title-height">{{$t('home.services.service-1-title')}}</v-card-title><p class="card-text">{{$t('home.services.service-1-description')}}</p></v-card></v-col>
         <v-col align="center" cols="12" md="3" class="px-4"><v-card class="home-card card-slide-up">
-          <v-img src="@/assets/home/interactive.webp" alt="interactive icon representing online learning" class="icons"></v-img><v-card-title class="text-no-wrap title-height">Interactive & Online</v-card-title><p class="card-text">Engage in dynamic lessons from anywhere with our live, interactive virtual classroom experience that feels just like being there in person.</p></v-card></v-col>
+          <v-img src="@/assets/home/interactive.webp" alt="interactive icon representing online learning" class="icons"></v-img><v-card-title class="text-no-wrap title-height">{{$t('home.services.service-2-title')}}</v-card-title><p class="card-text">{{$t('home.services.service-2-description')}}</p></v-card></v-col>
         <v-col align="center" cols="12" md="3" class="px-4"><v-card class="home-card card-slide-up">
-          <v-img src="@/assets/home/communication.webp" alt="Communication icon representing coversation focused learning" class="icons"></v-img><v-card-title class="text-no-wrap title-height">Communication Focused</v-card-title><p class="card-text">Master practical conversation skills through real-world scenarios that prepare you to speak confidently in any situation.</p></v-card></v-col>
+          <v-img src="@/assets/home/communication.webp" alt="Communication icon representing coversation focused learning" class="icons"></v-img><v-card-title class="text-no-wrap title-height">{{$t('home.services.service-3-title')}}</v-card-title><p class="card-text">{{$t('home.services.service-3-description')}}</p></v-card></v-col>
         <v-col align="center" cols="12" md="3" class="px-4"><v-card class="home-card card-slide-up">
-          <v-img src="@/assets/home/rocket.webp" alt="Rocket icon representing advanced comprehension language education" class="icons"></v-img><v-card-title class="text-no-wrap title-height">More than just a Language School</v-card-title><p class="card-text">Dive into cultural immersion, career-specific terminology, and personalized learning paths.</p></v-card></v-col>
+          <v-img src="@/assets/home/rocket.webp" alt="Rocket icon representing advanced comprehension language education" class="icons"></v-img><v-card-title class="text-no-wrap title-height">{{$t('home.services.service-4-title')}}</v-card-title><p class="card-text">{{$t('home.services.service-4-description')}}</p></v-card></v-col>
         </v-row>
     </v-container>
   </v-sheet>
@@ -55,33 +55,64 @@
       <v-row justify="center">
         <v-col cols="12" md="6" lg="6">
           <v-card color="#f4b754" class="pa-6 mt-8">
-            <v-form align="center" class="custom-color">
+            <v-form align="center" class="custom-color" ref="contactForm" @submit.prevent="sendEmail">
               <h1 class="font-weight-bold mb-2">{{ $t('home.contact-form.title') }}</h1>
               <v-row justify="center">
                 <v-col cols="12" md="8">
                   <v-text-field
+                    v-model="formData.firstName"
                     bg-color="white"
                     :label="$t('home.contact-form.first-name')"
+                    required
+                    :rules="[v => !!v || 'First name is required']"
                   ></v-text-field>
                 </v-col>
                 <v-col cols="12" md="8">
-                  <v-text-field bg-color="white" :label="$t('home.contact-form.last-name')"></v-text-field>
+                  <v-text-field 
+                    v-model="formData.email" 
+                    bg-color="white" 
+                    type="email" 
+                    required 
+                    label="E-Mail" 
+                    :rules="emailRules">
+                  </v-text-field>
                 </v-col>
+
               </v-row>
               <v-row justify="center">
-                <v-col cols="12" md="8">
-                  <v-text-field bg-color="white" label="E-Mail"></v-text-field>
-                </v-col>
+                 <v-col cols="12" md="8">
+                  <v-text-field 
+                    v-model="formData.subject" 
+                    required 
+                    bg-color="white" 
+                    :label="$t('home.contact-form.subject')" 
+                    :rules="[v => !!v || 'Subject is required']">
+                  </v-text-field>
+                 </v-col>
               </v-row>
               <v-row justify="center">
                 <v-col cols="12" md="8">
                   <v-textarea
+                    v-model="formData.message"
+                    required
                     bg-color="white"
                     :label="$t('home.contact-form.description')"
+                    class="wrapped-label"
+                    :rules="[v => !!v || 'Message is required']"
                   ></v-textarea>
                 </v-col>
               </v-row>
-              <v-row><v-col><v-btn color="purple">{{$t('home.contact-form.button')}}</v-btn></v-col></v-row>
+              <v-row>
+                <v-col>
+                  <v-btn 
+                    type="submit" 
+                    color="purple" 
+                    :loading="loading" 
+                    :disabled >
+                      {{$t('home.contact-form.button')}}
+                  </v-btn>
+                </v-col>
+              </v-row>
             </v-form>
           </v-card>
         </v-col>
@@ -113,7 +144,7 @@
                   <v-col cols="2" class="d-flex align-center justify-center"><v-icon>mdi-email</v-icon></v-col>
                   <v-col cols="6" align="space-around">
                     
-                    <p>Email</p>
+                    <p>Email:</p>
                     <p class="pr-2 pb-2">info@businesslanguages.de</p></v-col>
                   
                 </v-row>
@@ -125,7 +156,7 @@
                   <p class="pr-2 pb-2">+ 49 1733825029</p>
                 </v-col>
                 </v-row>
-                <v-row justify="center">
+                <v-row justify="center" class="pb-2">
                   <v-col cols="2" class="d-flex align-center justify-center"><v-icon>mdi-clock</v-icon></v-col>
                   <v-col cols="6">
                   <p>{{ $t('home.contact-info.opening-hours') }}</p>
@@ -159,7 +190,106 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, computed } from "vue";
+
+const contactForm = ref(null);
+const loading = ref(false);
+
+const formData = ref({
+  firstName: '',
+  email: '',
+  subject: '',
+  message: ''
+})
+
+const snackbar = ref({
+  show: false,
+  message: '',
+  color: 'success'
+})
+
+const emailRules = [
+  v => !!v || 'Email is required',
+  v => /.+@.+\..+/.test(v) || 'Email must be valid'
+]
+
+const isFormValid = computed(() => {
+  return formData.value.firstName && 
+         formData.value.email && 
+         formData.value.subject && 
+         formData.value.message &&
+         /.+@.+\..+/.test(formData.value.email)
+})
+
+const showNotification = (message, color = 'success') => {
+  snackbar.value = {
+    show: true,
+    message,
+    color
+  }
+}
+
+//send email function
+const sendEmail = async () => {
+  const { valid } = await contactForm.value.validate();
+  if(!valid){
+    showNotification('Please fill in all required fields correctly', 'error')
+    return
+  }
+
+  loading.value = true
+
+  try{
+    const response = await fetch('http://localhost:3001/api/send-email', {
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        to: 'sean_c_benson@outlook.com',
+        subject: `Contact Form: ${formData.value.subject}`,
+        text: `
+        Name: ${formData.value.firstName}
+        Email: ${formData.value.email}
+        Subject: ${formData.value.subject}
+
+        Message:
+        ${formData.value.message}
+          `,
+          html: `
+            <h3>New Contact Form Submission</h3>
+            <p><strong>Name:</strong> ${formData.value.firstName}</p>
+            <p><strong>Email:</strong> ${formData.value.email}</p>
+            <p><strong>Subject:</strong> ${formData.value.subject}</p>
+            <p><strong>Message:</strong></p>
+            <p>${formData.value.message.replace(/\n/g, '<br>')}</p>
+          `,
+          senderName: formData.value.firstName,
+          senderEmail: formData.value.email
+      })
+    })
+    const result = await response.json()
+
+    if(response.ok){
+      showNotification('Message sent successfully! We\'ll get back to you soon.', 'success')
+
+      formData.value = {
+        firstName: '',
+        email: '',
+        subject: '',
+        message: ''
+      }
+      contactForm.value.reset()
+    } else {
+      throw new Error(result.error || 'Failed to send message.')
+    }
+  } catch (error){
+    console.error('Error sending email:', error)
+    showNotification('Failed to send message. Please try again later.', 'error')
+  } finally {
+    loading.value = false
+  }
+}
 
 const contactSection = ref(null);
 // const cardsContainer = ref(null);
@@ -265,13 +395,13 @@ onUnmounted(() => {
 }
 
 .business-guinness {
-  height: 1000px;
+  height: auto;
   width: 100% !important;
 }
 
 @media (min-width: 960px) {
   .business-guinness {
-    height: 900px;
+    height: 600px;
   }
 }
 
@@ -345,5 +475,9 @@ onUnmounted(() => {
 
 .map-container{
   height: 400px;
+}
+.wrapped-label{
+  white-space: normal !important;
+  word-wrap: break-word !important;
 }
 </style>

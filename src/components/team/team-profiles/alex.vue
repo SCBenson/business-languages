@@ -55,7 +55,7 @@
                 also started recording music.
               </p>
               <h2 class="text-custom-purple">Interests and Passions</h2>
-              <p class="text-black">
+              <p class="text-black pb-2">
                 My idols in music are Kevin Parker, Stu Mackenzie, and Paul
                 McCartney. I’m a football fan, my favourite teams are Bayern
                 Munich (because of my family) and Tottenham, which might seem

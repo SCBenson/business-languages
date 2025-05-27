@@ -19,7 +19,7 @@
               <h2 class="text-custom-purple">
                 A little about me...
               </h2>
-              <p class="text-black">
+              <p class="text-black pb-2">
                 To be added soon...
               </p>
               

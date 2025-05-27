@@ -8,7 +8,7 @@
               <v-card-title class="text-custom-purple"
                 >Donal O'Riada</v-card-title
               >
-              <v-card-subtitle>Co-Founder</v-card-subtitle>
+              <v-card-subtitle>Owner</v-card-subtitle>
               <v-avatar size="250">
                 <v-img src="/team/donal.webp"></v-img>
               </v-avatar>
@@ -60,7 +60,7 @@
               <h2 class="text-custom-purple">
                 Blending Experience and Innovation
               </h2>
-              <p class="text-black pb-3">
+              <p class="text-black pb-2">
                 Our success lies in our ability to adapt and thrive. We've
                 weathered recessions, pandemics, and financial crises while
                 consistently providing training at the top level. We've kept up

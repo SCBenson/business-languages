@@ -27,10 +27,21 @@
       "sub-title": "Wir sind die Lösung für Ihren geschäftigen Lebensstil.",
       "button": "Kontakt"
     },
+    "services": {
+      "header": "Was wir anbieten",
+      "service-1-title": "Maßgeschneidert für Unternehmen",
+      "service-1-description": "Maßgeschneiderte Sprachprogramme, die speziell auf die Bedürfnisse Ihrer Branche zugeschnitten sind.",
+      "service-2-title": "Interaktiv & Online",
+      "service-2-description": "Nehmen Sie von überall aus an dynamischen Lektionen teil - mit unserem interaktiven, virtuellen Klassenzimmer, das sich anfühlt, als wären Sie persönlich anwesend.",
+      "service-3-title": "Kommunikation im Mittelpunkt",
+      "service-3-description": "Beherrschen Sie praktische Konversationsfähigkeiten anhand realer Szenarien, die Sie darauf vorbereiten, in jeder Situation selbstbewusst zu sprechen.",
+      "service-4-title": "Mehr als nur eine Sprachschule",
+      "service-4-description": "Tauchen Sie ein in die Kultur, die berufsspezifische Terminologie und die personalisierten Lernwege."
+    },
     "contact-form": {
       "title": "Kontakt",
       "first-name": "Vorname",
-      "last-name": "Nachname",
+      "subject": "Thema",
       "description": "Bitte schreiben Sie Ihre Nachricht hier...",
       "button": "Einreichen"
     },
@@ -51,7 +62,7 @@
       "description": "Unsere Sprachexperten sind rund um den Globus unterwegs, um Ihnen zu helfen, in Ihrer zweiten oder dritten Sprache zu brillieren."
     },
     "more-than-just-language": {
-      "title": "Mehr als nur Sprache",
+      "title": "Mehr als nur eine Sprachschule",
       "description": "Wir verstehen kulturelle Unterschiede und aktuelle Wirtschaftstrends."
     },
     "industry-specific-training": {
@@ -74,7 +85,7 @@
   "bla-interactive": {
     "bla-interactive": {
       "title": "BLA Interaktiv",
-      "welcome": "Willkommen bei Business Languages Interaktiv (BLA Interaktiv)",
+      "welcome": "Willkommen bei Business Languages Interaktiv",
       "description": "BLA Interaktiv ist unsere innovative, flexible und interaktive Erweiterung unserer Sprachtrainingsprogramme - entwickelt, um Ihre Lernerfahrung auf die nächste Stufe zu haben. BLA Interactive ist das Ergebnis unserer umfassenden Erfahrung im Online-Unterricht seit 2020 und wurde entwickelt, um die tatsächlichen Bedürfnisse der Lernenden zu erfüllen: Zugang zu hochwertigen Lernmaterialien nach dem Unterricht, eine zentrale Anlaufstelle für Kursressourcen und Kommunikation sowie Lösungen für die Kontinuität des Lernens bei Ausfallzeiten wie Krankheit oder Internetproblemen. Egal, ob Sie ein aktueller Mitarbeiter eines unserer Partnerunternehmen sind, ein neuer Kunde oder eine Einzelperson, die sich auf einen Kurs vorbereitet oder von einem Kurs zum nächsten wechselt - BLA Interaktiv bietet Ihnen maßgeschneiderte Unterstützung, damit Sie Ihre Kenntnisse in Wirtschaftsenglisch oder Deutsch kontinuierlich verbessern können.",
       "button": "Mehr erfahren"
     },

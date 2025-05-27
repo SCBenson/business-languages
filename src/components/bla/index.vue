@@ -4,7 +4,7 @@
       {{ $t("bla-interactive.bla-interactive.title") }}
     </h1>
     <v-row justify="center">
-      <v-col cols="12">
+      <v-col cols="12" md="4">
         <v-card color="#f4b754" class="text-left ">
           <v-card-title class="text-custom-purple responsive-title text-wrap">{{
             $t("bla-interactive.bla-interactive.welcome")
@@ -44,7 +44,7 @@
       </v-col>
     </v-row>
     <v-row justify="center">
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="4">
         <v-card color="#f4b754" class="text-left ">
 
           <v-card-text class="text-black">{{
@@ -55,7 +55,7 @@
     </v-row>
     <v-row justify=center>
  
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="4">
         <v-card color="#f4b754" class="text-left ">
 
           <v-card-text class="text-black"><strong>{{

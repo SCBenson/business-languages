@@ -8,7 +8,7 @@
               <v-card-title class="text-custom-purple"
                 >Matthew Victor</v-card-title
               >
-              <v-card-subtitle>Co-Founder</v-card-subtitle>
+              <v-card-subtitle>Manager</v-card-subtitle>
               <v-avatar size="250">
                 <v-img src="/team/matthew.webp"></v-img>
               </v-avatar>
@@ -19,7 +19,7 @@
               <h2 class="text-custom-purple">
                 A little about me...
               </h2>
-              <p class="text-black">
+              <p class="text-black pb-2">
                 Matthew’s role in the company is many faceted. One of his most important roles is key
                 account manager for companies such as Sortimo, MDT, manroland to name but a few. He
                 liaises with the responsible people in these companies to ensure we o er exactly what

@@ -17,7 +17,7 @@
           <v-row>
             <v-col class="px-8">
               <h2 class="text-custom-purple">About little about myself</h2>
-              <p class="text-black">
+              <p class="text-black pb-2">
                 "I’m Divya, from London. I’ve been at BLA from the start. What
                 keeps me on this merry ship after so many years? Of course, the
                 great team spirit…but also my passion for effective

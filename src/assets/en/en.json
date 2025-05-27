@@ -27,10 +27,21 @@
       "sub-title": "We are the solution to your busy lifestyle",
       "button": "Contact Us"
     },
+    "services": {
+      "header": "What we offer",
+      "service-1-title": "Tailored for Business",
+      "service-1-description": "Custom language programs designed specifically for your industry needs.",
+      "service-2-title": "Interactive & Online",
+      "service-2-description": "Engage in dynamic lessons from anywhere with our live, interactive virtual classroom experience that feels just like being there in person.",
+      "service-3-title": "Communication Focused",
+      "service-3-description": "Master practical conversation skills through real-world scenarios that prepare you to speak confidently in any situation.",
+      "service-4-title": "More than just a Language School",
+      "service-4-description": "Dive into cultural immersion, career-specific terminology, and personalized learning paths."
+    },
     "contact-form": {
       "title": "Leave us a message...",
       "first-name": "First name",
-      "last-name": "Last name",
+      "subject": "Subject",
       "description": "Please write your message here...",
       "button": "Submit"
     },
@@ -51,7 +62,7 @@
       "description": "Our language professionals span the globe and are here to help you excel in your second or third language."
     },
     "more-than-just-language": {
-      "title": "More Than Just A Language",
+      "title": "More Than Just A Language School",
       "description": "We understand cultural differences and current business trends."
     },
     "industry-specific-training": {
@@ -74,7 +85,7 @@
   "bla-interactive": {
     "bla-interactive": {
       "title": "BLA Interactive",
-      "welcome": "Welcome to Business Languages Interactive (BLA Interactive)",
+      "welcome": "Welcome to Business Languages Interactive",
       "description": "BLA Interactive is our innovative, exible, and interactive extension to our language training programs - designed to take your learning experience to the next level. Born from our extensive experience in online teaching since 2020, BLA Interactive was created to meet real learner needs: access to high-quality learning materials after lessons, a central hub for course resources and communication, and solutions for learning continuity during downtimes like illness or internet issues. Whether you are a current employee of one of our partner companies, a new customer, or an individual preparing for or transitioning between courses - BLA Interactive provides customized support to help you continuously improve your Business English or German skills.",
       "button": "Learn More"
     },
