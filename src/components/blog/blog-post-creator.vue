@@ -6,10 +6,10 @@
         <v-row>
           <v-col cols="12" class="pa-8">
             <v-avatar size="80" v-if="author === 'Matthew Victor'"
-              ><v-img :src="`public/team/matthew.png`"></v-img>
+              ><v-img :src="`public/team/matthew.webp`"></v-img>
             </v-avatar>
             <v-avatar size="100" v-if="author === 'Donal O\'Riada'"
-              ><v-img :src="`public/team/donal.png`"></v-img>
+              ><v-img :src="`public/team/donal.webp`"></v-img>
             </v-avatar>
             <v-menu transition="scale-transition" v-model="authorMenu"
               ><template v-slot:activator="{ props }">
@@ -162,10 +162,10 @@ const setAuthor = (name) => {
   authorMenu.value = false; // Close the menu after selection
 
   if(author.value === "Matthew Victor"){
-    avatarPath.value = `${basePublicPath}team/matthew.png`;
+    avatarPath.value = `${basePublicPath}team/matthew.webp`;
 
   }else{
-    avatarPath.value = `${basePublicPath}team/donal.png`;
+    avatarPath.value = `${basePublicPath}team/donal.webp`;
   }
 };
 

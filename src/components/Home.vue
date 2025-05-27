@@ -35,7 +35,7 @@
     </v-container>
   </v-sheet>
   <v-sheet class="mx-0 bg-custom-white">
-    <v-container class="business-guiness d-flex align-center justify-center">
+    <v-container class="business-guinness d-flex align-center justify-center">
       
       <v-row class="mx-4 mx-sm-6 mx-md-12" dense style="max-width: 1200px;">
         <v-col align="center" cols="12" class="pb-4"><h1>What we offer</h1></v-col>
@@ -51,7 +51,7 @@
     </v-container>
   </v-sheet>
   <div ref="contactSection">
-    <v-container class="px-8 mt-12">
+    <v-container class="px-8 mt-2">
       <v-row justify="center">
         <v-col cols="12" md="6" lg="6">
           <v-card color="#f4b754" class="pa-6 mt-8">
@@ -114,7 +114,7 @@
                   <v-col cols="6" align="space-around">
                     
                     <p>Email</p>
-                    <p class="pr-2 pb-2">info@buisinesslanguages.de</p></v-col>
+                    <p class="pr-2 pb-2">info@businesslanguages.de</p></v-col>
                   
                 </v-row>
 
@@ -264,13 +264,13 @@ onUnmounted(() => {
   color: #112a46 !important;
 }
 
-.business-guiness {
-  height: 1500px;
+.business-guinness {
+  height: 1000px;
   width: 100% !important;
 }
 
 @media (min-width: 960px) {
-  .business-guiness {
+  .business-guinness {
     height: 900px;
   }
 }
