@@ -108,7 +108,7 @@
                     type="submit" 
                     color="purple" 
                     :loading="loading" 
-                    :disabled >
+                    :disabled="!isFormValid" >
                       {{$t('home.contact-form.button')}}
                   </v-btn>
                 </v-col>
@@ -187,6 +187,22 @@
       </v-col>
     </v-row>
   </v-container>
+  <v-snackbar
+    v-model="snackbar.show"
+    :color="snackbar.color"
+    :timeout="4000"
+    location="top"
+  >
+    {{ snackbar.message }}
+    <template v-slot:actions>
+      <v-btn
+        variant="text"
+        @click="snackbar.show = false"
+      >
+        Close
+      </v-btn>
+    </template>
+  </v-snackbar>
 </template>
 
 <script setup>
@@ -240,13 +256,15 @@ const sendEmail = async () => {
   loading.value = true
 
   try{
+
+    console.log('Sending email with data:', formData.value);
+
     const response = await fetch('http://localhost:3001/api/send-email', {
       method: 'POST',
-      header: {
+      headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        to: 'sean_c_benson@outlook.com',
         subject: `Contact Form: ${formData.value.subject}`,
         text: `
         Name: ${formData.value.firstName}
@@ -269,6 +287,7 @@ const sendEmail = async () => {
       })
     })
     const result = await response.json()
+    console.log('Server response:', result);
 
     if(response.ok){
       showNotification('Message sent successfully! We\'ll get back to you soon.', 'success')

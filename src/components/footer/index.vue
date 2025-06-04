@@ -26,7 +26,7 @@
                 {{ $t("footer.footer-nav.title-legal") }}
               </h3>
               <v-list class="footer-list text-black">
-                <v-list-item to="/legal">{{
+                <v-list-item to="/data-protection">{{
                   $t("footer.footer-nav.data-protection")
                 }}</v-list-item>
                 <v-list-item to="/disclaimer">{{ $t("footer.footer-nav.disclaimer") }}</v-list-item>
