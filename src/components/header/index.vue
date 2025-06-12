@@ -192,7 +192,7 @@
       </v-app-bar-nav-icon>
     </template>
   </v-app-bar>
-  <v-navigation-drawer v-model="drawer" location="right" app temporary class="overflow-x-hidden">
+  <v-navigation-drawer v-model="drawer" location="right" app temporary class="overflow-x-hidden" width="280">
     <v-list>
       <!-- For items WITHOUT sublinks -->
       <v-list-item

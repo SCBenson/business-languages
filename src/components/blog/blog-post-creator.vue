@@ -57,9 +57,10 @@
             </v-menu>
             <v-file-input
               v-model="coverImage"
-              accept="image/*"
-              label="Cover Image"
+              accept=".webp"
+              label="Cover Image (WebP only)"
               @change="handleImageUpload"
+              :error-messages="imageError"
             ></v-file-input>
             <v-img
               v-if="coverImagePreview"
