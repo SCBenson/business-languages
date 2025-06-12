@@ -117,7 +117,7 @@ const data = [
       "To be added soon...",
   },
   {
-    firstName: "Urlike",
+    firstName: "Ulrike",
     lastName: "Weitzel",
     role: "Trainer",
     path: `${basePublicPath}team/default-avatar.webp`,

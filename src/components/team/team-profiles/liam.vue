@@ -10,7 +10,7 @@
               >
               <v-card-subtitle>Trainer</v-card-subtitle>
               <v-avatar size="250">
-                <v-img src="/team/elisabeth.webp"></v-img>
+                <v-img src="/team/liamoriada.webp"></v-img>
               </v-avatar>
             </v-col>
           </v-row>

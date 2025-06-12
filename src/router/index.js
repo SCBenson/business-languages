@@ -114,6 +114,30 @@ const router = createRouter({
       component: () => import("@/components/team/team-profiles/elisabeth.vue"),
     },
     {
+      path: "/team/Julia",
+      component: () => import("@/components/team/team-profiles/julia.vue"),
+    },
+    {
+      path: "/team/Jeff",
+      component: () => import("@/components/team/team-profiles/jeff.vue"),
+    },
+    {
+      path: "/team/Betina",
+      component: () => import("@/components/team/team-profiles/betina.vue"),
+    },
+    {
+      path: "/team/Dr. Noemi",
+      component: () => import("@/components/team/team-profiles/noemi.vue"),
+    },
+    {
+      path: "/team/Ulrike",
+      component: () => import("@/components/team/team-profiles/ulrike.vue"),
+    },
+    {
+      path: "/team/Jaqueline",
+      component: () => import("@/components/team/team-profiles/jaqueline.vue"),
+    },
+    {
       path: "/admins",
       component: () => import("@/components/users/admins.vue"),
     },

@@ -1,7 +1,7 @@
 <template>
-  <v-container class="px-8">
-    <v-row>
-      <v-col col="12">
+  <v-container class="px-8 my-12">
+    <v-row justify="center">
+      <v-col col="12" md="4">
         <v-card color="#f4b754">
           <v-row class="text-center">
             <v-col>
