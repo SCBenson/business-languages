@@ -1,6 +1,7 @@
 import express from "express";
 import sgMail from "@sendgrid/mail";
 import cors from "cors";
+import "dotenv/config";
 
 const app = express();
 app.use(cors());
@@ -8,7 +9,7 @@ app.use(express.json());
 
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 
-const SENDGRID_FROM_EMAIL = "letusresumework@gmail.com";
+const SENDGRID_FROM_EMAIL = "info@businesslanguages.de";
 
 sgMail.setApiKey(SENDGRID_API_KEY);
 
@@ -30,7 +31,7 @@ app.post("/api/send-email", async (req, res) => {
     }
 
     const msg = {
-      to: "letusresumework@gmail.com", // Hardcoded recipient
+      to: "info@businesslanguages.de", // Hardcoded recipient
       from: {
         email: SENDGRID_FROM_EMAIL,
         name: senderName || "Contact Form",
@@ -44,7 +45,7 @@ app.post("/api/send-email", async (req, res) => {
       },
     };
 
-    console.log("Sending email to: letusresumework@gmail.com");
+    console.log("Sending email to: info@businesslanguages.de");
     console.log("From:", SENDGRID_FROM_EMAIL);
     console.log("Reply-To:", senderEmail);
     console.log("Subject:", subject);
@@ -54,7 +55,7 @@ app.post("/api/send-email", async (req, res) => {
 
     res.status(200).json({
       message: "Email sent successfully",
-      recipient: "letusresumework@gmail.com",
+      recipient: "info@businesslanguages.de",
     });
   } catch (error) {
     console.error("❌ SendGrid error:", error);
@@ -95,7 +96,7 @@ app.post("/api/test-sendgrid", async (req, res) => {
     console.log("🧪 Testing SendGrid configuration...");
 
     const msg = {
-      to: "letusresumework@gmail.com",
+      to: "info@businesslanguages.de",
       from: SENDGRID_FROM_EMAIL,
       subject: "SendGrid Test - " + new Date().toISOString(),
       text: "This is a test email to verify SendGrid is working correctly.",
@@ -134,5 +135,5 @@ app.listen(PORT, () => {
   console.log(`🚀 Email server running on http://localhost:${PORT}`);
   console.log(`📧 SendGrid configured: ${!!SENDGRID_API_KEY}`);
   console.log(`📨 From email: ${SENDGRID_FROM_EMAIL || "Not configured"}`);
-  console.log(`📬 All emails will be sent to: letusresumework@gmail.com`);
+  console.log(`📬 All emails will be sent to: info@businesslanguages.de`);
 });
