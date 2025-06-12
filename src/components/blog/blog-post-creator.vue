@@ -138,9 +138,10 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
-import { useRouter } from "vue-router";
+import { ref, watch, onMounted } from "vue";
+import { useRouter, useRoute} from "vue-router";
 const router = useRouter();
+const route = useRoute();
 const contentMenu = ref(false);
 const authorMenu = ref(false);
 const dateMenu = ref(false);
@@ -213,36 +214,60 @@ const handleImageUpload = async (event) => {
   }
 };
 
-const loadFromHistoryState = () => {
-  if(history.state && history.state.blogData) {
+const loadFromHistoryState = () => { // First try to load from history.state
+  if (history.state && history.state.blogData) {
     const data = history.state.blogData;
     console.log("Loading data from history state:", data);
-
-    author.value = data.author || "";
-    editedDate.value = data.formattedDate || "";
-    blogTitle.value = data.title || "";
-    initialHeader.value = data.initialHeader || "";
-    initialParagraph.value = data.initialParagraph || "";
-    coverImagePreview.value = data.coverImageUrl || "";
-    avatarPath.value = data.avatarPath || "";
-    contentItems.value = data.contentItems || [];
-
-    if(data.author) {
-      setAuthor(data.author);
-    }
-    if(data.formattedDate) {
-      try {
-        const cleanDateStr = data.formattedDate.replace(/(\d+)(st|nd|rd|th)/, '$1');
-        const parsedDate = new Date(cleanDateStr);
-        if(isNaN(parsedDate.getTime())){
-          datePublished.value = parsedDate;
-        }
-      } catch (error) {
-        console.warn("Could not parse date from history state:", error)
+    restoreFormData(data);
+    return;
+  }
+  
+  // Then try to load from sessionStorage if coming from edit
+  if (route.query.edit === 'true') {
+    try {
+      const storedData = sessionStorage.getItem('blogEditData');
+      if (storedData) {
+        const data = JSON.parse(storedData);
+        console.log("Loading data from sessionStorage:", data);
+        restoreFormData(data);
+        // Clean up the stored data
+        sessionStorage.removeItem('blogEditData');
       }
+    } catch (error) {
+      console.error('Error loading edit data from sessionStorage:', error);
     }
   }
 }
+
+const restoreFormData = (data) => {
+// Restore all form fields
+  author.value = data.author || "";
+  editedDate.value = data.formattedDate || "";
+  blogTitle.value = data.title || "";
+  initialHeader.value = data.initialHeader || "";
+  initialParagraph.value = data.initialParagraph || "";
+  coverImagePreview.value = data.coverImageUrl || "";
+  avatarPath.value = data.avatarPath || "";
+  contentItems.value = data.contentItems || [];
+  
+  // Set the author dropdown properly
+  if (data.author) {
+    setAuthor(data.author);
+  }
+  
+  // Parse the date back if it exists
+  if (data.formattedDate) {
+    try {
+      const cleanDateStr = data.formattedDate.replace(/(\d+)(st|nd|rd|th)/, '$1');
+      const parsedDate = new Date(cleanDateStr);
+      if (!isNaN(parsedDate.getTime())) {
+        datePublished.value = parsedDate;
+      }
+    } catch (error) {
+      console.warn("Could not parse date from history state:", error);
+    }
+  }
+};
 
 //Method to collect the form data for preview
 const previewBlog = () => {
@@ -261,7 +286,7 @@ const previewBlog = () => {
   };
   // Create a route for a new preview component
   router.push({
-    name: "blog-preview",
+    path: "/blog/preview",
     state: { blogData },
   });
 };
@@ -272,7 +297,7 @@ const addContent = (type) => {
     content: "",
     id: Date.now(),
   });
-  addMenu.value = false;
+  contentMenu.value = false;
 };
 
 const deleteContent = (index) => {

@@ -39,7 +39,6 @@
 
 <script setup>
 import { useRouter } from "vue-router";
-
 import { ref, onMounted, computed } from "vue";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 import { DB, storage } from "@/firebase/config.js";
@@ -101,10 +100,13 @@ onMounted(() => {
 });
 
 const goBackToEdit = () => {
-  router.push({
-    name: "blog-post-creator",
-    state: { blogData: blogData.value }
-  });
+  try{
+    sessionStorage.setItem('blogEditData', JSON.stringify(blogData.value));
+    console.log("Stored blog data in sessionStorage");
+  }catch (error){
+    console.error('Error storing edit data:', error);
+  }
+  router.push('/blog-post-creator?edit=true');
 };
 
 const publishBlog = async () => {
