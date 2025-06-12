@@ -213,6 +213,37 @@ const handleImageUpload = async (event) => {
   }
 };
 
+const loadFromHistoryState = () => {
+  if(history.state && history.state.blogData) {
+    const data = history.state.blogData;
+    console.log("Loading data from history state:", data);
+
+    author.value = data.author || "";
+    editedDate.value = data.formattedDate || "";
+    blogTitle.value = data.title || "";
+    initialHeader.value = data.initialHeader || "";
+    initialParagraph.value = data.initialParagraph || "";
+    coverImagePreview.value = data.coverImageUrl || "";
+    avatarPath.value = data.avatarPath || "";
+    contentItems.value = data.contentItems || [];
+
+    if(data.author) {
+      setAuthor(data.author);
+    }
+    if(data.formattedDate) {
+      try {
+        const cleanDateStr = data.formattedDate.replace(/(\d+)(st|nd|rd|th)/, '$1');
+        const parsedDate = new Date(cleanDateStr);
+        if(isNaN(parsedDate.getTime())){
+          datePublished.value = parsedDate;
+        }
+      } catch (error) {
+        console.warn("Could not parse date from history state:", error)
+      }
+    }
+  }
+}
+
 //Method to collect the form data for preview
 const previewBlog = () => {
   const blogData = {
@@ -247,7 +278,13 @@ const addContent = (type) => {
 const deleteContent = (index) => {
   contentItems.value.splice(index, 1);
 };
+
+onMounted(() => {
+  loadFromHistoryState();
+});
+
 </script>
+
 
 <style scoped>
 .add-selector {
