@@ -11,9 +11,11 @@ const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 
 const SENDGRID_FROM_EMAIL = "info@businesslanguages.de";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 sgMail.setApiKey(SENDGRID_API_KEY);
 
-app.post("/api/send-email", async (req, res) => {
+app.post(`${API_URL}/api/send-email`, async (req, res) => {
   try {
     const { subject, text, html, senderName, senderEmail } = req.body;
 
@@ -74,7 +76,7 @@ app.post("/api/send-email", async (req, res) => {
   }
 });
 
-app.get("/api/health", (req, res) => {
+app.get(`${API_URL}/api/health`, (req, res) => {
   res.json({
     status: "Server is running",
     timestamp: new Date().toISOString(),
@@ -82,7 +84,7 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-app.get("/api/test-config", (req, res) => {
+app.get(`${API_URL}/api/test-config`, (req, res) => {
   res.json({
     hasApiKey: !!SENDGRID_API_KEY,
     hasFromEmail: !!SENDGRID_FROM_EMAIL,
@@ -91,7 +93,7 @@ app.get("/api/test-config", (req, res) => {
   });
 });
 
-app.post("/api/test-sendgrid", async (req, res) => {
+app.post(`${API_URL}/api/test-sendgrid`, async (req, res) => {
   try {
     console.log("🧪 Testing SendGrid configuration...");
 
