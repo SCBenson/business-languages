@@ -26,8 +26,8 @@
         <p v-if="item.type === 'paragraph'">{{ item.content }}</p>
       </div>
     </div>
-    <v-btn @click="goBack" color="blue">Edit Content</v-btn>
-    <v-btn @click="publishBlog" color="green">Publish</v-btn>
+    <v-btn @click="goBackToEdit" color="blue">Edit Content</v-btn>
+    <v-btn @click="publishBlog" color="green" :loading="isPublishing">Publish</v-btn>
     <v-snackbar v-model="snackbar.show" :color="snackbar.color">
       {{ snackbar.text }}
       <template v-slot:actions>
@@ -100,8 +100,11 @@ onMounted(() => {
   }
 });
 
-const goBack = () => {
-  router.back();
+const goBackToEdit = () => {
+  router.push({
+    name: "blog-post-creator",
+    state: { blogData: blogData.value }
+  });
 };
 
 const publishBlog = async () => {
