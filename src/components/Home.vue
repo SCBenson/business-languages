@@ -119,7 +119,7 @@
       </v-row>
     </v-container>
   </div>
-  <v-container class="px-8 contact-info-container">
+  <v-container class="px-8 contact-info-container mb-6">
     <v-row justify="center">
       <v-col align="center" cols="12" md="6" lg="6">
         <v-card color="#f4b754">
