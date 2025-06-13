@@ -1,58 +1,13 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  
-  # Set the base directory
-  RewriteBase /business-languages/
-  
-  # If the file or directory exists, serve it directly
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
-  
-  # Serve index.html for all routes (for Vue Router)
-  RewriteRule ^ index.html [L]
-</IfModule>
+RewriteEngine On
 
-# Serve compressed files if available and client accepts them
-<IfModule mod_headers.c>
-  # Serve Brotli compressed files if they exist and client accepts them
-  <FilesMatch "\.(js|css|html|svg)$">
-    RewriteEngine On
-    RewriteCond %{HTTP:Accept-Encoding} br
-    RewriteCond %{REQUEST_FILENAME}.br -f
-    RewriteRule ^(.*)$ $1.br [L]
-    
-    # Serve gzip compressed files if they exist and client accepts them
-    RewriteCond %{HTTP:Accept-Encoding} gzip
-    RewriteCond %{REQUEST_FILENAME}.gz -f
-    RewriteRule ^(.*)$ $1.gz [L]
-  </FilesMatch>
-  
-  # Set correct content type and encoding headers for Brotli
-  <FilesMatch "\.html\.br$">
-    ForceType text/html
-    Header set Content-Encoding br
-  </FilesMatch>
-  <FilesMatch "\.js\.br$">
-    ForceType application/javascript
-    Header set Content-Encoding br
-  </FilesMatch>
-  <FilesMatch "\.css\.br$">
-    ForceType text/css
-    Header set Content-Encoding br
-  </FilesMatch>
-  
-  # Set correct content type and encoding headers for gzip
-  <FilesMatch "\.html\.gz$">
-    ForceType text/html
-    Header set Content-Encoding gzip
-  </FilesMatch>
-  <FilesMatch "\.js\.gz$">
-    ForceType application/javascript
-    Header set Content-Encoding gzip
-  </FilesMatch>
-  <FilesMatch "\.css\.gz$">
-    ForceType text/css
-    Header set Content-Encoding gzip
-  </FilesMatch>
+# Vue Router fallback
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# Basic compression if mod_deflate is available
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
 </IfModule>

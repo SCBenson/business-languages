@@ -9,15 +9,11 @@
 </template>
 
 <script setup>
-
 import Header from "@/components/header/index.vue";
 import Footer from "@/components/footer/index.vue";
-
-
 </script>
 
 <style>
-
 .main-content{
   position: relative;
   min-height: 0;
@@ -42,9 +38,22 @@ import Footer from "@/components/footer/index.vue";
   flex-direction: column;
   min-height: 100vh;
 }
+
+/* Critical CSS to prevent layout shifts */
+.hero-section {
+  min-height: 100vh !important;
+  height: 100vh !important;
+}
+
+/* Reserve space for footer to prevent it from shifting content */
+.footer-container {
+  min-height: 600px !important;
+  flex-shrink: 0;
+}
+
+/* Prevent any content from shifting during load */
+.v-main {
+  will-change: auto;
+  contain: layout;
+}
 </style>
-
-
-
-
-

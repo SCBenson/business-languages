@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="footer-container">
+  <v-sheet class="footer-container" :class="{ 'footer-hidden': !isVisible }">
     <v-container class="footer-content px-8 text-center">
       <!-- Top navigation section -->
       <div class="footer-top">
@@ -53,8 +53,18 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import { data } from "@/assets/scripts/navDrawer.js";
 import logoUrl from "@/assets/bl-anniversary-logo.webp";
+
+const isVisible = ref(false)
+
+onMounted(() => {
+  // Wait for the page to fully render before showing footer
+  setTimeout(() => {
+    isVisible.value = true
+  }, 100)
+})
 </script>
 
 <style scoped>
@@ -63,6 +73,12 @@ import logoUrl from "@/assets/bl-anniversary-logo.webp";
   background-color: #f4b754;
   width: 100%;
   position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.footer-hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .footer-content {
