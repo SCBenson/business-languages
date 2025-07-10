@@ -1,31 +1,7 @@
 <template>
   <v-sheet class="footer-container" :class="{ 'footer-hidden': !isVisible }">
     <v-container class="footer-content px-8 text-center position-relative">
-      <!-- Social Media Icons -->
-      <div class="footer-social-icons">
-        <v-btn
-          icon
-          size="small"
-          color="white"
-          class="social-btn me-2"
-          href="https://www.facebook.com/businesslanguageslanguagesaugsburg"
-          target="_blank"
-          elevation="2"
-        >
-          <v-icon color="#1877F2">mdi-facebook</v-icon>
-        </v-btn>
-        <v-btn
-          icon
-          size="small"
-          color="white"
-          class="social-btn"
-          href="https://www.instagram.com/businesslanguages/"
-          target="_blank"
-          elevation="2"
-        >
-          <v-icon color="#E4405F">mdi-instagram</v-icon>
-        </v-btn>
-      </div>
+
 
       <!-- Top navigation section -->
       <div class="footer-top">
@@ -73,6 +49,32 @@
             <p class="text-black mb-0">©businesslanguages.de</p>
           </v-col>
         </v-row>
+        
+        <!-- Social Media Icons at bottom center -->
+        <div class="footer-social-icons-bottom">
+          <v-btn
+            icon
+            size="small"
+            color="white"
+            class="social-btn me-2"
+            href="https://www.facebook.com/businesslanguageslanguagetraining"
+            target="_blank"
+            elevation="2"
+          >
+            <v-icon color="#1877F2">mdi-facebook</v-icon>
+          </v-btn>
+          <v-btn
+            icon
+            size="small"
+            color="white"
+            class="social-btn"
+            href="https://www.instagram.com/businesslanguages/"
+            target="_blank"
+            elevation="2"
+          >
+            <v-icon color="#E4405F">mdi-instagram</v-icon>
+          </v-btn>
+        </div>
       </div>
     </v-container>
   </v-sheet>
@@ -130,11 +132,12 @@ onMounted(() => {
   background-color: transparent;
 }
 
-.footer-social-icons {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  z-index: 2;
+.footer-social-icons-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  padding-bottom: 8px;
 }
 
 .social-btn {
@@ -158,9 +161,9 @@ onMounted(() => {
 
 /* Mobile responsiveness */
 @media (max-width: 599px) {
-  .footer-social-icons {
-    bottom: 16px;
-    right: 16px;
+  .footer-social-icons-bottom {
+    margin-top: 12px;
+    padding-bottom: 4px;
   }
   
   .social-btn {
