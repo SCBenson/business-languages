@@ -1,6 +1,32 @@
 <template>
   <v-sheet class="footer-container" :class="{ 'footer-hidden': !isVisible }">
-    <v-container class="footer-content px-8 text-center">
+    <v-container class="footer-content px-8 text-center position-relative">
+      <!-- Social Media Icons -->
+      <div class="footer-social-icons">
+        <v-btn
+          icon
+          size="small"
+          color="white"
+          class="social-btn me-2"
+          href="https://www.facebook.com/businesslanguageslanguagesaugsburg"
+          target="_blank"
+          elevation="2"
+        >
+          <v-icon color="#1877F2">mdi-facebook</v-icon>
+        </v-btn>
+        <v-btn
+          icon
+          size="small"
+          color="white"
+          class="social-btn"
+          href="https://www.instagram.com/businesslanguages/"
+          target="_blank"
+          elevation="2"
+        >
+          <v-icon color="#E4405F">mdi-instagram</v-icon>
+        </v-btn>
+      </div>
+
       <!-- Top navigation section -->
       <div class="footer-top">
         <v-row no-gutters density="compact" class="mx-1">
@@ -104,6 +130,22 @@ onMounted(() => {
   background-color: transparent;
 }
 
+.footer-social-icons {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2;
+}
+
+.social-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
 /* Ensure container fills the v-sheet */
 :deep(.v-sheet) {
   display: flex;
@@ -112,5 +154,28 @@ onMounted(() => {
 
 :deep(.v-container) {
   flex: 1;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 599px) {
+  .footer-social-icons {
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .social-btn {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+  }
+}
+
+/* Tablet and larger screens */
+@media (min-width: 600px) {
+  .social-btn {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+  }
 }
 </style>

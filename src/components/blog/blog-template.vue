@@ -39,7 +39,32 @@
       <v-row class="justify-center">
         <v-col cols="12" md="10" lg="8" xl="6">
           <v-card class="overlapping-card" color="#f4b754" elevation="8">
-            <v-card-text class="pa-6 pa-md-8">
+            <v-card-text class="pa-6 pa-md-8 position-relative">
+              <!-- Social Media Icons -->
+              <div class="social-icons">
+                <v-btn
+                  icon
+                  size="small"
+                  color="white"
+                  class="social-btn me-2"
+                  href="https://www.facebook.com/businesslanguagesaugsburg"
+                  target="_blank"
+                  elevation="2"
+                >
+                  <v-icon color="#1877F2">mdi-facebook</v-icon>
+                </v-btn>
+                <v-btn
+                  icon
+                  size="small"
+                  color="white"
+                  class="social-btn"
+                  href="https://www.instagram.com/businesslanguages/"
+                  target="_blank"
+                  elevation="2"
+                >
+                  <v-icon color="#E4405F">mdi-instagram</v-icon>
+                </v-btn>
+              </div>
               <div class="blog-content">
                 <h2 class="blog-header mb-4">{{ blogData.initialHeader }}</h2>
                 <p class="blog-paragraph mb-6">
@@ -197,6 +222,22 @@ onMounted(() => {
   margin-bottom: 1.5rem;
 }
 
+.social-icons {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.social-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 599px) {
   .header-section {
@@ -224,8 +265,15 @@ onMounted(() => {
     font-size: 1.3rem;
   }
   
-  .blog-paragraph {
-    font-size: 0.95rem;
+  .social-icons {
+    top: 12px;
+    right: 12px;
+  }
+  
+  .social-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
   }
 }
 
