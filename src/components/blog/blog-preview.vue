@@ -1,40 +1,60 @@
 <template>
   <v-sheet class="header-section" :style="coverImageStyle">
-    <v-container class="mx-2">
+    <v-container>
       <v-row class="align-start">
-        <v-col class="">
-          <div class="">
-            <h1 class="text-start text-white">{{ blogData.title }}</h1>
-            <h2 class="text-white">{{ blogData.formattedDate }}</h2>
-            <v-avatar v-if="blogData.avatarPath" size="80"
-              ><v-img  :src="blogData.avatarPath"></v-img>
-            </v-avatar>
-            <p class="text-white">By: {{ blogData.author }}</p>
+        <v-col cols="12" md="8" lg="6" class="mx-auto">
+          <div class="text-center text-md-start">
+            <h1 class="text-white blog-title mb-4">{{ blogData.title }}</h1>
+            <h2 class="text-white blog-date mb-2">{{ blogData.formattedDate }}</h2>
+            <div class="d-flex align-center justify-center justify-md-start mb-2">
+              <v-avatar v-if="blogData.avatarPath" size="60" class="me-3">
+                <v-img :src="blogData.avatarPath"></v-img>
+              </v-avatar>
+              <p class="text-white blog-author ma-0">By: {{ blogData.author }}</p>
+            </div>
           </div>
         </v-col>
       </v-row>
     </v-container>
   </v-sheet>
-  <v-card class="overlapping-card ma-6" color="#f4b754">
-    <div class="ma-4">
-      <h2>{{ blogData.initialHeader }}</h2>
-      <p>
-        {{ blogData.initialParagraph }}
-      </p>
-      <div v-for="(item, index) in blogData.contentItems" :key="index">
-        <h2 v-if="item.type === 'header'">{{ item.content }}</h2>
-        <p v-if="item.type === 'paragraph'">{{ item.content }}</p>
-      </div>
-    </div>
-    <v-btn @click="goBackToEdit" color="blue">Edit Content</v-btn>
-    <v-btn @click="publishBlog" color="green" :loading="isPublishing">Publish</v-btn>
-    <v-snackbar v-model="snackbar.show" :color="snackbar.color">
-      {{ snackbar.text }}
-      <template v-slot:actions>
-        <v-btn variant="text" @click="snackbar.show = false">Close</v-btn>
-      </template>
-    </v-snackbar>
-  </v-card>
+  <v-container class="blog-content-container">
+    <v-row class="justify-center">
+      <v-col cols="12" md="10" lg="8" xl="6">
+        <v-card class="overlapping-card" color="#f4b754" elevation="8">
+          <v-card-text class="pa-6 pa-md-8">
+            <div class="blog-content">
+              <h2 class="blog-header mb-4">{{ blogData.initialHeader }}</h2>
+              <p class="blog-paragraph mb-6">
+                {{ blogData.initialParagraph }}
+              </p>
+              <div v-for="(item, index) in blogData.contentItems" :key="index" class="content-item">
+                <h2 v-if="item.type === 'header'" class="blog-header mb-4">{{ item.content }}</h2>
+                <p v-if="item.type === 'paragraph'" class="blog-paragraph mb-6">{{ item.content }}</p>
+              </div>
+            </div>
+            <v-divider class="my-6"></v-divider>
+            <div class="d-flex flex-column flex-sm-row gap-3 justify-center">
+              <v-btn @click="goBackToEdit" color="blue" variant="outlined" size="large">
+                <v-icon start>mdi-pencil</v-icon>
+                Edit Content
+              </v-btn>
+              <v-btn @click="publishBlog" color="green" :loading="isPublishing" size="large">
+                <v-icon start>mdi-publish</v-icon>
+                Publish
+              </v-btn>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+  
+  <v-snackbar v-model="snackbar.show" :color="snackbar.color" location="top">
+    {{ snackbar.text }}
+    <template v-slot:actions>
+      <v-btn variant="text" @click="snackbar.show = false">Close</v-btn>
+    </template>
+  </v-snackbar>
 </template>
 
 <script setup>
@@ -43,7 +63,7 @@ import { ref, onMounted, computed } from "vue";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 import { DB, storage } from "@/firebase/config.js";
 import { collection, addDoc, updateDoc, Timestamp } from "firebase/firestore";
-const basePublicPath = import.meta.env.BASE_URL || "/";
+
 const router = useRouter();
 const isPublishing = ref(false);
 
@@ -65,12 +85,8 @@ const blogData = ref({
   contentItems: [],
 });
 
-
-
 const generateSlug = (title) => {
-  
   return title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').substring(0,60);
-
 };
 
 // Compute the background style based on image URL
@@ -80,11 +96,11 @@ const coverImageStyle = computed(() => {
 
   if (imageUrl) {
     return {
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${imageUrl}')`,
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imageUrl}')`,
     };
   } else {
     return {
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), ${defaultImage}`,
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), ${defaultImage}`,
     };
   }
 });
@@ -152,7 +168,6 @@ const publishBlog = async () => {
           imageUrl = blogData.value.coverImageUrl || '';
       }
 
-
     const docRef = await addDoc(blogPostsCollection, {
       avatar: blogData.value.avatarPath,
       author: blogData.value.author,
@@ -194,33 +209,166 @@ const publishBlog = async () => {
     console.error("Error publishing blog post:", error);
     snackbar.value = {
       show: true,
-      text: `Publishing failed: ${error.messages}`,
+      text: `Publishing failed: ${error.message}`,
       color: 'error'
     };
-    // Handle the error appropriately (e.g., show a notification to the user)
   } finally {
     isPublishing.value = false;
   }
-  //Create a new document for the blog post in the database
 };
-
-
-// TODO: Create a document in the blog-posts database and initialize minimum required fields.
-
-// TODO: Upload relevant data into the fields from blogData object
-// TODO: Update the router to create a new path to the newly created blog post.
-// TODO: Read the document from firestore and populate the new blog component with the data.
 </script>
 
 <style scoped>
 .header-section {
   background-size: cover;
   background-position: center;
-  height: 30vh;
+  height: 40vh;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
 }
-.overlapping-card {
-  margin-top: -15vh;
-  z-index: 1;
+
+.blog-content-container {
+  margin-top: -10vh;
   position: relative;
+  z-index: 1;
+}
+
+.overlapping-card {
+  position: relative;
+  border-radius: 16px !important;
+}
+
+.blog-content {
+  line-height: 1.6;
+}
+
+/* Typography scaling */
+.blog-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.blog-date {
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.blog-author {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.blog-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #151619;
+  line-height: 1.3;
+}
+
+.blog-paragraph {
+  font-size: 1rem;
+  color: #151619;
+  line-height: 1.7;
+}
+
+.content-item {
+  margin-bottom: 1.5rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 599px) {
+  .header-section {
+    height: 35vh;
+    min-height: 250px;
+  }
+  
+  .blog-content-container {
+    margin-top: -8vh;
+  }
+  
+  .blog-title {
+    font-size: 1.5rem;
+  }
+  
+  .blog-date {
+    font-size: 1rem;
+  }
+  
+  .blog-author {
+    font-size: 0.9rem;
+  }
+  
+  .blog-header {
+    font-size: 1.3rem;
+  }
+  
+  .blog-paragraph {
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 600px) and (max-width: 959px) {
+  .blog-title {
+    font-size: 2rem;
+  }
+  
+  .blog-date {
+    font-size: 1.2rem;
+  }
+  
+  .blog-header {
+    font-size: 1.6rem;
+  }
+  
+  .blog-paragraph {
+    font-size: 1.05rem;
+  }
+}
+
+/* Desktop responsiveness */
+@media (min-width: 960px) {
+  .blog-title {
+    font-size: 2.5rem;
+  }
+  
+  .blog-date {
+    font-size: 1.3rem;
+  }
+  
+  .blog-author {
+    font-size: 1.1rem;
+  }
+  
+  .blog-header {
+    font-size: 1.8rem;
+  }
+  
+  .blog-paragraph {
+    font-size: 1.1rem;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1264px) {
+  .blog-title {
+    font-size: 3rem;
+  }
+  
+  .blog-date {
+    font-size: 1.4rem;
+  }
+  
+  .blog-header {
+    font-size: 2rem;
+  }
+  
+  .blog-paragraph {
+    font-size: 1.15rem;
+  }
 }
 </style>
