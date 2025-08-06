@@ -50,6 +50,10 @@
               ><v-btn @click="goToBlog(member.slug)" class="ml-4 mb-4" color="purple">Explore ➝</v-btn></v-col
             >
           </v-row>
+          <v-row>
+            <v-col><v-btn class="ml-4 mb-4" color="blue">Edit</v-btn><v-btn class="ml-4 mb-4" color="red">Delete</v-btn></v-col>
+            <!-- <v-col><v-btn>Delete</v-btn></v-col> -->
+          </v-row>
         </v-card>
       </v-col>
     </v-row>
