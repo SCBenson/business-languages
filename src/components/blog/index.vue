@@ -119,6 +119,56 @@ const goToBlog = (slug) => {
   router.push(`/blog/${slug}`);
 }
 
+const editBlogPost = async (blogPost) => {
+  try {
+    // Transform the blog post data to match the expected format
+    const editData = {
+      avatarPath: blogPost.avatar || "",
+      author: blogPost.author,
+      id: blogPost.id,
+      title: blogPost.title,
+      date: blogPost.date,
+      formattedDate: blogPost.formattedDate,
+      initialHeader: blogPost.initialHeader,
+      initialParagraph: blogPost.initialParagraph,
+      coverImageUrl: blogPost.coverImageUrl || "",
+      contentItems: blogPost.contentItems || [],
+    };
+    
+    // Store in sessionStorage (same key as blog-preview.vue uses)
+    sessionStorage.setItem('blogEditData', JSON.stringify(editData));
+    
+    // Navigate to creator with edit flag
+    router.push('/blog-post-creator?edit=true');
+    
+  } catch (error) {
+    console.error('Error preparing edit data:', error);
+    // Show error notification
+  }
+};
+
+const deleteBlogPost = async (blogPost) => {
+  try {
+    // Show confirmation dialog first
+    const confirmed = await showConfirmDialog('Delete Blog Post', 
+      'Are you sure you want to delete this blog post? This action cannot be undone.');
+    
+    if (confirmed) {
+      // Delete from Firestore
+      await deleteDoc(doc(DB, 'blog-posts', blogPost.id));
+      
+      // Remove from local list
+      blogPosts.value = blogPosts.value.filter(post => post.id !== blogPost.id);
+      
+      // Show success notification
+      showNotification('Blog post deleted successfully', 'success');
+    }
+  } catch (error) {
+    console.error('Error deleting blog post:', error);
+    showNotification('Failed to delete blog post', 'error');
+  }
+};
+
 onMounted(() => {
   fetchBlogPosts();
 });
