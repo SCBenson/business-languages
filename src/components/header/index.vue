@@ -96,7 +96,7 @@
 
           <v-list bg-color="#f4b754">
             <v-list-item>
-              <router-link to="/business-and-guinness" class="mx-2 text-black">Business & Guiness</router-link>
+              <router-link to="/business-and-guinness" class="mx-2 text-black">Business & Guinness</router-link>
             </v-list-item>
             <v-list-item>
               <router-link to="/webseries" class="mx-2 text-black">Web Series</router-link>
