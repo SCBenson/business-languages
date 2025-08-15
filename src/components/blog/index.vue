@@ -51,7 +51,7 @@
             >
           </v-row>
           <v-row>
-            <v-col><v-btn class="ml-4 mb-4" color="blue">Edit</v-btn><v-btn class="ml-4 mb-4" color="red">Delete</v-btn></v-col>
+            <v-col><v-btn @click="editBlogPost(member)" class="ml-4 mb-4" color="blue">Edit</v-btn><v-btn @click="deleteBlogPost(member)" class="ml-4 mb-4" color="red">Delete</v-btn></v-col>
             <!-- <v-col><v-btn>Delete</v-btn></v-col> -->
           </v-row>
         </v-card>
@@ -64,19 +64,34 @@
       <v-col><v-card><v-card-text>{{ error }}</v-card-text></v-card></v-col>
     </v-row>
   </v-container>
+  <v-snackbar
+    v-model="snackbar.show"
+    :color="snackbar.color"
+    location="top"
+    >
+    {{ snackbar.text }}
+    <template v-slot:actions>
+      <v-btn variant="text" @click="snackbar.show = false">Close</v-btn>
+    </template>
+  </v-snackbar>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router"
 import { DB } from "@/firebase/config.js";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, deleteDoc, doc } from "firebase/firestore";
 
 const router = useRouter();
 const loading = ref(false);
 const error = ref(null);
 const errorFlag = ref(false);
 const blogPosts = ref([]);
+const snackbar= ref({
+  show: false,
+  message: "",
+  color: "info",
+});
 //Fetch all of the documents inside the 'blog-posts collection'
 const fetchBlogPosts = async () => {
   loading.value = true;
@@ -96,11 +111,16 @@ const fetchBlogPosts = async () => {
     querySnapshot.forEach((doc) =>{
       const blogData = doc.data();
       posts.push({
+        id: doc.id,
         avatar: blogData.avatar,
         author: blogData.author || "",
         formattedDate: blogData.formattedDate || "",
+        date: blogData.date,
         title: blogData.title || "",
+        initialHeader: blogData.initialHeader || "",
         initialParagraph: blogData.initialParagraph || "",
+        coverImageUrl: blogData.coverImageUrl || "",
+        contentItems: blogData.contentItems || [],
         slug: blogData.slug
       });
     });
@@ -167,6 +187,21 @@ const deleteBlogPost = async (blogPost) => {
     console.error('Error deleting blog post:', error);
     showNotification('Failed to delete blog post', 'error');
   }
+};
+
+const showNotification = (text, color = 'info') => {
+  snackbar.value = {
+    show: true,
+    message: text,
+    color: color,
+  };
+};
+
+const showConfirmDialog = (title, message) => {
+  return new Promise((resolve) => {
+    const confirm = window.confirm(`${title}\n\n${message}`);
+    resolve(confirm);
+  });
 };
 
 onMounted(() => {
