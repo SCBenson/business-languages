@@ -197,6 +197,11 @@
       "button": "Ein Angebote Bekommen"
     }
   },
+  "media": {
+    "header": {
+      "paragraph1": "Was ist „Business and Guinness“ und warum machen wir als Sprachschule so etwas? Es begann als Pub-Abend, den wir für unsere Kunden und Trainer organisierten – ein geselliges Beisammensein, bei dem Kursteilnehmer und ihre Begleiter sich treffen, neue Leute kennenlernen, Business Languages besser kennenlernen, Spiele spielen (Quiz, Billard, Darts usw.) und einfach Spaß haben konnten, alles auf Englisch. Dann kam Covid-19. Und wir waren gezwungen, online zu gehen. Also haben wir uns angepasst und jetzt veranstalten Matt und Donal alle zwei Wochen (oder drei oder vier!) eine Show, die den ganzen Spaß des Pubs mit Reisetipps, Comedy-Einlagen (St. Brendan muss man wirklich gesehen haben, um es zu glauben!) und unserem berühmten Pub-Quiz mit tollen Preisen (siehe Bilder) und der Chance, mit Matt nach New Orleans zu reisen, verbindet!"
+    }
+  },
   "learning-trips": {
     "title": {
       "title": "Urlaub Trainings"
