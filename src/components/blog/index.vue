@@ -50,7 +50,7 @@
               ><v-btn @click="goToBlog(member.slug)" class="ml-4 mb-4" color="purple">Explore ➝</v-btn></v-col
             >
           </v-row>
-          <v-row>
+          <v-row v-if="isAuth">
             <v-col><v-btn @click="editBlogPost(member)" class="ml-4 mb-4" color="blue">Edit</v-btn><v-btn @click="deleteBlogPost(member)" class="ml-4 mb-4" color="red">Delete</v-btn></v-col>
             <!-- <v-col><v-btn>Delete</v-btn></v-col> -->
           </v-row>
@@ -79,14 +79,16 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router"
-import { DB } from "@/firebase/config.js";
+import { DB, AUTH } from "@/firebase/config.js";
 import { collection, getDocs, orderBy, query, deleteDoc, doc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 
 const router = useRouter();
 const loading = ref(false);
 const error = ref(null);
 const errorFlag = ref(false);
 const blogPosts = ref([]);
+const isAuth = ref(AUTH.currentUser);
 const snackbar= ref({
   show: false,
   message: "",
@@ -206,6 +208,11 @@ const showConfirmDialog = (title, message) => {
 
 onMounted(() => {
   fetchBlogPosts();
+});
+
+// Listen for authentication state changes
+onAuthStateChanged(AUTH, (user) => {
+  isAuth.value = user;
 });
 </script>
 
