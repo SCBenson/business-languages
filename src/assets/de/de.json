@@ -1,28 +1,33 @@
 {
   "header": {
     "nav-bar": {
-      "home": "Home",
+      "home": "Startseite",
       "about": "Über uns",
+      "about-sub-links":{
+        "meet-the-team": "Unser team",
+        "data-protection": "Datenschutz",
+        "disclaimer": "Impressum"
+      },
       "blog": "Blog",
       "bla-interactive": "BLA Interaktiv",
-      "lessons": "Lehren",
+      "lessons": "Unterricht",
       "lessons-sub-links": {
         "online-trainings": "Online Unterricht",
-        "language-training": "Sprachtrainings",
+        "language-training": "Sprachtraining",
         "translations": "Übersetzungen",
-        "learning-trips": "Urlaub Trainings",
+        "learning-trips": "Sprachreisen",
         "online-tips": "Online Tips"
       },
-      "media": "Media",
+      "media": "Multimedia",
       "media-sublinks": {
         "business-and-guinness": "Business & Guinness",
-        "webseries": "Webseries"
+        "webseries": "Webserie"
       }
     }
   },
   "home": {
     "hero": {
-      "title-section1": "Dies ist unsere",
+      "title-section1": "Das ist unsere",
       "title-section2": "Spezialität.",
       "sub-title": "Wir sind die Lösung für Ihren geschäftigen Lebensstil.",
       "button": "Kontakt"
@@ -30,9 +35,9 @@
     "services": {
       "header": "Was wir anbieten",
       "service-1-title": "Maßgeschneidert für Unternehmen",
-      "service-1-description": "Maßgeschneiderte Sprachprogramme, die speziell auf die Bedürfnisse Ihrer Branche zugeschnitten sind.",
+      "service-1-description": "Maßgeschneiderte Sprachprogramme, die speziell auf die Anforderungen Ihrer Branche zugeschnitten sind.",
       "service-2-title": "Interaktiv & Online",
-      "service-2-description": "Nehmen Sie von überall aus an dynamischen Lektionen teil - mit unserem interaktiven, virtuellen Klassenzimmer, das sich anfühlt, als wären Sie persönlich anwesend.",
+      "service-2-description": "Nehmen Sie von überall aus an dynamischen Unterrichtsstunden teil - mit unserem interaktiven Live-Unterricht im virtuellen Klassenzimmer, der sich so anfühlt, als wären Sie persönlich vor Ort.",
       "service-3-title": "Kommunikation im Mittelpunkt",
       "service-3-description": "Beherrschen Sie praktische Konversationsfähigkeiten anhand realer Szenarien, die Sie darauf vorbereiten, in jeder Situation selbstbewusst zu sprechen.",
       "service-4-title": "Mehr als nur eine Sprachschule",
@@ -49,7 +54,7 @@
       "title": "Kontaktinformationen",
       "visit-us": "Besuchen Sie uns:",
       "phone": "Telefon:",
-      "opening-hours": "Die Öffnungszeiten:"
+      "opening-hours": "Unsere Öffnungszeiten Mo-Fr: 9:00-18:00"
     }
   },
   "about": {
@@ -59,48 +64,52 @@
     },
     "global-team": {
       "title": "Globales Team",
-      "description": "Unsere Sprachexperten sind rund um den Globus unterwegs, um Ihnen zu helfen, in Ihrer zweiten oder dritten Sprache zu brillieren."
+      "description": "Unsere Sprachprofis kommen aus aller Welt und helfen Ihnen dabei, Ihre zweite oder dritte Sprache zu meistern."
     },
     "more-than-just-language": {
       "title": "Mehr als nur eine Sprachschule",
-      "description": "Wir verstehen kulturelle Unterschiede und aktuelle Wirtschaftstrends."
+      "description": "Wir verstehen kulturelle Unterschiede und aktuelle Business-Trends."
     },
     "industry-specific-training": {
-      "title": "Branchenspezifische Ausbildung",
-      "description": "Wir sind der Meinung, dass Ausbilder, die sich in Ihrem Fachgebiet auskennen, von größter Bedeutung sind. Unsere Ausbilder haben Funktionen auf technischer Ebene bis hin zur CEO-Ebene übernommen."
+      "title": "Branchenspezifisches Training",
+      "description": "Wir glauben, dass es von entscheidender Bedeutung ist, Trainer zu haben, die Ihr Fachgebiet verstehen. Unsere Trainer waren bereits in technischen Positionen bis hin zur CEO-Ebene tätig."
     },
     "specializing-in-business-english": {
-      "title": "Spezialisiert auf Wirtschaftsenglisch",
-      "description": "Wir bieten zusätzliche Dienstleistungen in Deutsch und anderen wichtigen Sprachen an."
+      "title": "Spezialisiert auf Business-Englisch",
+      "description": "Wir bieten zusätzliche Dienstleistungen auf Deutsch und in anderen wichtigen Sprachen an."
     },
     "support-for-newcomers": {
-      "title": "Unterstützung für Neuankömmlinge",
-      "description": "Wir sind sehr erfolgreich bei der Schulung von Neuankömmlingen in Unternehmen in der deutschen Sprache. Wir unterstützen Sie dabei, sowohl die deutsche Sprache als auch die Geschäftskultur zu erlernen."
+      "title": "Unterstützung für Neueinsteiger",
+      "description": "Wir haben große Erfolge bei der Schulung von Neuankömmlingen in Unternehmen in deutscher Sprache erzielt. Wir unterstützen Sie sowohl beim Erlernen der deutschen Sprache als auch der Geschäftskultur."
     },
     "translation-services": {
-      "title": "Übersetzungsdienste",
+      "title": "Übersetzungsdienstleistungen",
       "description": "Wir bieten Übersetzungsdienstleistungen sowie beglaubigte Übersetzungen an"
+    },
+    "trainer": {
+      "title": "Ihr Trainer: Donal O'Riada",
+      "description": "Ich werde nicht so tun, als hätte ich schon als Kind davon geträumt, Trainer für Business-Englisch zu werden. Ich bin eher zufällig dazu gekommen, nachdem ich so unterschiedliche Berufe wie Schäfer, Schauspieler, Roadie, Vertreter, Profi-Baseballspieler (fragen Sie mich), Bühnenbauer usw. ausprobiert hatte. 1999 habe ich dann endlich die richtige Karriere gefunden. Obwohl mein Name aus dem Gälischen (Irisch) übersetzt „Herrscher der Welt, Sohn der Könige” bedeutet, bin ich auf dem Boden geblieben, was man auch an meinem Team erkennen kann. Ich habe eine Gruppe von Menschen zusammengebracht, die Experten auf ihrem Gebiet sind und ihr Wissen weitergeben möchten. Eines meiner Vorbilder ist der ehemalige französische (und Manchester United) Fußballspieler Eric Cantona. Ein Interviewer fragte ihn einmal, was seiner Meinung nach seine größte Leistung auf dem Fußballplatz gewesen sei. Er wählte nicht eines seiner unzähligen Tore, sondern einen Pass auf einen Mitspieler (Denis Irwin, falls Sie es sich ansehen möchten), der ein Tor erzielte. Der Interviewer konnte nicht glauben, dass Tore, die Pokale und Meisterschaften gewonnen hatten, für ihn zweitrangig waren, aber Eric sagte: „Man muss seinen Teamkollegen vertrauen.“ Und das tue ich auch. Ich habe 1999 eine Ausbildung zum Business-Englisch-Trainer absolviert und in den folgenden Jahren Erfahrungen an verschiedenen Schulen gesammelt. Im Oktober 2004 gründete ich das Unternehmen Business Languages Augsburg (jetzt Business Languages Anywhere!) und drei der Trainer, die vor all den Jahren mit mir angefangen haben, sind immer noch bei mir (trotz allem). Und ich habe immer versucht, junge Leute und neue Ideen ins Team zu bringen, wann immer das möglich war, um die Erfahrung der älteren Trainer zu ergänzen. Unser Erfolg besteht darin, dass wir Rezessionen, Pandemien und Finanzkrisen überstanden haben und immer noch Training auf höchstem Niveau anbieten. Wir sind mit der Zeit gegangen und immer einen Schritt voraus!"
     }
   },
   "bla-interactive": {
     "bla-interactive": {
-      "title": "BLA Interaktiv",
-      "welcome": "Willkommen bei Business Languages Interaktiv",
-      "description": "BLA Interaktiv ist unsere innovative, flexible und interaktive Erweiterung unserer Sprachtrainingsprogramme - entwickelt, um Ihre Lernerfahrung auf die nächste Stufe zu haben. BLA Interactive ist das Ergebnis unserer umfassenden Erfahrung im Online-Unterricht seit 2020 und wurde entwickelt, um die tatsächlichen Bedürfnisse der Lernenden zu erfüllen: Zugang zu hochwertigen Lernmaterialien nach dem Unterricht, eine zentrale Anlaufstelle für Kursressourcen und Kommunikation sowie Lösungen für die Kontinuität des Lernens bei Ausfallzeiten wie Krankheit oder Internetproblemen. Egal, ob Sie ein aktueller Mitarbeiter eines unserer Partnerunternehmen sind, ein neuer Kunde oder eine Einzelperson, die sich auf einen Kurs vorbereitet oder von einem Kurs zum nächsten wechselt - BLA Interaktiv bietet Ihnen maßgeschneiderte Unterstützung, damit Sie Ihre Kenntnisse in Wirtschaftsenglisch oder Deutsch kontinuierlich verbessern können.",
+      "title": "BLA Interactive",
+      "welcome": "Willkommen bei Business Languages Interactive",
+      "description": "BLA Interactive ist unsere innovative, flexible und interaktive Erweiterung unserer Sprachtrainingsprogramme - entwickelt, um Ihre Lernerfahrung auf die nächste Stufe zu bringen. Entstanden aus unserer umfangreichen Erfahrung im Online-Unterricht seit 2020, wurde BLA Interactive geschaffen, um den tatsächlichen Bedürfnissen der Lernenden gerecht zu werden: Zugang zu hochwertigen Lernmaterialien nach dem Unterricht, eine zentrale Anlaufstelle für Kursressourcen und Kommunikation sowie Lösungen für Lernkontinuität während Ausfallzeiten wie Krankheit oder Internetproblemen. Ganz gleich, ob Sie derzeit bei einem unserer Partnerunternehmen beschäftigt sind, Neukunde sind, sich auf einen Kurs vorbereiten oder zwischen Kursen wechseln – BLA Interactive bietet Ihnen maßgeschneiderte Unterstützung, damit Sie Ihre Business-Englisch- oder Deutschkenntnisse kontinuierlich verbessern können.",
       "button": "Mehr erfahren"
     },
     "a-unique-experience": {
-      "title": "Eine einzigartige Erfahrung",
-      "description": "Wir bieten zwei Mitgliedsstufen - Interactive Essentials und Interactive Premium - an:",
+      "title": "Mitgliedschaftsstufen",
+      "description": "Mit zwei Mitgliedschaftsstufen – Interactive Essentials und Interactive Premium – bieten wir Ihnen:",
       "bullet1": "Online-Kurse für jedes Niveau (Anfänger bis Fortgeschrittene)",
-      "bullet2": "Regelmäßig aktualisierte Business-Podcasts und herunterladbare Materialien",
-      "bullet3": "Maßgeschneiderte Lernmodule, die in enger Zusammenarbeit mit Ihrer HR Abteilung",
-      "bullet4": "Interaktive Inhalte wie Videos, Audios, Texte und Quizze",
-      "bullet5": "Zentraler Zugang zu all Ihren Lernressourcen, jederzeit und überall",
-      "footer": "Unser Tool fördert das selbstständige Lernen, unterstützt flexible Lernzeiten und ermöglicht den effizienten Austausch von Materialien und die Zusammenarbeit zwischen den Teilnehmern - für einen nachhaltigen, motivierenden Fortschritt über den traditionellen Unterricht hinaus."
+      "bullet2": "Regelmäßig aktualisierte Business-Podcasts und Materialien zum Herunterladen.",
+      "bullet3": "Maßgeschneiderte Lernmodule, entwickelt in enger Zusammenarbeit mit Ihrer Personalabteilung.",
+      "bullet4": "Interaktive Inhalte wie Videos, Audiodateien, Texte und Quizfragen.",
+      "bullet5": "Zentraler Zugriff auf alle Ihre Lernmaterialien, jederzeit und überall.",
+      "footer": "Unser Tool fördert das selbstständiges Lernen, unterstützt flexible Lernzeiten und ermöglicht eine effiziente gemeinsame Nutzung von Materialien und Zusammenarbeit zwischen den Telinehmern - für einen nachhaltigen, motivierenden Fortschritt, der über traditionellen Unterricht hinausgeht."
     },
     "bla-slogan": {
-      "text": "BLA Interaktiv - Intelligenter lernen. Verbunden bleiben. Kontinuierlich wachsen."
+      "text": "BLA Interactive - Lerne smarter. Bleib in Verbindung. Wachse kontinuierlich."
     }
   },
   "online-training": {
@@ -153,7 +162,7 @@
     "single-training": {
       "title": "Einzelunterricht",
       "benefit-title": "Vorteile",
-      "description": "Unser Premium-Einzelsprachentraining bietet unvergleichliche Flexibilität und Effizienz. Dieser personalisierte Ansatz wurde für Berufstätige entwickelt, die einen schnellen Spracherwerb anstreben. Sie werden mit fachkundigen Trainern zusammengebracht, die jede Sitzung auf Ihre spezifischen Bedürfnisse, Ihren Lernstil und Ihre Branchenanforderungen abstimmen.",
+      "description": "Unser premium Einzelunterricht bietet einzigartige Flexibilität und Effizienz. Dieser personalisierte Ansatz richtet sich an Geschäftsleute die die einen schnellen Spracherwerb anstreben. Dabei werden Sie von erfahrenen Trainern begleitet, die jede Lerneinheit individuell auf Ihre Bedürfnisse, Ihren Lernstil und die Anforderungen Ihrer Branche abstimmen.",
       "benefits": "Erzielen Sie in kürzester Zeit fließende Sprachkenntnisse mit persönlicher Betreuung durch erfahrene Trainer. Genießen Sie maximale Flexibilität bei der Terminplanung und einen maßgeschneiderten Lehrplan, der auf Ihre spezifischen beruflichen Anforderungen zugeschnitten ist.",
       "icon": "mdi-account-clock",
       "color": "#f4b754"
@@ -162,23 +171,23 @@
       "title": "Gruppentraining",
       "benefit-title": "Vorteile",
       "description": "Unsere Sprachkurse in kleinen Gruppen verbinden gemeinsames Lernen mit persönlicher Betreuung. Die Teilnehmer werden sorgfältig nach ihrem Sprachniveau ausgewählt, um ein ideales Umfeld für die praktische Anwendung der Sprache durch interaktive Diskussionen und teambasierte Aktivitäten zu schaffen.",
-      "benefits": "Erweitern Sie Ihre Sprachkenntnisse und bauen Sie gleichzeitig wertvolle berufliche Beziehungen in einer unterstützenden Teamumgebung auf. Profitieren Sie von unterschiedlichen Perspektiven und üben Sie das Sprechen in kleinen, sorgfältig ausgewogenen Gruppen.",
+      "benefits": "Erweitern Sie Ihre Sprachkenntnisse und knüpfen Sie gleichzeitig wertvolle berufliche Kontakte in einem unterstützenden Teamumfeld, Profitieren Sie von vielfältigen Perspektiven und sammeln Sie reichlich Sprachpraxis in kleinen, sorgfältig zusammengestellten Gruppen.",
       "icon": "mdi-account-group",
       "color": "#4B0082"
     },
     "modular-training": {
-      "title": "Modulartraining",
+      "title": "Modulares training",
       "benefit-title": "Vorteile",
-      "description": "Unser innovativer modularer Ansatz bietet intensiven, fokussierten Sprachunterricht in kompakten, strategisch geplanten Blöcken. Statt wöchentlicher Verpflichtungen nehmen die Teilnehmer an konzentrierten monatlichen Sitzungen mit klar definierten Zielen teil, die durch optionale Ressourcen für das Selbststudium zwischen den Modulen unterstützt werden.",
-      "benefits": "Beherrschen Sie spezifische berufsbezogene Sprachkenntnisse durch konzentrierte, hochwirksame Sitzungen. Machen Sie Fortschritte durch einen strukturierten Lehrplan mit progressiven Modulen, ohne sich zu wöchentlichen Kursen zu verpflichten - perfekt für vielbeschäftigte Berufstätige.",
+      "description": "Unser innovativer modularer Ansatz bietet intensiven, fokussierten Sprachunterricht in kompakten, strategisch geplanten Blöcken. Anstelle von wöchentlichen Terminen nehmen die Teilnehmer an konzentrierten monatlichen Einheiten mit klar definierten Zielen teil, unterstützt durch optionale Materialien zum Selbststudium zwischen den Modulen.",
+      "benefits": "Beherrschen Sie spezifische berufsbezogene Sprachkenntnisse durch konzentrierte, hochwirksame Einheiten. Machen Sie Fortschritte durch einen strukturierten Lehrplan mit auf einander aufbauenden Modulen, ohne sich zu wöchentlichen Kursen zu verpflichten - perfekt für beschäftigte Geschäftsleute.",
       "icon": "mdi-view-module",
       "color": "#f4b754"
     },
     "workshops": {
       "title": "Workshops",
       "benefit-title": "Vorteile",
-      "description": "Unsere intensiven, eintägigen Sprachworkshops sind intensive Problemlösungssitzungen, die auf spezifische berufliche Szenarien ausgerichtet sind. Durch gemeinsame Übungen und angeleitetes Üben entwickeln die Teilnehmer praktische Sprachlösungen für reale Herausforderungen am Arbeitsplatz.",
-      "benefits": "Entwickeln Sie in nur einem Intensivtag maßgeschneiderte Sprachlösungen für spezifische Geschäftsanforderungen. Erwerben Sie branchenspezifisches Vokabular und praktische Kommunikationsmittel durch gemeinsames Problemlösen in einer unterstützenden Umgebung.",
+      "description": "Unsere immersiven, eintägigen Sprachworkshops sind intensive Problemlösungseinheiten, die auf spezifische berufliche Szenarien zeugeschnitten sind. Durch gemeinsame Aufgaben und begleitete Übungen entwickeln die Teilnehmer praktische Sprachliche Lösungen für reale Herausforderungen am Arbeitsplatz.",
+      "benefits": "Entwickeln Sie in nur einem intensiven Tag maßgeschneiderte sprachliche Lösungen für spezifische berufliche Herausforderungen. Erwerben Sie branchenspezifisches Vokabular und praktische Kommunikationsmittel durch gemeinsames Problemlösen in einer unterstützenden Umgebung.",
       "icon": "mdi-toolbox",
       "color": "#4B0082"
     }
@@ -189,33 +198,33 @@
     },
     "card": {
       "title": "Übersetzungen",
-      "paragraph1": "Business Languages Augsburg bietet Ihnen Übersetzungen in und aus allen Sprachen, mit oder ohne Beglaubigung. Unsere Übersetzer sind hochqualifiziert und verfügen über langjährige Erfahrung.",
-      "paragraph2": "Viele unserer Augsburger Kunden verlassen sich darauf „vor Ort“ übersetzen zu lassen.",
-      "paragraph3": "Die Vorteile liegen darin einen direkten Ansprechpartner zu haben und dass die Übersetzung so schnell wie möglich bearbeitet wird. Selbstverständlich können Sie auch eine Datei für ein „proofreading“ an uns weiterleiten.",
-      "paragraph4": "Vier Augen sehen bekanntlich mehr als zwei. Daher werden alle Übersetzungen von einem zweiten qualifizierten Übersetzer überprüft und korrigiert, falls erwünscht.",
+      "paragraph1": "Business Languages Augsburg bietet Übersetzungen in und aus fast allen Sprachen, je nach Bedarf mit oder ohne Beglaubigung. Unsere Übersetzer sind hochqualifiziert und verfügen über langjährige Erfahrung.",
+      "paragraph2": "Viele unserer Kunden aus dem Raum Augsburg und Umgebung vertrauen auf unsere Übersetzungen „vor Ort“.",
+      "paragraph3": "Die Vorteile liegen auf der Hand: Sie haben einen direkten Ansprechpartner und die Übersetzung kann so schnell wie möglich fertiggestellt werden. Selbstverständlich können Sie uns Ihre Dokumente auch zum Korrekturlesen zusenden.",
+      "paragraph4": "Vier Augen sehen bekanntlich mehr als zwei. Daher werden unsere Übersetzungen auf Wunsch von einem zweiten qualifizierten Übersetzer überprüft.",
       "paragraph5": "Unsere Spezialgebiete beinhalten:",
-      "button": "Ein Angebote Bekommen"
+      "button": "ANGEBOT ANFORDERN"
     }
   },
   "media": {
     "header": {
-      "paragraph1": "Was ist „Business and Guinness“ und warum machen wir als Sprachschule so etwas? Es begann als Pub-Abend, den wir für unsere Kunden und Trainer organisierten – ein geselliges Beisammensein, bei dem Kursteilnehmer und ihre Begleiter sich treffen, neue Leute kennenlernen, Business Languages besser kennenlernen, Spiele spielen (Quiz, Billard, Darts usw.) und einfach Spaß haben konnten, alles auf Englisch. Dann kam Covid-19. Und wir waren gezwungen, online zu gehen. Also haben wir uns angepasst und jetzt veranstalten Matt und Donal alle zwei Wochen (oder drei oder vier!) eine Show, die den ganzen Spaß des Pubs mit Reisetipps, Comedy-Einlagen (St. Brendan muss man wirklich gesehen haben, um es zu glauben!) und unserem berühmten Pub-Quiz mit tollen Preisen (siehe Bilder) und der Chance, mit Matt nach New Orleans zu reisen, verbindet!"
+      "paragraph1": "Was ist „Business and Guinness“ und warum machen wir als Sprachschule so etwas? Es begann als Pub-Abend, den wir für unsere Kunden und Trainer organisierten – ein geselliges Beisammensein, bei dem Kursteilnehmer und ihre Begleiter sich treffen, neue Leute kennenlernen, Business Languages besser kennenlernen, Spiele spielen (Quiz, Billard, Darts usw.) und einfach Spaß haben konnten - alles auf Englisch. Dann kam Covid-19. Und wir waren gezwungen, online zu gehen. Also haben wir uns angepasst und jetzt veranstalten Matt und Donal alle zwei Wochen (oder drei oder vier!) eine Show, die den ganzen Spaß des Pubs mit Reisetipps, Comedy-Einlagen (St. Brendan muss man wirklich gesehen haben, um es zu glauben!) und unserem berühmten Pub-Quiz mit tollen Preisen (siehe Bilder) und der Chance, mit Matt nach New Orleans zu reisen, verbindet!"
     }
   },
   "learning-trips": {
     "title": {
-      "title": "Urlaub Trainings"
+      "title": "Sprachreisen"
     },
     "study-in-ireland": {
-      "title": "Studieren in Irland",
-      "paragraph1": "Die Glasson Akademie ist eine Kombination aus Aktivitäten, Lernen und Entspannen. Das Hotel mit seiner familiären Atmosphäre bietet Top-Service, erstklassige Verpflegung und Unterkunft sowie Wellness-und Fitnessangebote.",
-      "paragraph2": "Das Angebot umfasst individuelles Training in Kombination mit einem kulturellen Programm in Irland. Sie entscheiden, welche Ziele Sie dabei erreichen wollen, wir erstellen das Programm dazu. Das ist der perfekte Weg, Ihr Sprachniveau zu verbessern. Unsere ganze Aufmerksamkeit richtet sich auf Ihren speziellen Sprachbedarf.",
+      "title": "Lernen in Irland",
+      "paragraph1": "Die Glasson Academy verbindet Aktivität, Lernen und Entspannung. Das Hotel mit seiner familiären Atmosphäre bietet hervorragenden Service, erstklassige Unterkünfte und Betreuung sowie einen Wellnessbereich und einen Fitnessraum. Auf dem Gelände stehen auch Ferienhäuser zur Verfügung, in denen jeweils 5 Personen bequem Platz finden.",
+      "paragraph2": "Das Angebot umfasst Einzelunterricht in Kombination mit einem Kulturprogramm in Irland. Sie entscheiden, welche Ziele Sie erreichen möchten - wir erstellen das passende Programm. Dies ist der perfekte Weg, um Ihre Sprachkenntnisse zu verbessern. Unsere ganze Aufmerksamkeit richtet sich auf Ihre individuellen Sprachbedürfnisse.",
       "paragraph3": "Unsere Englischtrainer werden Sie mit perfekten Englischkenntnissen ausstatten, so dass Sie kompetent und sicher in Wort und Schrift sind. Der Unterricht kann als Einzeltraining oder auch als Gruppentraining stattfinden.",
       "perfect-your-english": {
         "title": "Perfektionieren Sie Ihr Englisch",
-        "paragraph1": "Zudem bieten wir Englischkurse in Irland für Schulkinder (mit oder ohne Eltern), die in den Ferien stattfinden. Dabei wird beim Lernen und bei verschiedenen Aktivitäten eine Menge Spaß geboten. Wir bereiten Schüler auch auf ihre Abschlussprüfungen vor. In der Vergangenheit haben wir so bereits sehr gute Erfolge erzielt. Wenn Ihre Kinder also Probleme mit Englisch in der Schule haben, dann investieren Sie statt in Nachhilfe doch mal in einen Intensivkurs im Ausland. Eine Sprache lernt man am besten in dem Land, in dem sie gesprochen wird.",
+        "paragraph1": "Unsere Englischlehrer vermitteln Ihnen perfekte Englischkenntnisse, damit Sie sowohl schriftlich als auch mündlich kompetent und sicher auftreten können. Der Unterricht kann als Einzelunterricht, Gruppenunterricht oder als Kombination aus beidem gewählt werden. Darüber hinaus bieten wir Englischkurse in Irland für Schüler (mit oder ohne Begleitung der Eltern) an, die während der Schulferien stattfinden. Im Mittelpunkt des Lernkonzepts und auch der verschiedenen Aktivitäten steht der Spaß. Wir bereiten die Schüler auch auf ihre Schulprüfungen vor. Die Erfahrungen der Vergangenheit haben hervorragende Ergebnisse gezeigt, wahrscheinlich weil wir den Kindern zeigen, dass Englisch Spaß machen kann und Hemmungen beim Sprechen schnell vergessen sind. Wenn Ihre Kinder also Probleme mit Englisch in der Schule haben, dann investieren Sie lieber in einen Intensivkurs im einzigen englischsprachigen Land der EU als in Nachhilfeunterricht. Eine Sprache lernt man am leichtesten in einem Land, in dem sie gesprochen wird.",
         "paragraph2": "",
-        "button": "Mehr erfahren"
+        "button": "MEHR ERFAHREN"
       }
     }
   },
@@ -226,17 +235,17 @@
       "button": "Einreichen"
     },
     "footer-nav": {
-      "title-company": "Company",
+      "title-company": "Unternehmen",
       "title-legal": "Rechtliches",
-      "home": "Home",
+      "home": "Startseite",
       "about": "Über uns",
       "team": "Team",
       "blog": "Blog",
       "bla-interactive": "BLA Interaktiv",
-      "lessons": "Lehren",
-      "media": "Media",
+      "lessons": "Unterricht",
+      "media": "Multimedia",
       "data-protection": "Datenschutz",
-      "disclaimer": "Haftungsausschluss"
+      "disclaimer": "Impressum"
     }
   }
 }

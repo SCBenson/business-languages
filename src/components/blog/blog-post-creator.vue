@@ -2,7 +2,7 @@
   <v-container>
     <v-card class="my-4 mx-4">
       <v-card-title>Create a Blog Post!</v-card-title>
-      <v-form>
+      <v-form ref="blogForm">
         <v-row>
           <v-col cols="12" class="pa-8">
             <v-avatar size="80" v-if="author === 'Matthew Victor'"
@@ -71,7 +71,7 @@
             ></v-img>
             <v-text-field
               v-model="blogTitle"
-              required
+              :rules="[v => !!v || 'Blog Title is required.']"
               label="Blog Title"
             ></v-text-field>
             <v-text-field
@@ -147,6 +147,7 @@ const contentMenu = ref(false);
 const authorMenu = ref(false);
 const dateMenu = ref(false);
 const contentItems = ref([]);
+const blogForm = ref(null);
 // Form Data
 const author = ref("");
 const datePublished = ref(null);
@@ -271,7 +272,9 @@ const restoreFormData = (data) => {
 };
 
 //Method to collect the form data for preview
-const previewBlog = () => {
+const previewBlog = async () => {
+  const {valid} = await blogForm.value.validate();
+  if(!valid) return;
   const blogData = {
     avatarPath: avatarPath.value,
     author: author.value,

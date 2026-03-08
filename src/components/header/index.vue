@@ -68,13 +68,13 @@
 
           <v-list bg-color="#f4b754">
             <v-list-item>
-              <router-link to="/team" class="mx-2 text-black">Meet the Team</router-link>
+              <router-link to="/team" class="mx-2 text-black">{{$t("header.nav-bar.about-sub-links.meet-the-team") }}</router-link>
             </v-list-item>
             <v-list-item>
-              <router-link to="/data-protection" class="mx-2 text-black">Data Protection</router-link>
+              <router-link to="/data-protection" class="mx-2 text-black">{{$t("header.nav-bar.about-sub-links.data-protection") }}</router-link>
             </v-list-item>
             <v-list-item>
-              <router-link to="/disclaimer" class="mx-2 text-black">Disclaimer</router-link>
+              <router-link to="/disclaimer" class="mx-2 text-black">{{$t("header.nav-bar.about-sub-links.disclaimer") }}</router-link>
             </v-list-item>
           </v-list>
          </v-menu>
