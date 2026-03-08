@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: https://www.businesslanguages.de/api/send-email.php');
+header('Access-Control-Allow-Origin: https://www.businesslanguages.de');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
@@ -32,7 +32,7 @@ if(!$smtpUser || !$smtpPass){
 $input = json_decode(file_get_contents('php://input'), true);
 
 $name   = trim($input['name'] ?? '');
-$email  = trim($input['name'] ?? '');
+$email  = trim($input['email'] ?? '');
 $subject  = trim($input['subject'] ?? '');
 $message  = trim($input['message'] ?? '');
 
