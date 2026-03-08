@@ -264,31 +264,16 @@ const sendEmail = async () => {
 
     console.log('Sending email with data:', formData.value);
 
-    const response = await fetch('http://localhost:3001/api/send-email', {
+    const response = await fetch('/api/send-email.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        subject: `Contact Form: ${formData.value.subject}`,
-        text: `
-        Name: ${formData.value.firstName}
-        Email: ${formData.value.email}
-        Subject: ${formData.value.subject}
-
-        Message:
-        ${formData.value.message}
-          `,
-          html: `
-            <h3>New Contact Form Submission</h3>
-            <p><strong>Name:</strong> ${formData.value.firstName}</p>
-            <p><strong>Email:</strong> ${formData.value.email}</p>
-            <p><strong>Subject:</strong> ${formData.value.subject}</p>
-            <p><strong>Message:</strong></p>
-            <p>${formData.value.message.replace(/\n/g, '<br>')}</p>
-          `,
-          senderName: formData.value.firstName,
-          senderEmail: formData.value.email
+        name: formData.value.firstName,
+        email: formData.value.email,
+        subject: formData.value.subject,
+        message: formData.value.message
       })
     })
     const result = await response.json()
